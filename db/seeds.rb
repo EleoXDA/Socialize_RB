@@ -7,9 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 puts "Deleting previous seeds..."
-Language.destroy_all
+# Language.destroy_all
 User.destroy_all
 UserLanguage.destroy_all
+ChatRequest.destroy_all
+
 
 puts "Creating languages..."
 languages = ['Java', 'Kotlin', 'Ruby', 'Javascript', 'Swift', 'Dart', 'CSS',
@@ -31,9 +33,18 @@ puts "Creating users..."
 end
 USER = User.all
 puts "Creating chat requests..."
-asker = USER.split(10)[0]
-reciever = USER.split(10)[1]
+
+asker = USER.split(9)[0]
+receiver = USER.split(9)[1]
+
+
+puts "Adding chatrequest"
+
 for e in 0...asker.size do
-  chat_request = ChatRequest.new(asker: asker[e], reciever: reciever[e], accepted: true, pinned: false)
+
+  chat_request = ChatRequest.new(asker: asker[e], receiver: receiver[e], accepted: true, pinned: false)
   chat_request.save!
+
+  chat_room = ChatRoom.new(chat_request)
+  chat_room.save!
 end
