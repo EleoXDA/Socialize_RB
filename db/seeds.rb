@@ -29,3 +29,11 @@ puts "Creating users..."
   user_language = UserLanguage.new(language: Language.all.sample, user: user)
   user_language.save!
 end
+USER = User.all
+puts "Creating chat requests..."
+asker = USER.split(10)[0]
+reciever = USER.split(10)[1]
+for e in 0...asker.size do
+  chat_request = ChatRequest.new(asker: asker[e], reciever: reciever[e], accepted: true, pinned: false)
+  chat_request.save!
+end
