@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
-puts "Deleting previous seeds..."
-# Language.destroy_all
-User.destroy_all
-UserLanguage.destroy_all
-ChatRequest.destroy_all
+# puts "Deleting previous seeds..."
+# # Language.destroy_all
+# User.destroy_all
+# UserLanguage.destroy_all
+# ChatRequest.destroy_all
 
 
 puts "Creating languages..."
@@ -34,17 +34,15 @@ end
 USER = User.all
 puts "Creating chat requests..."
 
-asker = USER.split(9)[0]
-receiver = USER.split(9)[1]
+asker = USER.split(9).sample
 
+# p asker
+receiver = USER.split(9).sample
 
-puts "Adding chatrequest"
-
-for e in 0...asker.size do
-
-  chat_request = ChatRequest.new(asker: asker[e], receiver: receiver[e], accepted: true, pinned: false)
+for i in 0...asker.size do
+  chat_request = ChatRequest.new(asker: asker[i], receiver: receiver[i], accepted: true, pinned: false)
   chat_request.save!
 
-  chat_room = ChatRoom.new(chat_request)
+  chat_room = ChatRoom.new( chat_request: chat_request)
   chat_room.save!
 end
