@@ -1,4 +1,4 @@
 class ChatRoom < ApplicationRecord
-  belongs_to :chat_request
+  # belongs_to :chat_request
   has_many :messages
 end
