@@ -7,7 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 # puts "Deleting previous seeds..."
-
 UserLanguage.destroy_all
 Language.destroy_all
 puts "Language destroyed!"
@@ -25,6 +24,8 @@ locations = ["Geneva", "Zurich", "Bern", "Cambridge", "Oxford", "Kathmandu", "Be
 languages = ['Java', 'Kotlin', 'Ruby', 'Javascript', 'Swift', 'Dart', 'CSS',
              'HTML', 'Bash', 'XML', 'C++', 'Rust', 'Pascal', 'Fortran', 'PHP',
              'Perl']
+
+
 
 puts "Creating languages..."
 
@@ -54,9 +55,9 @@ asker = USER.split(9).sample
 receiver = USER.split(9).sample
 
 for i in 0...asker.size do
-  chat_request = ChatRequest.new(asker: asker[i], receiver: receiver[i], status: 1)
+  chat_request = ChatRequest.new(asker: asker[i], receiver: receiver[i], accepted: true, pinned: false)
   chat_request.save!
-  # p chat_request
+
   chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
   chat_room.save!
 end
