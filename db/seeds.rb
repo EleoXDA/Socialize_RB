@@ -18,11 +18,16 @@ User.destroy_all
 
 puts "Users destroyed!"
 
-
-puts "Creating languages..."
+locations = ["Geneva", "Zurich", "Bern", "Cambridge", "Oxford", "Kathmandu", "Berlin", "Frankfurt", "Paris", "Bristol",
+             "Paris", "Essen", "Lyon", "Kyiv", "Madrid", "Porto", "Lisbon", "Seville", "Palermo", "Vienna", "Delhi",
+             "San Francisco", "Washington", "Nairobi", "Melbourne", "Canberra", "Montreal", "Beijing", "Tokyo",
+             "Mumbai", "Osaka", "Istanbul", "Rio de Janeiro", "Jakarta", "Chicago"]
 languages = ['Java', 'Kotlin', 'Ruby', 'Javascript', 'Swift', 'Dart', 'CSS',
              'HTML', 'Bash', 'XML', 'C++', 'Rust', 'Pascal', 'Fortran', 'PHP',
              'Perl']
+
+puts "Creating languages..."
+
 
 languages.each do |language|
   language = Language.new(name: language)
@@ -31,7 +36,10 @@ end
 
 puts "Creating users..."
 20.times do
-  user = User.new(nickname: Faker::Beer.brand, email: Faker::Internet.email, password: "123456")
+  user = User.new(nickname: Faker::Beer.brand,
+                  email: Faker::Internet.email,
+                  password: "123456",
+                  location: locations.sample)
   user.save!
   # puts "Creating user languages..."
   user_language = UserLanguage.new(language: Language.all.sample, user: user)
@@ -48,8 +56,8 @@ receiver = USER.split(9).sample
 for i in 0...asker.size do
   chat_request = ChatRequest.new(asker: asker[i], receiver: receiver[i], status: 1)
   chat_request.save!
-
-  chat_room = ChatRoom.new(name: "general")
+  # p chat_request
+  chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
   chat_room.save!
 end
 
