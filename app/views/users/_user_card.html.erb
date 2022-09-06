@@ -1,9 +1,16 @@
-<div class="container">
-  <%# Details here ........... %>
-  <% chat_request = @chat_requests.find{ |chat| chat.asker == user || chat.receiver == user } %>
-  <% if chat_request %>
-    <%= link_to "Pin user", chat_request_path(chat_request) %>
-  <% else %>
-    <%# Disable button %>
-  <% end %>
+<div class="card-container">
+  <div class="card-details">
+    <div class="card-img">
+      <%# Add image here %>
+    </div>
+    <div class="card-text">
+      <%# Add github content here %>
+    </div>
+  </div>
+  <div class="card-buttons">
+    <% chat_request = @chat_requests.find{ |chat| chat.asker == user || chat.receiver == user } %>
+    <%= link_to "Pin user", chat_request_path(chat_request),
+        class: "card-button #{chat_request ? '' : 'disabled'}"
+    %>
+  </div>
 </div>
