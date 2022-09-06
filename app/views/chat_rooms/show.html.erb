@@ -1,6 +1,6 @@
 <div class="container chatroom">
-  <h1><%= @chatroom %></h1>
-  <p><%= @chatroom.messages %></p>
+  <h1><%= @chatroom.name %></h1>
+  
 
   <div class="messages">
     <% @chatroom.messages.each do |message| %>
@@ -21,7 +21,7 @@
 %>
   <%= f.input :content,
     label: false,
-    placeholder: "Message ##{@chatroom}",
+    placeholder: "Message ##{@chatroom.name}",
     wrapper_html: {class: "flex-grow-1"}
   %>
   <%= f.submit "Send", class: "btn btn-primary mb-3" %>
