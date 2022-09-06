@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="chatroom-subscription"
-import { Controller } from "@hotwired/stimulus"
+// import { Controller } from "@hotwired/stimulus"
 import { createConsumer } from "@rails/actioncable";
 
 export default class extends Controller {
