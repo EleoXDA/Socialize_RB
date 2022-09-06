@@ -49,7 +49,7 @@ asker = USER.split(9).sample
 receiver = USER.split(9).sample
 
 for i in 0...asker.size do
-  chat_request = ChatRequest.new(asker: asker[i], receiver: receiver[i], status: 1, pinned: false)
+  chat_request = ChatRequest.new(asker: asker[i], receiver: receiver[i], status: 1)
   chat_request.save!
 
   chat_room = ChatRoom.new(chat_request: chat_request)
