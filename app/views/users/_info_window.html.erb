@@ -1,5 +1,22 @@
 <div class="container">
-  <h4><%= user.nickname %></h4>
-  <h6><%= user.location %></h6>
-  <%= link_to "Profile", "#", class:"btn btn-outline-success btn-sm"%>
-</div>
+  <div class="row d-flex justify-content-around">
+    <div class="map-profile">
+      <div class="d-flex flex-row justify-content-between">
+      <%# <% if user.photo.attached? %>
+        <%# <%= cl_image_tag(user.photo.key) %>
+      <%# <% else %>
+        <%= image_tag "userphoto.jpg", class: "avatar-custom" %>
+      <%# <% end %>
+      <div class="hr-vertical d-flex flex-row justify-content-between">
+
+        <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1">
+          <h5 style="color:red"><%= user.nickname %></h5>
+          <h6 style="color:green"><%= user.location %></h6>
+          <div class="d-flex align-items-center">
+            <%= link_to "Profile", "#", class:"btn btn-outline-success btn-sm"%>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
