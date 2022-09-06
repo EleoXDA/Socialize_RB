@@ -5,7 +5,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get '/index', action: :index, controller: 'users'
 
-  resources :chat_request, only: [:create, :update, :destroy]
+  resources :users, only: [:index, :show], path: "all_programmers" do
+  end
+  resources :chat_requests, only: [:edit, :update, :create, :destroy]
+
+  resources :chat_rooms, only: :show do
+    resources :messages, only: :create
+  end
 end
