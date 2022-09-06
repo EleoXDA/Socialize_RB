@@ -1,7 +1,8 @@
 <div class="container">
   <%# Details here ........... %>
-  <% if @chat_requests.any? { |chat| chat.asker == user || chat.receiver == user } %>
-    <%= link_to "Pin user", user_chat_request_path(user) %>
+  <% chat_request = @chat_requests.find{ |chat| chat.asker == user || chat.receiver == user } %>
+  <% if chat_request %>
+    <%= link_to "Pin user", chat_request_path(chat_request) %>
   <% else %>
     <%# Disable button %>
   <% end %>
