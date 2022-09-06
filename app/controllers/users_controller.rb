@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-<<<<<<< HEAD
-=======
+    @chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
+    @chat_requests = @chat_requests.filter{ |chat| chat.status == 1 }
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
@@ -11,6 +11,9 @@ class UsersController < ApplicationController
         # image_url: helpers.asset_url("")
       }
     end
->>>>>>> master
+  end
+
+  def show
+
   end
 end
