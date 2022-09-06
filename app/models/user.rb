@@ -6,4 +6,7 @@ class User < ApplicationRecord
   has_many :user_languages
   has_many :chat_requests
   validates :nickname, presence: true
+
+  geocoded_by :location
+  after_validation :geocode, if: :location
 end

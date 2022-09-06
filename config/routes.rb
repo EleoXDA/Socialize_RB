@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show], path: "all_programmers" do
     resources :chat_requests, only: [:edit, :update]
   end
+  get '/index', action: :index, controller: 'users'
 end
