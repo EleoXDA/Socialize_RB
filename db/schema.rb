@@ -10,17 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_06_112419) do
+
+ActiveRecord::Schema[7.0].define(version: 2022_09_06_124621) do
+
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "chat_requests", force: :cascade do |t|
-    t.boolean "accepted"
-    t.boolean "pinned"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "asker_id"
     t.bigint "receiver_id"
+
+    t.boolean "asker_is_pinned", default: false
+    t.boolean "receiver_is_pinned", default: false
+
+    t.integer "status", default: 0, null: false
     t.index ["asker_id"], name: "index_chat_requests_on_asker_id"
     t.index ["receiver_id"], name: "index_chat_requests_on_receiver_id"
   end
@@ -67,6 +74,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_112419) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "location"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
