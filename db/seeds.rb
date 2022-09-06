@@ -9,7 +9,7 @@ require 'faker'
 # puts "Deleting previous seeds..."
 UserLanguage.destroy_all
 Language.destroy_all
-puts "Language destroyeD!"
+puts "Language destroyed!"
 ChatRoom.destroy_all
 puts "Chatroom destroyed!"
 ChatRequest.destroy_all
@@ -17,13 +17,18 @@ User.destroy_all
 
 puts "Users destroyed!"
 
+locations = ["Geneva", "Zurich", "Bern", "Cambridge", "Oxford", "Kathmandu", "Berlin", "Frankfurt", "Paris", "Bristol",
+             "Paris", "Essen", "Lyon", "Kyiv", "Madrid", "Porto", "Lisbon", "Seville", "Palermo", "Vienna", "Delhi",
+             "San Francisco", "Washington", "Nairobi", "Melbourne", "Canberra", "Montreal", "Beijing", "Tokyo",
+             "Mumbai", "Osaka", "Istanbul", "Rio de Janeiro", "Jakarta", "Chicago"]
+languages = ['Java', 'Kotlin', 'Ruby', 'Javascript', 'Swift', 'Dart', 'CSS',
+             'HTML', 'Bash', 'XML', 'C++', 'Rust', 'Pascal', 'Fortran', 'PHP',
+             'Perl']
 
 
 
 puts "Creating languages..."
-languages = ['Java', 'Kotlin', 'Ruby', 'Javascript', 'Swift', 'Dart', 'CSS',
-  'HTML', 'Bash', 'XML', 'C++', 'Rust', 'Pascal', 'Fortran', 'PHP',
-  'Perl']
+
 
 languages.each do |language|
   language = Language.new(name: language)
@@ -32,7 +37,10 @@ end
 
 puts "Creating users..."
 20.times do
-  user = User.new(nickname: Faker::Beer.brand, email: Faker::Internet.email, password: "123456")
+  user = User.new(nickname: Faker::Beer.brand,
+                  email: Faker::Internet.email,
+                  password: "123456",
+                  location: locations.sample)
   user.save!
   # puts "Creating user languages..."
   user_language = UserLanguage.new(language: Language.all.sample, user: user)
