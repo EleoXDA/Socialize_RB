@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   get '/index', action: :index, controller: 'users'
 
+  resources :chat_request, only: [:create, :update, :destroy]
 end
