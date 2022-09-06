@@ -1,0 +1,22 @@
+<div class="container chatroom">
+  <h1><%= @chatroom %></h1>
+  <p><%= @chatroom.messages %></p>
+
+  <div class="messages">
+    <% @chatroom.messages.each do |message| %>
+      <div id="message-<%= message.id %>">
+      <small>
+        <strong><%= message.user.nickname %></strong>
+
+      </small>
+      <p><%= message.content %></p>
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <%= simple_form_for [@chatroom, @message], 
+    html: {class: "d-flex"} do |f|
+   %>
+</div>
