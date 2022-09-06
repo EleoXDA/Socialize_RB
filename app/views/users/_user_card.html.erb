@@ -1,16 +1,19 @@
 <div class="card-container">
   <div class="card-details">
     <div class="card-img">
-      <%# Add image here %>
+      <p><%= image_tag("https://picsum.photos/200") %></p>
     </div>
     <div class="card-text">
-      <%# Add github content here %>
+      <h2><%= user.nickname %></h2>
+      <% languages = [] %>
+      <% user.languages.each do |language| %>
+        <p><% languages << language.name %></p>
+      <% end %>
+      <p>Languages: <%= languages.to_sentence %></p>
     </div>
   </div>
   <div class="card-buttons">
     <% chat_request = @chat_requests.find{ |chat| chat.asker == user || chat.receiver == user } %>
-    <%= link_to "Pin user", chat_request_path(chat_request),
-        class: "card-button #{chat_request ? '' : 'disabled'}"
-    %>
+    <%# <%=# link_to "Pin user", chat_request_path(chat_request), class: "card-button #{chat_request ? '' : 'disabled'}" %> %>
   </div>
 </div>
