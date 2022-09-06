@@ -13,7 +13,7 @@ require 'faker'
 # ChatRequest.destroy_all
 UserLanguage.destroy_all
 Language.destroy_all
-puts "Language destroyeD!"
+puts "Language destroyed!"
 ChatRoom.destroy_all
 puts "Chatroom destroyed!"
 ChatRequest.destroy_all
@@ -24,8 +24,8 @@ puts "Users destroyed!"
 
 puts "Creating languages..."
 languages = ['Java', 'Kotlin', 'Ruby', 'Javascript', 'Swift', 'Dart', 'CSS',
-  'HTML', 'Bash', 'XML', 'C++', 'Rust', 'Pascal', 'Fortran', 'PHP',
-  'Perl']
+             'HTML', 'Bash', 'XML', 'C++', 'Rust', 'Pascal', 'Fortran', 'PHP',
+             'Perl']
 
 languages.each do |language|
   language = Language.new(name: language)
@@ -52,6 +52,6 @@ for i in 0...asker.size do
   chat_request = ChatRequest.new(asker: asker[i], receiver: receiver[i], status: 1)
   chat_request.save!
 
-  chat_room = ChatRoom.new(chat_request: chat_request)
+  chat_room = ChatRoom.new(chat_request)
   chat_room.save!
 end
