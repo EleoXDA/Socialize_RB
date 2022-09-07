@@ -15,5 +15,6 @@
   <div class="card-buttons">
     <% chat_request = @chat_requests.find{ |chat| chat.asker == user || chat.receiver == user } %>
     <%# <%=# link_to "Pin user", chat_request_path(chat_request), class: "card-button #{chat_request ? '' : 'disabled'}" %> %>
+  <%=link_to “Chat Request”, controller: “chat_requests”, action: “create”%>
   </div>
 </div>
