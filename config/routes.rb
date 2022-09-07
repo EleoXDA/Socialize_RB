@@ -8,11 +8,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show], path: "all_programmers" do
   end
-  resources :chat_requests, only: [:edit, :update]
+  resources :chat_requests, only: [:show, :edit, :update]
 
   resources :chat_rooms, only: :show do
     resources :messages, only: :create
   end
 
- 
+
 end
