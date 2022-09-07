@@ -19,9 +19,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_124621) do
     t.datetime "updated_at", null: false
     t.bigint "asker_id"
     t.bigint "receiver_id"
+    t.integer "status", default: 0, null: false
     t.boolean "asker_is_pinned", default: false
     t.boolean "receiver_is_pinned", default: false
-    t.integer "status", default: 0, null: false
     t.index ["asker_id"], name: "index_chat_requests_on_asker_id"
     t.index ["receiver_id"], name: "index_chat_requests_on_receiver_id"
   end
