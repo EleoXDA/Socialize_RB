@@ -5,16 +5,27 @@ class ChatRequestsController < ApplicationController
 
   def create
     # create view with the button "request to chat" link_to here.
+    # @asker = current_user
     @chat_request = ChatRequest.new
     @chat_request.asker = current_user
-   # @chat_request.receiver = # if the user is the receiver and click on the button request
+    # @chat_request.receiver = # if the user is the receiver and click on the button request
+    @chat_request.receiver = User.find(params[:receiver])
+    if @chat_request.save
+      redirect_to action: "index"
+    end
   end
 
- # def update
- #   @chat_request = ChatRequest.where(receiver: current_user)
- #   if current_user.confirmed?
- #   else current_user
- #  end
+  def update
+    @chat_request = ChatRequest.find(params[:id/:chat_request_id])
+    @chat_request.update(status: params[:status])
+    # status: confirmed
+    if current_user.confirmed? # update status
+      @chat_room = ChatRoom.new
+      redirect_to action: "chat_rooms/index"
+    else current_user
+    end
+  end
+
   def pin_user
     @asker = current_user
     @receiver = User.find(params[:id])

@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show], path: "all_programmers" do
   end
-  
-  resources :chat_requests, only: [:index, :create, :edit, :update]
+  post '/chat_requests', to: 'chat_requests#create', as: :new_chat_request
+  resources :chat_requests, only: [:index, :edit, :update]
   get '/chat_pins/:id', to: 'chat_requests#pin_user', as: :pin_user
   resources :chat_rooms, only: :show do
     resources :messages, only: :create
