@@ -46,18 +46,21 @@ puts "Creating users..."
   user_language = UserLanguage.new(language: Language.all.sample, user: user)
   user_language.save!
 end
+
+puts "Creating chat requests and chat rooms..."
+
 USER = User.all
-puts "Creating chat requests..."
+size_of_slice = 9
+asker = USER.each_slice(size_of_slice).to_a[0]
+receiver = USER.each_slice(size_of_slice).to_a[1]
 
-asker = USER.split(9).sample
+for i in 0...size_of_slice do
+  puts "Generating chat request ##{i}"
 
-# p asker
-receiver = USER.split(9).sample
-
-for i in 0...asker.size do
   chat_request = ChatRequest.new(asker: asker[i], receiver: receiver[i], status: 1)
   chat_request.save!
 
+  puts "Generating chat room ##{i}"
   chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
   chat_room.save!
 end
