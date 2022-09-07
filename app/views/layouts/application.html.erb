@@ -16,12 +16,13 @@
   </head>
 
   <body>
-
-  <% unless current_page?(root_path) %>
-    <%= render "shared/navbar" %>
-  <% end %>
-    <%= render "shared/flashes" %>
-    <%= yield %>
-  <%= render "shared/footer" %>
+    <div class="d-flex flex-column min-vh-100">
+      <% unless current_page?(root_path) %>
+        <%= render "shared/navbar" %>
+      <% end %>
+        <%= render "shared/flashes" %>
+        <%= yield %>
+      <%= render "shared/footer" %>
+    </div>
   </body>
 </html>
