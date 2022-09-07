@@ -1,7 +1,10 @@
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="container">
+  <div data-controller="map"
+    id="map"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-map-markers-value=" <%= @markers.to_json %>"
+    style='width: 100%px; height:500px;'>
+  </div>
 </div>
 
 <%# One problem is that iterating through all users will include the current user %>
