@@ -5,7 +5,21 @@
     <ul>
 
       <% @chatrooms.each do |chat|  %>
-        <li><%= link_to chat.chat_request.receiver.nickname, chat_room_path(chat) %></li>
+        <div class="bg-dark">
+        <div class="card">
+          <li><%= link_to chat.chat_request.receiver.nickname, chat_room_path(chat), class:"bg-dark" %></li>
+          <small>
+            <p>
+              <% chat.messages.each do |message| %>
+                 <%= chat_request.receiver.message.content.last %>
+              <% end %>
+
+
+            </p>
+          </small>
+
+        </div>
+        </div>
       <% end %>
 
     </ul>
