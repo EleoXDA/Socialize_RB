@@ -13,8 +13,14 @@
     </div>
   </div>
   <div class="card-buttons">
-    <% chat_request = @chat_requests.find{ |chat| chat.asker == user || chat.receiver == user } %>
-    <%# <%=# link_to "Pin user", chat_request_path(chat_request), class: "card-button #{chat_request ? '' : 'disabled'}" %>
+    <%# Either going to be nil or chat request for user %>
+    <% chat_request = @chat_requests.find{ |chat_request| chat_request.asker == user || chat_request.receiver == user } %>
+
+    <% unless chat_request.nil? %>
+      <%= link_to "Pin user", pin_user_path(chat_request), data: { "turbo-method": :patch } %>
+    <% end %>
+    <%# Add ", class: "card-button #{chat_request ? '' : 'disabled'}"" %>
   <%= link_to "Chat Request", new_chat_request_path(receiver: user), data: { "turbo-method": :post }%>
+
   </div>
 </div>

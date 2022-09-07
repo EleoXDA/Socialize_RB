@@ -36,8 +36,20 @@ languages.each do |language|
 end
 
 puts "Creating users..."
-20.times do
-  user = User.new(nickname: Faker::Beer.brand,
+nicknames = [
+  "Bob",
+  "Sally",
+  "Ben",
+  "Elbay",
+  "Elena",
+  "Nirajan",
+  "Frank",
+  "Susie",
+  "Roy",
+  "Lucy"
+]
+for i in 0...nicknames.size do
+  user = User.new(nickname: nicknames[i],
                   email: Faker::Internet.email,
                   password: "123456",
                   location: locations.sample)
@@ -50,9 +62,12 @@ end
 puts "Creating chat requests and chat rooms..."
 
 USER = User.all
-size_of_slice = 9
+
+size_of_slice = 5
 asker = USER.each_slice(size_of_slice).to_a[0]
 receiver = USER.each_slice(size_of_slice).to_a[1]
+p asker.size
+p receiver.size
 
 for i in 0...size_of_slice do
   puts "Generating chat request ##{i}"

@@ -27,13 +27,25 @@ class ChatRequestsController < ApplicationController
   end
 
   def pin_user
-    @asker = current_user
-    @receiver = User.find(params[:id])
+    # Obtain the specific chat request
     @chat_request = ChatRequest.find(params[:id])
-    if @chat_request.receiver_is_pinned == false
-      @chat_request.update(receiver_is_pinned: true)
+    # Check whether user is asker or receiver and toggle pin status accordingly
+    if current_user == @chat_request.asker
+      @chat_request.update(receiver_is_pinned: toggle_pin(@chat_request.receiver_is_pinned))
     else
-      @chat_request.update(receiver_is_pinned: false)
+      @chat_request.update(asker_is_pinned: toggle_pin(@chat_request.asker_is_pinned))
     end
+    # Save and redirect
+    if @chat_request.save!
+      redirect_to chat_requests_path
+    else
+      render :index, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def toggle_pin(is_pinned)
+    return is_pinned == true ? false : true
   end
 end
