@@ -3,25 +3,23 @@
   <div class="container chat-list">
     <h1>Your chats</h1>
     <ul>
-
       <% @chatrooms.each do |chat|  %>
         <div class="bg-dark">
-        <div class="card">
-          <li><%= link_to chat.chat_request.receiver.nickname, chat_room_path(chat), class:"bg-dark" %></li>
-          <small>
-            <p>
-              <% chat.messages.each do |message| %>
-                 <%= chat_request.receiver.message.content.last %>
-              <% end %>
+          <div class="card">
+            <li><%= link_to chat.chat_request.receiver.nickname, chat_room_path(chat), class:"bg-dark" %></li>
+            <small>
+              <p>
+                <% chat.messages.each do |message| %>
+                  <% message.content.split.each do |x| %>
+                    <%= x.last %>
+                  <% end %>
+                <% end %>
+              </p>
+            </small>
 
-
-            </p>
-          </small>
-
-        </div>
+          </div>
         </div>
       <% end %>
-
     </ul>
   </div>
 
