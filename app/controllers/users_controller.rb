@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
-    @chat_requests = @chat_requests.filter{ |chat| chat.status == 1 }
+    @chat_requests = @chat_requests.filter{ |chat| chat.status == "confirmed" }
 
     @markers = @users.geocoded.map do |user|
       {
