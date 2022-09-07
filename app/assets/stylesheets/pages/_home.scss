@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
+body{
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8),rgba(221, 193, 193, 0.8)), url(landing.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
 *{
   margin: 0;
@@ -33,7 +40,7 @@ header .logo{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #111;
+  // background: #111;
   transition: 0.5s;
   z-index: 2;
 }
@@ -45,7 +52,7 @@ header .logo{
   left: 0;
   width: 100%;
   height: 100%;
-  background: #03a9f4;
+  // background: #03a9f4;
   mix-blend-mode: overlay;
 }
 .text
