@@ -56,6 +56,7 @@ receiver = USER.each_slice(size_of_slice).to_a[1]
 
 for i in 0...size_of_slice do
   puts "Generating chat request ##{i}"
+
   chat_request = ChatRequest.new(asker: asker[i], receiver: receiver[i], status: 1)
   chat_request.save!
 
