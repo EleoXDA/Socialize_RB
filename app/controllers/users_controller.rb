@@ -2,7 +2,10 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
+
     @chat_requests = @chat_requests.filter{ |chat| chat.status == "confirmed" }
+
+    @chat_request = ChatRequest.new
 
     @markers = @users.geocoded.map do |user|
       {
@@ -16,5 +19,10 @@ class UsersController < ApplicationController
 
   def show
 
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:photo, :location)
   end
 end
