@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :user_languages
   has_many :chat_requests
+  has_one_attached :photo
   validates :nickname, presence: true
 
   geocoded_by :location
