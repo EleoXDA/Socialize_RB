@@ -7,7 +7,7 @@ class ChatRequestsController < ApplicationController
     @chat_request.receiver = # if the user is the receiver and click on the button request
   end
 
-  def update
+  def pin_user
     @asker = current_user
     @receiver = User.find(params[:id])
     @chat_request = ChatRequest.find(params[:id])
