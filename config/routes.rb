@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show], path: "all_programmers" do
   end
   resources :chat_requests, only: [:edit, :update, :create, :destroy]
-  get '/chat_pins/:id', to: 'ChatRequests#pin_user', as: :pin_user
+  get '/chat_pins/:id', to: 'chat_requests#pin_user', as: :pin_user
   resources :chat_rooms, only: :show do
     resources :messages, only: :create
   end
