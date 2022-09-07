@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :user_languages
+  has_many :languages, through: :user_languages
   has_many :chat_requests
   has_one_attached :photo
   validates :nickname, presence: true
