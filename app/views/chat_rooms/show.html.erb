@@ -1,26 +1,29 @@
 <div class="container d-flex">
 
-  <div class="container chat-list">
-    <h1>Your chats</h1>
-    <ul>
-      <% @chatrooms.each do |chat|  %>
-        <div class="bg-dark">
-          <div class="card">
-            <li><%= link_to chat.chat_request.receiver.nickname, chat_room_path(chat), class:"bg-dark" %></li>
-            <small>
-              <p>
-                <% chat.messages.each do |message| %>
-                  <% message.content.split.each do |x| %>
-                    <%= x.last %>
-                  <% end %>
-                <% end %>
-              </p>
-            </small>
+  <div class=" chat-list">
+    <div class="container">
 
-          </div>
-        </div>
-      <% end %>
+      <ul>
+      <h1>Your chats</h1>
+      <div class="messages">
+        <% @chatrooms.each do |chat|  %>
+          <%= link_to chat_room_path(chat), class: 'card' do %>
+              <h4><%= chat.chat_request.receiver.nickname %></h4>
+
+              <small>
+                <p>
+                  <% chat.messages.each do |message| %>
+                    <% message.content.split.each do |x| %>
+                      <%= x.last %>
+                    <% end %>
+                  <% end %>
+                </p>
+              </small>
+          <% end %>
+        <% end %>
+    </div>
     </ul>
+  </div>
   </div>
 
   <div class="container chatroom"
