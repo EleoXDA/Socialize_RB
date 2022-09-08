@@ -24,7 +24,7 @@
   border-radius: 5px;
 }
 
-.btn {
+.btn-cards {
   border: 5px solid;
   border-image-slice: 1;
   background: var(--gradient) !important;
@@ -36,7 +36,7 @@
   --gradient: linear-gradient(to left top, #7e2e2e 10%, #6aadb9ce 90%) !important;
 }
 
-.btn:hover, .btn:focus {
+.btn-cards:hover, .btn-cards:focus {
   background: var(--gradient) !important;
   -webkit-background-clip: none !important;
   -webkit-text-fill-color: #fff !important;
