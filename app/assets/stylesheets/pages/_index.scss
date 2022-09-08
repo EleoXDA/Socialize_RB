@@ -8,3 +8,39 @@
   margin-bottom: 30px;
   box-shadow: 0 0 12px 0 rgba(0,0,0,0.5);
 }
+
+
+.cards {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.968);
+  border: 1px solid #f7f7f7;
+  color: rgba(251, 251, 251, 0.8);
+  margin-bottom: 2rem;
+  border-radius: 5px;
+}
+
+.btn {
+  border: 5px solid;
+  border-image-slice: 1;
+  background: var(--gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  border-image-source:  var(--gradient) !important;
+  text-decoration: none;
+  transition: all .4s ease;
+  --gradient: linear-gradient(to left top, #7e2e2e 10%, #6aadb9ce 90%) !important;
+}
+
+.btn:hover, .btn:focus {
+  background: var(--gradient) !important;
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: #fff !important;
+  border: 5px solid #fff !important;
+  box-shadow: #222 1px 0 10px;
+  text-decoration: underline;
+}
