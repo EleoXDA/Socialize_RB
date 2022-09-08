@@ -4,3 +4,14 @@
   color: darkblue;
   font-family: dosis;
 }
+.liststyle{
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  font-family: dosis;
+}
