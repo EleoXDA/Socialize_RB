@@ -1,8 +1,7 @@
-<div class ="container">
-
+<div class ="container text-center">
+  <h2 class= "text-center mt-3" id="fontcolor">Your Chat Request </h2>
 
   <% @chat_requests.each do |chat_request| %>
     <%= render "chat_request", chat_request: chat_request %>
   <% end %>
-
 </div>
