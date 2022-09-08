@@ -14,7 +14,7 @@
               <small>
                 <p class="text-muted">
                   <% chat.messages.each do |message| %>
-                    <% message.content.split do |x| %>
+                    <% message.content.split.each do |x| %>
                       <%= x.last %>
                     <% end %>
                   <% end %>
@@ -27,7 +27,7 @@
   </div>
   </div>
 
-  <div class="container chatroom rounded-4
+  <div class="container chatroom rounded-4"
     data-controller="chatroom-subscription"
     data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
 
