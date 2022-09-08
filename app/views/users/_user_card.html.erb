@@ -1,47 +1,32 @@
+<div class="card">
+  <img src="https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg" class="card-image" alt="">
+  <p class="card-name"><%= user.nickname %></p>
+  <h6><i class="fa-solid fa-location-pin"></i><%= user.location %></h6>
+      <% languages = [] %>
+      <% user.languages.each do |language| %>
+        <% languages << language.name  %>
+      <% end %>
+      <h6>Main language: <%= languages.to_sentence %></h6>
+  <div class="grid-container">
+    
+    <ul class="social-icons">
+      <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+      <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+      <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+      <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+    </ul>
+  </div>
 
-  <div class="d-flex justify-content-between card-container p-3 mb-3 card-bg">
-    <div class="grid">
-
-
-        <div class="image">
-          <img src="https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg" class="card-img-top" alt="...">
-        </div>
-        <div class="ms-2 c-details">
-          <h5><%= user.nickname %></h5>
-          <h6><i class="fa-solid fa-location-pin"></i><%= user.location %></h6>
-        </div>
-
-
-        <% languages = [] %>
-        <% user.languages.each do |language| %>
-           <p><% languages << language.name %></p>
-        <% end %>
-        <p>Language: <%= languages.to_sentence %></p>
-
-
-      <div class="mb-5 mt-3">
-        <h2 class="heading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, qui!</h2>
-        <% chat_request = @chat_requests.find{ |chat| chat.asker == user || chat.receiver == user } %>
-          <% unless chat_request.nil? %>
-            <button class="btn mr-2">
-              <%= link_to "Pin user", pin_user_path(chat_request), data: { "turbo-method": :patch } %>
-            </button>
-          <% end %>
-          <button class="btn-index mr-2">
-            <%= link_to "Github", "https://github.com" %>
-          </button>
-          <button class="btn-index mr-2">
-            <%= link_to "Request Chat", new_chat_request_path(receiver: user), data: { "turbo-method": :post }%>
-          </button>
-
-
-    </div>
-    </div>
-
-
-
-
-
-    <%# Add ", class: "card-button #{chat_request ? '' : 'disabled'}"" %>
-
- </div>
+  <% chat_request = @chat_requests.find{ |chat| chat.asker == user || chat.receiver == user } %>
+    <% unless chat_request.nil? %>
+      <button class="button draw-border">
+        <%= link_to "Pin user", pin_user_path(chat_request), data: { "turbo-method": :patch } %>
+      </button>
+    <% end %>
+    <button class="button draw-border">
+      <%= link_to "Github", "https://github.com" %>
+    </button>
+    <button class="button draw-border mr-2">
+      <%= link_to "Request Chat", new_chat_request_path(receiver: user), data: { "turbo-method": :post }%>
+    </button>
+</div>
