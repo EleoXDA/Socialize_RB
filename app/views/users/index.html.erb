@@ -7,7 +7,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="card-container">
       <% @users.each do |user| %>
         <% next if current_user == user %>
         <%= render "user_card", user: user, new_chat_request: @chat_request %>

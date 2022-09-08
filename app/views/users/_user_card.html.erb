@@ -1,19 +1,19 @@
 <div class="card">
   <img src="https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg" class="card-image" alt="">
   <p class="card-name"><%= user.nickname %></p>
-  <h6><i class="fa-solid fa-location-pin"></i><%= user.location %></h6>
+  <h6><i class="fa-solid fa-location-pin"></i> <%= user.location %></h6>
       <% languages = [] %>
       <% user.languages.each do |language| %>
         <% languages << language.name  %>
       <% end %>
       <h6>Main language: <%= languages.to_sentence %></h6>
-  <div class="grid-container">
-    
+  <div class="icon-container">
+
     <ul class="social-icons">
-      <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-      <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-      <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-      <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-instagram"></i></a></li>
+      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-twitter"></i></a></li>
+      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-linkedin"></i></a></li>
+      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-github"></i></a></li>
     </ul>
   </div>
 
