@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   # Devise
-  devise_for :users, :controllers => {:registrations => "registrations"}
-    devise_scope :user do
-      get 'login', to: 'devise/sessions#new'
-    end
-    devise_scope :user do
-      get 'signup', to: 'devise/registrations#new'
-    end
+  devise_for :users, :controllers => {:registrations => "registrations", omniauth_callbacks: "callbacks"}
+    # devise_scope :user do
+    #   get 'login', to: 'devise/sessions#new'
+    # end
+    # devise_scope :user do
+    #   get 'signup', to: 'devise/registrations#new'
+    # end
 
   # Root route
   root to: "pages#home"

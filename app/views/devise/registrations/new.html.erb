@@ -7,15 +7,19 @@
 
       <div class="form-inputs rounded-3">
         <%= f.input :nickname,
-                    required: true,
+                    required: false,
                     autofocus: true,
                     input_html: { autocomplete: "nickname" }%>
+        <%= f.input :name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "name" }%>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "email" }%>
         <%= f.input :location,
-                    required: true,
+                    required: false,
                     autofocus: true,
                     input_html: { autocomplete: "location" }%>
         <%= f.input :photo, as: :file %>
