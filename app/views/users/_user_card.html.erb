@@ -1,8 +1,12 @@
 <div class="card">
   <figure>
     <picture class="user-card-image">
-      <img src="https://img.freepik.com/free-photo/senior-man-pointing-side_53876-128826.jpg?w=1060&t=st=1662648279~exp=1662648879~hmac=84b324fd34b6dcbd5c1134df3f9111431cd676d6df1f296dba10b84693f39435" class="card-image" alt="">
-    </picture>
+      <% if user.photo.attached? %>
+        <%= cl_image_tag(user.photo.key) %>
+      <% else %>
+        <%= image_tag "userphoto.jpg", class: "avatar-large" %>
+      <% end %>
+      </p>    </picture>
   </figure>
   <p class="card-name"><%= user.nickname %></p>
   <h6><i class="fa-solid fa-location-pin"></i> <%= user.location %></h6>
