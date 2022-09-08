@@ -5,10 +5,10 @@
     data-map-markers-value=" <%= @markers.to_json %>"
     style='width: 100%px; height:500px;'>
   </div>
+  <div class="cards">
+      <% @users.each do |user| %>
+        <% next if current_user == user %>
+        <%= render "user_card", user: user, new_chat_request: @chat_request %>
+      <% end %>
+  </div>
 </div>
-
-<%# One problem is that iterating through all users will include the current user %>
-<% @users.each do |user| %>
-  <% next if current_user == user %>
-  <%= render "user_card", user: user, new_chat_request: @chat_request %>
-<% end %>
