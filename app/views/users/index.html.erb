@@ -1,14 +1,17 @@
-<div class="container">
+<div class="container-fluid">
   <div data-controller="map"
     id="map"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
     data-map-markers-value=" <%= @markers.to_json %>"
     style='width: 100%px; height:500px;'>
   </div>
-  <div class="cards">
+</div>
+
+<div class="container">
       <% @users.each do |user| %>
         <% next if current_user == user %>
         <%= render "user_card", user: user, new_chat_request: @chat_request %>
       <% end %>
   </div>
+
 </div>
