@@ -2,12 +2,12 @@
   <div class="row d-flex justify-content-around">
     <div class="map-profile">
       <div class="d-flex flex-row justify-content-between">
-      <%# <% if user.photo.attached? %>
-        <%# <%= cl_image_tag(user.photo.key) %>
-      <%# <% else %>
+      <% if user.photo.attached? %>
+        <%= cl_image_tag user.photo.key, height:80, width:80 %>
+      <% else %>
         <%= image_tag "userphoto.jpg", class: "avatar-custom" %>
-      <%# <% end %>
-      <div class="hr-vertical d-flex flex-row justify-content-between">
+      <% end %>
+      <div class="d-flex flex-row justify-content-between">
 
         <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1">
           <h5 style="color:red"><%= user.nickname %></h5>
