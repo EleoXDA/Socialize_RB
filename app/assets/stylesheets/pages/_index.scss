@@ -32,6 +32,7 @@
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.7);
   color:white;
+  padding-top: 15px;
 
   // overflow: scroll;
 }
@@ -41,15 +42,6 @@
   font-size: 1.5rem;
 }
 
-.card-image {
-  height: 160px;
-  width: 160px;
-  border-radius: 50%;
-  // border: 1px solid black;
-  background-size: cover;
-  margin-top: 20px;
-  box-shadow: 0 10px 50px rgba(235, 25, 110, 1);
-}
 
 .draw-border {
   box-shadow: inset 0 0 0 4px #58cdd1;
@@ -165,6 +157,61 @@
   font-size: 1.2em;
 }
 
-.icon-container {
+figure {
+  display: grid;
+  gap: 1ex;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  transition: transform .2s ease-in-out;
+  width: 140px;
+  height: 140px;
 
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:last-child::after {
+    content: "";
+    position: absolute;
+
+    right: -2rem;
+    inline-size: 2rem;
+    block-size: 100%;
+    inset-end: -2rem;
+  }
+
+  & > picture {
+    width: 100%;
+    display: inline-block;
+    // inline-size: 10ch;
+    // block-size: 10ch;
+    border-radius: 50%;
+
+    background:
+    // radial-gradient(hsl(0 0% 0% / 15%) 60%, transparent 0),
+    radial-gradient(white 65%, transparent 0),
+    linear-gradient(to top right, orange, deeppink);
+
+    & > img {
+      display: block;
+      // inline-size: 100%;
+      // block-size: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: circle(42%);
+      width: 100%;
+      // width: 160px;
+      border-radius: 50%;
+      // border: 1px solid black;
+      object-fit: cover;
+      padding: 10px;
+      box-shadow: 0 10px 50px rgba(235, 25, 110, 1);
+    }
+  }
+}
+
+.card-image {
 }
