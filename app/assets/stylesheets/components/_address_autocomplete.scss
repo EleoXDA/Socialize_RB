@@ -1,7 +1,22 @@
 .mapboxgl-ctrl-geocoder {
   max-width: none;
   width: 100%;
-  border: 1px solid lightgrey;
+  border: 0px solid lightgrey;
   box-shadow: none;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.6);  ;
+}
+
+.mapboxgl-popup-content{
+  border-radius: 10px !important;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.mapboxgl-popup-close-button {
+  font-size: 16px;
+  padding-right: 5px;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
 }
