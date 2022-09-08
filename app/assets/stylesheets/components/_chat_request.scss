@@ -4,3 +4,27 @@
   color: darkblue;
   font-family: dosis;
 }
+.liststyle{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  font-family: dosis;
+}
+.liststylecenter{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  font-family:dosis;
+}
+.liststyleright{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  font-family:dosis;
+}
