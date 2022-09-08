@@ -12,9 +12,13 @@
               <hr class="dashed m-0 p-0">
               <small>
                 <p class="text-muted">
-                  <% chat.messages.each do |message| %>
-                    <% message.content.split.each do |x| %>
-                      <%= x.last %>
+                  <% if current_user %>
+                    <% chat.messages.each do |message| %>
+                      <p>You: </p><%= message.content.split.join(" ") %>
+                    <% end %>
+                  <% else %>
+                    <% chat.messages.each do |message| %>
+                      <p><%= chat.chat_request.receiver.nickname %>:</p><%= message.content.split.join(" ") %>
                     <% end %>
                   <% end %>
                 </p>
@@ -24,4 +28,3 @@
     </div>
     </ul>
   </div>
-
