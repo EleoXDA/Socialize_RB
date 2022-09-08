@@ -16,13 +16,16 @@ class ChatRequestsController < ApplicationController
   end
 
   def update
-    @chat_request = ChatRequest.find(params[:id/:chat_request_id])
-    @chat_request.update(status: params[:status])
-    # status: confirmed
-    if current_user.confirmed? # update status
-      @chat_room = ChatRoom.new
-      redirect_to action: "chat_rooms/index"
-    else current_user
+    @chat_request = ChatRequest.find(params[:id])
+    if @chat_request.update(status: params[:status].to_i)
+      # status: confirmed
+      if @chat_request.confirmed? # update status
+        # raise
+        @chat_room = ChatRoom.create(chat_request: @chat_request)
+        redirect_to @chat_room, status: :see_other
+      end
+    else
+      redirect_to action: "index", status: :unprocessable_entity
     end
   end
 
