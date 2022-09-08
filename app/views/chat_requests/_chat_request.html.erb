@@ -1,12 +1,15 @@
  <div class = "d-fixed right-0 bottom-0">
  <%if current_user == chat_request.asker%>
  <%= chat_request.receiver.nickname%>  <%= chat_request.status %>
- <%= chat_request.status %>
  <% end%>
 
  <% if current_user == chat_request.receiver %>
- <%= chat_request.asker.nickname %>
- <%= link_to "Accept chat request", chat_request_path(chat_request, status: 1), data: {'turbo-method': :patch} %>
- <%= link_to "Decline chat request", chat_request_path(chat_request, status: -1), data: {'turbo-method': :patch} %>
+  <%= chat_request.asker.nickname %>
+  <% if chat_request.rejected? %>
+    <%= chat_request.status %>
+  <% else %>
+   <%= link_to "Accept chat request", chat_request_path(chat_request, status: 1), data: {'turbo-method': :patch} %>
+   <%= link_to "Decline chat request", chat_request_path(chat_request, status: -1), data: {'turbo-method': :patch} %>
+  <% end %>
  <% end %>
 </div>
