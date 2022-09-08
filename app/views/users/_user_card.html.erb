@@ -1,19 +1,21 @@
 <div class="card">
-  <img src="https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg" class="card-image" alt="">
+  <picture class="user-card-image">
+    <img src="https://img.freepik.com/free-photo/senior-man-pointing-side_53876-128826.jpg?w=1060&t=st=1662648279~exp=1662648879~hmac=84b324fd34b6dcbd5c1134df3f9111431cd676d6df1f296dba10b84693f39435" class="card-image" alt="">
+  </picture>
   <p class="card-name"><%= user.nickname %></p>
-  <h6><i class="fa-solid fa-location-pin"></i><%= user.location %></h6>
+  <h6><i class="fa-solid fa-location-pin"></i> <%= user.location %></h6>
       <% languages = [] %>
       <% user.languages.each do |language| %>
         <% languages << language.name  %>
       <% end %>
       <h6>Main language: <%= languages.to_sentence %></h6>
-  <div class="grid-container">
-    
+  <div class="icon-container">
+
     <ul class="social-icons">
-      <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-      <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-      <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-      <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-instagram"></i></a></li>
+      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-twitter"></i></a></li>
+      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-linkedin"></i></a></li>
+      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-github"></i></a></li>
     </ul>
   </div>
 
