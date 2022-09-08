@@ -1,7 +1,13 @@
 <div class="card-container">
   <div class="card-details">
     <div class="card-img">
-      <p><%= image_tag("https://picsum.photos/200") %></p>
+      <p>
+      <% if user.photo.attached? %>
+        <%= cl_image_tag(user.photo.key) %>
+      <% else %>
+        <%= image_tag "userphoto.jpg", class: "avatar-large" %>
+      <% end %>
+      </p>
     </div>
     <div class="card-text">
       <h2><%= user.nickname %></h2>
