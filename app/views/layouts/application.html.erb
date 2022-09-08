@@ -11,6 +11,8 @@
       <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
     <%# FontAwesome %>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
@@ -19,7 +21,7 @@
   <body>
     <div class="d-flex flex-column min-vh-100">
       <% unless current_page?(root_path) %>
-        <%= render "shared/navbar" %>
+        <%= render "shared/sidebar" %>
       <% end %>
       <%= render "shared/flashes" %>
       <%= yield %>
