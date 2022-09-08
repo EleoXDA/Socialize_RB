@@ -1,9 +1,18 @@
- <div class = "d-fixed right-0 bottom-0">
- <%if current_user == chat_request.asker%>
- <%= chat_request.receiver.nickname %>
- <% end%>
+<div class = "container mt-1 d-fixed right-0 bottom-0">
 
- <% if current_user == chat_request.receiver %>
- <%= chat_request.asker.nickname %>
+
+  <%if current_user == chat_request.asker%>
+    <%= chat_request.receiver.nickname%> - <%= chat_request.status %>
+  <% end%>
+
+  <% if current_user == chat_request.receiver %>
+    <%= chat_request.asker.nickname %>
+    <% if chat_request.pending? == false %>
+      <%= chat_request.status %>
+    <% else %>
+      <%= link_to "Accept chat request", chat_request_path(chat_request, status: 1), data: {'turbo-method': :patch}, class:"btn btn-success sm" %>
+      <%= link_to "Decline chat request", chat_request_path(chat_request, status: -1), data: {'turbo-method': :patch}, class:"btn btn-danger sm" %>
+    <% end %>
+  <% end %>
  <% end %>
 </div>

@@ -1,6 +1,17 @@
 class ChatRequestsController < ApplicationController
   def index
-    @chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
+    all_chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
+    @chat_requests_hash = { confirmed: [], rejected: [], pending: [] }
+    @chat_requests = []
+    all_chat_requests.each do |request|
+      if request.confirmed?
+        @chat_requests_hash[:confirmed] << request
+      elsif request.rejected?
+        @chat_requests_hash[:rejected] << request
+      else
+        @chat_requests_hash[:pending] << request
+      end
+    end
   end
 
   def create
@@ -16,13 +27,16 @@ class ChatRequestsController < ApplicationController
   end
 
   def update
-    @chat_request = ChatRequest.find(params[:id/:chat_request_id])
-    @chat_request.update(status: params[:status])
-    # status: confirmed
-    if current_user.confirmed? # update status
-      @chat_room = ChatRoom.new
-      redirect_to action: "chat_rooms/index"
-    else current_user
+    @chat_request = ChatRequest.find(params[:id])
+    if @chat_request.update(status: params[:status].to_i)
+      # status: confirmed
+      if @chat_request.confirmed? # update status
+        # raise
+        @chat_room = ChatRoom.create(chat_request: @chat_request)
+      end
+      redirect_to users_path, status: :see_other
+    else
+      redirect_to action: "index", status: :unprocessable_entity
     end
   end
 

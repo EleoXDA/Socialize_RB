@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   patch '/chat_pins/:id', to: 'chat_requests#pin_user', as: :pin_user
   post '/chat_requests', to: 'chat_requests#create', as: :new_chat_request
   resources :chat_requests, only: [:index, :edit, :update]
-  resources :chat_rooms, only: :show do
+  resources :chat_rooms, only: [:index, :show] do
     resources :messages, only: :create
   end
 end

@@ -1,1 +1,33 @@
-<h1>Hello World</h1>
+<div class="container-chat">
+
+  <div class="chat-list border-0 rounded-4">
+    <div class=" rounded-4">
+      <ul>
+      <h1 class="text-center">Your Chats</h1>
+      <hr class="rounded-4">
+
+      <div class="messages rounded-4">
+        <% @chatrooms.each do |chat|  %>
+          <%= link_to chat_room_path(chat), class: ' border-secondary border-opacity-10 rounded-4 text-decoration-none text-black p-2 my-2' do %>
+              <h4 style="text-decoration: none"><%= current_user == chat.chat_request.receiver ? chat.chat_request.asker.nickname : chat.chat_request.receiver.nickname %></h4>
+              <hr class="dashed m-0 p-0">
+              <small>
+                <p class="text-muted">
+                  <% if current_user %>
+                    <% chat.messages.each do |message| %>
+                      <p>You: </p><%= message.content.split.join(" ") %>
+                    <% end %>
+                  <% else %>
+                    <% chat.messages.each do |message| %>
+                      <p><%= chat.chat_request.receiver.nickname %>:</p><%= message.content.split.join(" ") %>
+                    <% end %>
+                  <% end %>
+                </p>
+              </small>
+          <% end %>
+        <% end %>
+    </div>
+    </ul>
+  </div>
+
+</div>
