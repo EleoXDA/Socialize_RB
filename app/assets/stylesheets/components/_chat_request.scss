@@ -6,25 +6,12 @@
 }
 .liststyle{
   list-style: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
   flex-direction: column;
   width: 100%;
   align-items: flex-start;
   font-family: dosis;
-}
-.liststylecenter{
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: flex-start;
-  font-family:dosis;
-}
-.liststyleright{
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: flex-start;
-  font-family:dosis;
 }

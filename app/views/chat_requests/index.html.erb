@@ -17,21 +17,21 @@
     <ul class="liststyle">
       <% @chat_requests_hash[:confirmed].each do |request| %>
 
-        <li><div class="card" style="width: 18rem; height: 5rem;" ><%= request.asker.nickname %></div></li>
+        <li><div class="card rounded" style="width: 18rem; height: 5rem;" ><%= request.asker.nickname %></div></li>
         <% end %>
     </ul>
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <ul class="liststylecenter">
+    <ul class="liststyle">
       <% @chat_requests_hash[:rejected].each do |request| %>
-        <li><div class="card" style="width: 18rem; height: 5rem;" ><%= request.asker.nickname %></div></li>
+        <li><div class="card rounded" style="width: 18rem; height: 5rem;" ><%= request.asker.nickname %></div></li>
         <% end %>
     </ul>
   </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-    <ul class="liststyleright">
+    <ul class="liststyle">
       <% @chat_requests_hash[:pending].each do |request| %>
-        <li><div class="card" style="width: 18rem; height: 5rem;" ><%= request.asker.nickname %></div></li>
+        <li><div class="card rounded" style="width: 18rem; height: 5rem;" ><%= request.asker.nickname %></div></li>
         <% end %>
     </ul>
   </div>

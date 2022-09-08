@@ -5,7 +5,7 @@ class ChatRequestsController < ApplicationController
     @chat_requests = []
     all_chat_requests.each do |request|
       if request.confirmed?
-        @chat_requests_hash[:confirmed]<< request
+        @chat_requests_hash[:confirmed] << request
       elsif request.rejected?
         @chat_requests_hash[:rejected] << request
       else
