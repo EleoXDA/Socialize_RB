@@ -15,7 +15,7 @@
                 <p class="text-muted">
                   <% if current_user %>
                     <% chat.messages.each do |message| %>
-                      <p>You: </p><%= message.content.split.join(" ") %>
+                      <p>You: <%= message.content.split.join(" ") %></p>
                     <% end %>
                   <% else %>
                     <% chat.messages.each do |message| %>
