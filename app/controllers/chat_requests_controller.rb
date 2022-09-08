@@ -22,9 +22,9 @@ class ChatRequestsController < ApplicationController
       if @chat_request.confirmed? # update status
         # raise
         @chat_room = ChatRoom.create(chat_request: @chat_request)
-        redirect_to @chat_room, status: :see_other
+        redirect_to users_path, status: :see_other
       end
-      redirect_to users_path, status: :see_other
+     # redirect_to users_path, status: :see_other
     else
       redirect_to action: "index", status: :unprocessable_entity
     end
