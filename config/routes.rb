@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # Devise
+  devise_for :users, :controllers => {:registrations => "registrations"}
+    devise_scope :user do
+      get 'login', to: 'devise/sessions#new'
+    end
+    devise_scope :user do
+      get 'signup', to: 'devise/registrations#new'
+    end
+
+  # Root route
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-
+  # All other routes
   resources :users, only: [:index, :show], path: "all_programmers" do
   end
-
   patch '/chat_pins/:id', to: 'chat_requests#pin_user', as: :pin_user
   post '/chat_requests', to: 'chat_requests#create', as: :new_chat_request
   resources :chat_requests, only: [:index, :edit, :update]
