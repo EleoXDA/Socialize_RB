@@ -4,7 +4,7 @@
       <% if user.photo.attached? %>
         <%= cl_image_tag(user.photo.key) %>
       <% else %>
-        <%= image_tag "userphoto.jpg", class: "avatar-large" %>
+        <%= image_tag "userphoto.jpg", class: "avatar-custom" %>
       <% end %>
       </p>    </picture>
   </figure>
@@ -27,14 +27,14 @@
 
   <% chat_request = @chat_requests.find{ |chat| chat.asker == user || chat.receiver == user } %>
     <% unless chat_request.nil? %>
-      <button class="button draw-border">
+      <button class="button draw-border rounded-5 rounded-circle">
         <%= link_to "Pin user", pin_user_path(chat_request), data: { "turbo-method": :patch } %>
       </button>
     <% end %>
-    <button class="button draw-border">
-      <%= link_to "Github", "https://github.com" %>
+    <button class="button draw-border" >
+      <%= link_to "Github", "https://github.com", style:"color:white"%>
     </button>
     <button class="button draw-border mr-2">
-      <%= link_to "Request Chat", new_chat_request_path(receiver: user), data: { "turbo-method": :post }%>
+      <%= link_to "Request Chat", new_chat_request_path(receiver: user), data: { "turbo-method": :post }, style:"color:white"%>
     </button>
 </div>
