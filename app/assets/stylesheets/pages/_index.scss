@@ -1,6 +1,8 @@
 @import "home";
 
-
+body{
+  // background-image: linear-gradient(to right, rgba(114, 226, 211, 0.7), rgba(255,255,255,0.95));
+}
 #map {
   border-radius: 10px;
   border: 0px solid black;
@@ -16,7 +18,7 @@
 
 .card-container {
   display:grid;
-  grid-template-columns: 300px 300px 300px;
+  grid-template-columns: 300px 300px 300px 300px;
   grid-gap: 50px;
   justify-content: center;
   align-items: center;
@@ -24,9 +26,9 @@
 }
 
 .card {
-  background-color: #080d14c5;
-  height: 37rem;
-  border-radius: 5px;
+  background-color: #555B6E;
+  height: 30rem;
+  border-radius: 15px;
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -38,18 +40,17 @@
 }
 
 .card-name {
-  margin-top: 15px;
+  margin-top: 30px;
   font-size: 1.5rem;
 }
 
 
 .draw-border {
-  box-shadow: inset 0 0 0 4px #58cdd1;
-  color: #58afd1;
-  -webkit-transition: color 0.25s 0.0833333333s;
-  transition: color 0.25s 0.0833333333s;
-  position: relative;
-  padding: 8px 14px
+  box-shadow: inset 0 0 0 4px #ffffff1c;
+  color: #0000001c;
+  padding: 8px 14px;
+  border-radius: 15%;
+
 }
 
 .draw-border::before,
@@ -84,10 +85,14 @@
   letter-spacing: 0.05rem;
   margin: 1em;
   width: 13rem;
+  background-color: #8d7197;
+  border-radius: 15px;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 .button:focus {
-  outline: 2px dotted #55d7dc;
+  outline: 2px dotted #ffffff;
 
 }
 
@@ -130,7 +135,7 @@
   height: 45px;
   border-radius: 100%;
   display: block;
-  background: linear-gradient(45deg, #ff003c, #c648c887);
+  background: linear-gradient(45deg, #8d7197, #8d7197);
   transition: all 265ms ease-out;
 }
 
@@ -143,8 +148,8 @@
   transform: scale(2.2);
   -ms-transform: scale(2.2);
   -webkit-transform: scale(2.2);
-  color: #ff003c;
-  background: -webkit-linear-gradient(45deg, #ff003c, #c648c887);
+  color: #ffffff;
+  background: -webkit-linear-gradient(45deg, #FAF9F9, #FAF9F9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 265ms ease-in;
@@ -193,7 +198,7 @@ figure {
     background:
     // radial-gradient(hsl(0 0% 0% / 15%) 60%, transparent 0),
     radial-gradient(white 65%, transparent 0),
-    linear-gradient(to top right, orange, deeppink);
+    linear-gradient(to top right, rgb(255,255,255), rgb(255, 255, 255));
 
     & > img {
       display: block;

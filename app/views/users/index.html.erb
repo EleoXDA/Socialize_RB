@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid mt-5" style="width:1370px">
   <div data-controller="map"
     id="map"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
@@ -7,7 +7,7 @@
   </div>
 </div>
 
-<div class="card-container">
+<div class="card-container" style="background-color: rgba(0,0,0,0)">
       <% @users.each do |user| %>
         <% next if current_user == user %>
         <%= render "user_card", user: user, new_chat_request: @chat_request %>

@@ -1,6 +1,6 @@
 <div class="container d-flex rounded-4">
 
-  <div class="chat-list border-0 rounded-4">
+  <div class="chat-list border-0 rounded-4 mt-2 me-1 p-3">
     <div class=" rounded-4">
       <ul>
       <h1>Chats</h1>
@@ -11,19 +11,19 @@
           <%= link_to chat_room_path(chat), class: ' border-secondary border-opacity-10 rounded-4 text-decoration-none text-black p-2 my-2' do %>
               <h4 style="text-decoration: none"><%= current_user == chat.chat_request.receiver ? chat.chat_request.asker.nickname : chat.chat_request.receiver.nickname %></h4>
               <hr class="dashed m-0 p-0">
-              <small>
-                <p class="text-muted">
-                  <% if current_user %>
-                    <% chat.messages.each do |message| %>
-                      <p>You: <%= message.content.split.join(" ") %></p>
-                    <% end %>
-                  <% else %>
-                    <% chat.messages.each do |message| %>
-                      <p><%= chat.chat_request.receiver.nickname %>:</p><%= message.content.split.join(" ") %>
-                    <% end %>
-                  <% end %>
-                </p>
-              </small>
+              <%# <small> %>
+                <%# <p class="text-muted"> %>
+                  <%# <% if current_user %>
+                    <%# <% chat.messages.each do |message| %>
+                      <%# <p>You: <%= message.content.split.join(" ") %>
+                    <%# <% end %>
+                  <%# <% else %>
+                    <%# <% chat.messages.each do |message| %>
+                      <%# <p><%= chat.chat_request.receiver.nickname %><%#= message.content.split.join(" ") %>
+                    <%# <% end %>
+                  <%# <% end %>
+                <%# </p> %>
+              <%# </small> %>
           <% end %>
         <% end %>
     </div>
@@ -31,7 +31,7 @@
   </div>
   </div>
 
-  <div class="container chatroom rounded-4"
+  <div class="container chatroom rounded-4 p-2"
     data-controller="chatroom-subscription"
     data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
 
@@ -52,7 +52,7 @@
         placeholder: "Message #{@chatroom.chat_request.receiver.nickname}",
         wrapper_html: {class: "flex-grow-1"}
       %>
-      <%= f.submit "Send", class: "btn btn-primary rounded-5 ms-3 mb-3" %>
+      <%= f.submit "Send", class: "btn btn-info rounded-5 ms-3 mb-3", style:"color:#FAF9F9;" %>
       <% end %>
 
   </div>

@@ -1,18 +1,18 @@
 .chat-list {
-  background: white;
+  background: #FAF9F9;
   margin-top: 9px;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 75px) !important;
   flex-direction: column;
   margin-right: 10px;
   overflow-y: scroll;
-  width: 50%;
+  width: 25%;
   --scrollbarBG: #CFD8DC;
   --thumbBG: #dde5e9;
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }
 .chat-list::-webkit-scrollbar {
-  width: 11px;
+  display: none;
 }
 .chat-list::-webkit-scrollbar-track {
   background: var(--scrollbarBG);
@@ -31,7 +31,7 @@ ol, ul {
   margin-top: 10px;
 }
 .chatroom {
-  background: white;
+  background: #FAF9F9;
   margin-top: 9px;
   height: calc(100vh - 75px);
   display: flex;
@@ -40,7 +40,7 @@ ol, ul {
   flex-grow: 1;
 
   h1 {
-    border-bottom: 1px solid $gray-200;
+    border-bottom: 1px solid rgba(100,100,100,0.6);
     margin-bottom: 0;
     padding: 1rem;
   }
@@ -56,7 +56,7 @@ ol, ul {
     --thumbBG: #dde5e9;
   }
   .messages::-webkit-scrollbar {
-    width: 11px;
+    display: none;
   }
   .messages {
     scrollbar-width: thin;
