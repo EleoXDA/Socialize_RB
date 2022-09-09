@@ -1,0 +1,66 @@
+<div class="sidebar" data-controller="sidebar" data-sidebar-target="sidebar">
+  <div class="logo-details">
+    <%# <i class='fa-solid fa-laptop-code icon'></i> %>
+    <% if user_signed_in? %>
+      <div class="logo_name">Socialize,
+      <br>
+      <%= "#{current_user.nickname}"%>!
+      </div>
+      <i class='bx bx-menu' id="btn" data-sidebar-target="menu" data-action="click->sidebar#change"></i>
+    <% end %>
+  </div>
+  <div class="div">
+    <% if user_signed_in? %>
+      <% if current_user.photo.key %>
+        <%= cl_image_tag current_user.photo.key, height: 200, width: 200, class: "avatar-sidebar d-none",  id: "navbarDropdown square", data: { bs_toggle: "dropdown", sidebar_target: "image" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% else %>
+        <img src="userphoto.jpg">
+      <% end %>
+    <% end %>
+  </div>
+  <div class="div">
+    <% if user_signed_in? %>
+      <p class="d-none">Language: Ruby</p>
+    <% end %>
+  </div>
+  <ul class="nav-list">
+    <li>
+        <i class='bx bx-search' data-sidebar-target="search" data-action="click->sidebar#change"></i>
+        <input type="text" placeholder="Search...">
+        <span class="tooltip">Search</span>
+    </li>
+    <li>
+      <%= link_to "/all_programmers" do %>
+        <i class='bx bx-grid-alt'></i>
+        <span class="links_name">View Map</span>
+      <% end %>
+        <span class="tooltip">View Map</span>
+    </li>
+    <li>
+      <%= link_to "/chat_rooms/1" do %>
+        <i class='bx bx-chat' ></i>
+        <span class="links_name">Chats</span>
+      <% end %>
+      <span class="tooltip">Chats</span>
+    </li>
+    <li>
+      <%= link_to "/chat_requests" do %>
+        <i class='bx bx-pie-chart-alt-2' ></i>
+        <span class="links_name">Chat Requests</span>
+      <% end %>
+      <span class="tooltip">Chat Requests</span>
+    </li>
+
+    <li>
+      <% if user_signed_in? %>
+        <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" do %>
+          <i class="fa-solid fa-right-from-bracket"></i>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path, class: "nav-link" do %>
+          <i class="fa-solid fa-right-to-bracket"></i>
+        <% end %>
+      <% end %>
+    </li>
+  </ul>
+</div>

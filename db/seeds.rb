@@ -24,11 +24,18 @@ locations = ["Geneva", "Zurich", "Bern", "Cambridge", "Oxford", "Kathmandu", "Be
 languages = ['Java', 'Kotlin', 'Ruby', 'Javascript', 'Swift', 'Dart', 'CSS',
              'HTML', 'Bash', 'XML', 'C++', 'Rust', 'Pascal', 'Fortran', 'PHP',
              'Perl']
-
-
+nicknames = ["Bob", "Sally", "Ben", "Elbay", "Elena", "Nirajan", "Frank", "Susie", "Roy", "Lucy"]
+images = ["https://gravatar.com/avatar/38e6bc27f9d54cca67426924eb366a51?s=200&d=robohash&r=x",
+          "https://gravatar.com/avatar/649d7427af905218ac3e3fc2c2e6c2d4?s=200&d=robohash&r=x",
+          "https://gravatar.com/avatar/f00a238b97348910aeb3a18ac7920301?s=200&d=robohash&r=x",
+          "https://gravatar.com/avatar/07b5a65d00de168c8d8e4e1f8044b129?s=200&d=robohash&r=x",
+          "https://gravatar.com/avatar/01e150e9db07023122c524d0e58addea?s=200&d=robohash&r=x",
+          "https://gravatar.com/avatar/70f155619cdd9f45ea23f3039940ef0d?s=200&d=robohash&r=x",
+          "https://gravatar.com/avatar/e0399004b9c37b2c35525ad34c119620?s=200&d=robohash&r=x",
+          "https://gravatar.com/avatar/dc0d182da3d2c3ee00549396b264e60b?s=200&d=robohash&r=x",
+          "https://gravatar.com/avatar/18b00cafdca2767b9afb62b368110b7a?s=200&d=robohash&r=x"]
 
 puts "Creating languages..."
-
 
 languages.each do |language|
   language = Language.new(name: language)
@@ -36,23 +43,14 @@ languages.each do |language|
 end
 
 puts "Creating users..."
-nicknames = [
-  "Bob",
-  "Sally",
-  "Ben",
-  "Elbay",
-  "Elena",
-  "Nirajan",
-  "Frank",
-  "Susie",
-  "Roy",
-  "Lucy"
-]
+
 for i in 0...nicknames.size do
   user = User.new(nickname: nicknames[i],
                   email: Faker::Internet.email,
                   password: "123456",
                   location: locations.sample)
+  file=URI.open(images.sample)
+  user.photo.attach(io:file, filename: "profile.png", content_type: "image/png")
   user.save!
   # puts "Creating user languages..."
   user_language = UserLanguage.new(language: Language.all.sample, user: user)
