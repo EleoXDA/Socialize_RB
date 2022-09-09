@@ -103,3 +103,15 @@ header .logo{
     font-size: 2em;
   }
 }
+
+.btn-landing{
+  background-color: black;
+  color: white;
+  padding: 8px 14px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-landing:hover{
+  background-color: rgb(97, 91, 91);
+}
