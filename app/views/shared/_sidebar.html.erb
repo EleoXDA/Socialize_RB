@@ -12,7 +12,7 @@
   <div class="div">
     <% if user_signed_in? %>
       <% if current_user.photo.key %>
-        <%= cl_image_tag current_user.photo.key, height: 200, width: 200, class: "avatar-sidebar d-none",  id: "navbarDropdown square", data: { bs_toggle: "dropdown", sidebar_target: "image" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%#= cl_image_tag current_user.photo.key, height: 200, width: 200, class: "avatar-sidebar d-none",  id: "navbarDropdown square", data: { bs_toggle: "dropdown", sidebar_target: "image" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <% else %>
         <img src="userphoto.jpg">
       <% end %>
