@@ -18,8 +18,6 @@
   <div class="icon-container">
 
     <ul class="social-icons">
-      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-instagram"></i></a></li>
-      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-twitter"></i></a></li>
       <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-linkedin"></i></a></li>
       <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-github"></i></a></li>
     </ul>
@@ -37,7 +35,7 @@
         <%= link_to "Pin user", pin_user_path(chat_request), data: { "turbo-method": :patch } %>
       </button>
     <% end %>
-    <%# <button class="button draw-border" > %>
-      <%#= link_to "Github", "https://github.com", style:"color:white"%>
-    <%# </button> %>
+    <button class="button draw-border mr-2">
+      <%= link_to "Request Chat", new_chat_request_path(receiver: user), data: { "turbo-method": :post }, style:"color:white"%>
+    </button>
 </div>
