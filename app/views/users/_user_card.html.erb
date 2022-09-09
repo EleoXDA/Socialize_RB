@@ -35,7 +35,4 @@
         <%= link_to "Pin user", pin_user_path(chat_request), data: { "turbo-method": :patch } %>
       </button>
     <% end %>
-    <button class="button draw-border mr-2">
-      <%= link_to "Request Chat", new_chat_request_path(receiver: user), data: { "turbo-method": :post }, style:"color:white"%>
-    </button>
 </div>
