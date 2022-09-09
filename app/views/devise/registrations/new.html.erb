@@ -6,28 +6,28 @@
       <%= f.error_notification %>
 
       <div class="form-inputs rounded-3">
-        <%= f.input :nickname,
+        <%= f.hidden_field :nickname,
                     required: false,
                     autofocus: true,
                     input_html: { autocomplete: "nickname" }%>
-        <%= f.input :name,
+        <%= f.hidden_field :name,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "name" }%>
-        <%= f.input :email,
+        <%= f.hidden_field :email,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "email" }%>
-        <%= f.input :location,
+        <%= f.hidden_field :location,
                     required: false,
                     autofocus: true,
                     input_html: { autocomplete: "location" }%>
-        <%= f.input :photo, as: :file %>
-        <%= f.input :password,
+        <%= f.hidden_field :photo, as: :file %>
+        <%= f.hidden_field :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                     input_html: { autocomplete: "new-password" } %>
-        <%= f.input :password_confirmation,
+        <%= f.hidden_field :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
       </div>
