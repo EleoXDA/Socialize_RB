@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_115845) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_08_114607) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,9 +47,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_115845) do
     t.datetime "updated_at", null: false
     t.bigint "asker_id"
     t.bigint "receiver_id"
-    t.integer "status", default: 0, null: false
     t.boolean "asker_is_pinned", default: false
     t.boolean "receiver_is_pinned", default: false
+    t.integer "status", default: 0, null: false
     t.index ["asker_id"], name: "index_chat_requests_on_asker_id"
     t.index ["receiver_id"], name: "index_chat_requests_on_receiver_id"
   end
@@ -99,6 +99,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_115845) do
     t.float "latitude"
     t.float "longitude"
     t.string "location"
+    t.string "name", default: "", null: false
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
