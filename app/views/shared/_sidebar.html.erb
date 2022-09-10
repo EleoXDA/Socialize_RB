@@ -14,7 +14,7 @@
       <% if current_user.photo.key %>
         <%= cl_image_tag current_user.photo.key, height: 200, width: 200, class: "avatar-sidebar d-none",  id: "navbarDropdown square", data: { bs_toggle: "dropdown", sidebar_target: "image" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <% else %>
-        <img src="userphoto.jpg">
+        <%= image_tag "userphoto_square.jpg", class: "avatar-custom2" %>
       <% end %>
     <% end %>
   </div>
