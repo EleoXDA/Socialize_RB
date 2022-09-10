@@ -15,10 +15,10 @@ class UsersController < ApplicationController
   end
 
   def show
-
   end
 
   private
+
   def user_params
     params.require(:user).permit(:photo, :location)
   end
