@@ -1,40 +1,49 @@
 <div class="card swiper-slide">
-  <figure>
-    <picture class="user-card-image">
-      <% if user.photo.attached? %>
-        <%= cl_image_tag(user.photo.key) %>
-      <% else %>
-        <%= image_tag "userphoto_square.jpg" %>
-      <% end %>
-      </p>
-    </picture>
-  </figure>
+  <div class="d-row d-flex">
+    <div class="align-items-baseline">
+      <figure>
+        <picture class="user-card-image">
+          <% if user.photo.attached? %>
+            <%= cl_image_tag(user.photo.key) %>
+          <% else %>
+            <%= image_tag "userphoto_square.jpg" %>
+          <% end %>
+          </p>
+        </picture>
+      </figure>
+    </div>
+    <div class="align-items-end">
+      <div class="container">
+        <% chat_request = @chat_requests.find{ |chat| chat.asker == user || chat.receiver == user } %>
+          <% if chat_request.nil? %>
+            <button class="button draw-border mr-2">
+              <%= link_to "+", new_chat_request_path(receiver: user), data: { "turbo-method": :post }, style:"color:white; text-decoration:none; font-weight: bold"%>
+            </button>
+          <% elsif chat_request.pending? %>
+            <h1>...</h1>
+          <% elsif chat_request.confirmed? %>
+            <button class="button draw-border rounded-5 rounded-circle">
+              <%= link_to pin_user_path(chat_request), data: { "turbo-method": :patch } do %>
+                <i class="fa-solid fa-thumbtack"></i>
+              <% end %>
+            </button>
+          <% end %>
+      </div>
+      <div class="container">
+        <div class="icon-container">
+          <ul class="social-icons" style="padding-left: 0px !important">
+            <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-linkedin"></i></a></li>
+            <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-github"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
   <p class="card-name"><%= user.nickname %></p>
   <h6><i class="fa-solid fa-location-pin"></i> <%= user.location %></h6>
-      <% languages = [] %>
-      <% user.languages.each do |language| %>
-        <% languages << language.name  %>
-      <% end %>
-      <h6>Main language: <%= languages.to_sentence %></h6>
-  <div class="icon-container">
-
-    <ul class="social-icons">
-      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-linkedin"></i></a></li>
-      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-github"></i></a></li>
-    </ul>
-  </div>
-<%# raise %>
-  <% chat_request = @chat_requests.find{ |chat| chat.asker == user || chat.receiver == user } %>
-    <% if chat_request.nil? %>
-      <button class="button draw-border mr-2">
-        <%= link_to "Request Chat", new_chat_request_path(receiver: user), data: { "turbo-method": :post }, style:"color:white"%>
-      </button>
-    <% elsif chat_request.pending? %>
-      <h1>PENDING BUTTON</h1>
-    <% elsif chat_request.confirmed? %>
-      <button class="button draw-border rounded-5 rounded-circle">
-        <%= link_to "Pin user", pin_user_path(chat_request), data: { "turbo-method": :patch } %>
-      </button>
-    <% end %>
+  <% languages = [] %>
+  <% user.languages.each do |language| %>
+    <% languages << language.name  %>
+  <% end %>
+  <h6>Main language: <%= languages.to_sentence %></h6>
 </div>
-
