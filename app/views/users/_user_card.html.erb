@@ -4,9 +4,10 @@
       <% if user.photo.attached? %>
         <%= cl_image_tag(user.photo.key) %>
       <% else %>
-        <%= image_tag "userphoto.jpg", class: "avatar-custom" %>
+        <%= image_tag "userphoto_square.jpg" %>
       <% end %>
-      </p>    </picture>
+      </p>
+    </picture>
   </figure>
   <p class="card-name"><%= user.nickname %></p>
   <h6><i class="fa-solid fa-location-pin"></i> <%= user.location %></h6>
