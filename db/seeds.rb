@@ -17,14 +17,20 @@ User.destroy_all
 
 puts "Users destroyed!"
 
-locations = ["Geneva", "Zurich", "Bern", "Cambridge", "Oxford", "Kathmandu", "Berlin", "Frankfurt", "Paris", "Bristol",
-             "Paris", "Essen", "Lyon", "Kyiv", "Madrid", "Porto", "Lisbon", "Seville", "Palermo", "Vienna", "Delhi",
-             "San Francisco", "Washington", "Nairobi", "Melbourne", "Canberra", "Montreal", "Beijing", "Tokyo",
-             "Mumbai", "Osaka", "Istanbul", "Rio de Janeiro", "Jakarta", "Chicago"]
+locations = ["Kathmandu", "Frankfurt", "Paris", "Bristol", "Caleta Tortel", "Windhoek", "Kyiv",
+             "Madrid", "Mumbai", "Aasiaat", "Vestfonna", "Anchorage", "San Francisco", "Nairobi",
+             "Melbourne", "Rio de Janeiro", "Jakarta", "Nome", "Invercargill", "Larsen Ice Shelf",
+             "Norilsk"]
 languages = ['Java', 'Kotlin', 'Ruby', 'Javascript', 'Swift', 'Dart', 'CSS',
              'HTML', 'Bash', 'XML', 'C++', 'Rust', 'Pascal', 'Fortran', 'PHP',
              'Perl']
-nicknames = ["Bob", "Sally", "Ben", "Elbay", "Elena", "Nirajan", "Frank", "Susie", "Roy", "Lucy"]
+nicknames = ["Bob", "Sally", "Ben", "Elbay", "Elena", "Nirajan", "Frank", "Susie", "Roy", "Lucy",
+             "John", "Oliver", "Stein", "Ferro", "Nero", "Chen", "Thomas", "Eleo", "Vitas",
+             "Bach", "Jonny", "Silber", "Mark", "Michael", "Jack", "Johnny", "Fierro", "Ale",
+             "Heidi", "Honda", "Silva", "McGregor", "Brail", "Federer", "Sinatra", "Sinn",
+             "Oprah", "Hewlett", "Packard", "Sonny", "Plank", "J-Sus", "Moustafa", "Zeit",
+             "Epson", "Octavius", "Sarad", "Blaine", "Rory", "Goldie", "Oakley", "Rowan", "Layla",
+             "Rain"]
 images = ["https://gravatar.com/avatar/38e6bc27f9d54cca67426924eb366a51?s=200&d=robohash&r=x",
           "https://gravatar.com/avatar/649d7427af905218ac3e3fc2c2e6c2d4?s=200&d=robohash&r=x",
           "https://gravatar.com/avatar/f00a238b97348910aeb3a18ac7920301?s=200&d=robohash&r=x",
@@ -61,7 +67,7 @@ puts "Creating chat requests and chat rooms..."
 
 USER = User.all
 
-size_of_slice = 5
+size_of_slice = nicknames.size.div(2)
 asker = USER.each_slice(size_of_slice).to_a[0]
 receiver = USER.each_slice(size_of_slice).to_a[1]
 p asker.size
