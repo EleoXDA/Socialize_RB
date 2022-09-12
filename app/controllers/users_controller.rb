@@ -12,6 +12,13 @@ class UsersController < ApplicationController
         # image_url: helpers.asset_url("laptop.png")
       }
     end
+
+      if params[:query].present?
+        @users = User.where("nickname ILIKE ?", "%#{params[:query]}%")
+      else
+        @users = User.all
+      end
+
   end
 
   def show

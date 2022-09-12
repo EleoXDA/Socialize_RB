@@ -31,15 +31,16 @@
         <% else %>
           <li><div class="card rounded" style="width: 18rem; height: 5rem;" ><%= request.receiver.nickname %></div></li>
       <% end %>
-        <% end %>
+    <% end %>
     </ul>
   </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
     <ul class="liststyle">
       <% @chat_requests_hash[:pending].each do |request| %>
         <% if current_user == request.asker %>
-            <li><div class="card rounded" style="width: 18rem; height: 5rem;" ><%= request.receiver.nickname %></div></li>
-        <%#= render partial: "chat_request", locals: { chat_request: request} %>
+            <li><div class="card rounded" style="width: 18rem; height: 5rem;" ><%= request.receiver.nickname %><%= render partial: "chat_request", locals: { chat_request: request} %></div></li>
+          <% else %>
+         <li><div class="card rounded" style="width: 18rem; height: 5rem;" ><%= request.asker.nickname %><%= render partial: "chat_request", locals: { chat_request: request} %></div></li>
         <% end %>
      <% end %>
     </ul>
