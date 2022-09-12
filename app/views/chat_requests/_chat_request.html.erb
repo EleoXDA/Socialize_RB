@@ -3,7 +3,7 @@
   <%if current_user == chat_request.asker%>
     <%= chat_request.receiver.nickname%> - <%= chat_request.status %>
   <% end%>
-
+  <%= chat_request.receiver.id %>
   <% if current_user == chat_request.receiver %>
     <%= chat_request.asker.nickname %>
     <% if chat_request.pending? == false %>
