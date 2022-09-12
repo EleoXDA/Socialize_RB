@@ -8,13 +8,12 @@
     <% if chat_request.pending? == false %>
       <%= chat_request.status %>
     <% else %>
-      <%= link_to chat_request_path(chat_request, status: 1), data: {'turbo-method': :patch}, class: "button draw-border rounded-5 rounded-circle" do %>
-      <i class="fa-solid fa-plus"></i>
+      <%= link_to chat_request_path(chat_request, status: 1), data: {'turbo-method': :patch}, class: "button draw-border mr-2" do %>
+      <i class="fa-solid fa-plus" id= "fontcolor"></i>
       <% end %>
-      <%= link_to chat_request_path(chat_request, status: -1), data: {'turbo-method': :patch}, class: "button draw-border rounded-5 rounded-circle" do %>
-      <i class="fa-solid fa-trash"></i>
+      <%= link_to chat_request_path(chat_request, status: -1), data: {'turbo-method': :patch}, class: "button draw-border mr-2" do %>
+      <i class="fa-solid fa-trash" id= "fontcolor"></i>
       <% end  %>
     <% end %>
   <% end %>
 </div>
-<%#= fa-solid fa-plus-large  %>
