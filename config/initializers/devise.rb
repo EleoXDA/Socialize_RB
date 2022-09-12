@@ -275,7 +275,6 @@ Devise.setup do |config|
   #
   config.omniauth :github, ENV['GITHUB_CLIENT_ID'], ENV['GITHUB_CLIENT_SECRET'], scope: 'user:email'
   # , :scope => Errbit::Config.github_access_scope.join(","), :skip_info => true
-
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
