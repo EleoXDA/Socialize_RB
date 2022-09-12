@@ -12,6 +12,7 @@
 }
 #fontcolor{
   color: white;
+  transition: all 265ms ease-out;
 }
 #fontcolor:hover{
   color: blue;
@@ -24,6 +25,9 @@
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.7);
   color:white;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
   margin-top: 15px;
+}
+p{
+  padding-top: 10px;
 }
