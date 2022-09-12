@@ -7,11 +7,16 @@
   </div>
 </div>
 
-<div class="card-container" style="background-color: rgba(0,0,0,0)">
-      <% @users.each do |user| %>
-        <% next if current_user == user %>
-        <%= render "user_card", user: user, new_chat_request: @chat_request %>
-      <% end %>
-  </div>
+<h1 class="text-center m-5">Developers near you</h1>
 
-</div>
+  <div class="container swiper mySwiper">
+      <div class="swiper-wrapper">
+        <% @users.each do |user| %>
+          <% next if current_user == user %>
+          <%= render "user_card", user: user, new_chat_request: @chat_request %>
+        <% end %>
+      </div>
+  <div class="swiper-button-next "></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+  </div>
