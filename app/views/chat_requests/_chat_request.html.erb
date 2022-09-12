@@ -3,14 +3,18 @@
   <%if current_user == chat_request.asker%>
     <%= chat_request.receiver.nickname%> - <%= chat_request.status %>
   <% end%>
-  <%= chat_request.receiver %>
   <% if current_user == chat_request.receiver %>
-    <%= chat_request.asker.nickname %>
+    <%#= chat_request.asker.nickname %>
     <% if chat_request.pending? == false %>
       <%= chat_request.status %>
     <% else %>
-      <%= link_to chat_request_path(chat_request, status: 1), data: {'turbo-method': :patch}, class: "button draw-border rounded-5 rounded-circle fa-solid fa-plus-large" %>
-      <%= link_to chat_request_path(chat_request, status: -1), data: {'turbo-method': :patch}, class: "button draw-border rounded-5 rounded-circle fa-regular fa-trash" %>
+      <%= link_to chat_request_path(chat_request, status: 1), data: {'turbo-method': :patch}, class: "button draw-border rounded-5 rounded-circle" do %>
+      <i class="fa-solid fa-plus"></i>
+      <% end %>
+      <%= link_to chat_request_path(chat_request, status: -1), data: {'turbo-method': :patch}, class: "button draw-border rounded-5 rounded-circle" do %>
+      <i class="fa-solid fa-trash"></i>
+      <% end  %>
     <% end %>
   <% end %>
 </div>
+<%#= fa-solid fa-plus-large  %>
