@@ -87,3 +87,5 @@ end
 # Copy
 # chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
 #   chat_room.save!
+
+events = Event.create(title: "Best event in the world!")
