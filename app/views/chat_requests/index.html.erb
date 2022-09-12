@@ -1,6 +1,6 @@
 
 <div class ="container text-center mt-5">
-<ul class="nav nav-tabs" id="myTab" role="tablist">
+<ul class="nav nav-tabs border-bottom-0" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Accepted</button>
   </li>
@@ -16,9 +16,9 @@
     <ul class="liststyle">
       <% @chat_requests_hash[:confirmed].each do |request| %>
         <% if current_user == request.receiver %>
-          <li><div class="card rounded" style="width: 18rem; height: 5rem;" ><%= request.asker.nickname %></div></li>
+          <li><div class="card-request " style="width: 18rem;" ><%= request.asker.nickname %></div></li>
         <% else %>
-          <li><div class="card rounded" style="width: 18rem; height: 5rem;" ><%= request.receiver.nickname %></div></li>
+          <li><div class="card-request " style="width: 18rem;" ><%= request.receiver.nickname %></div></li>
         <% end %>
       <% end %>
     </ul>
@@ -27,9 +27,9 @@
     <ul class="liststyle">
       <% @chat_requests_hash[:rejected].each do |request| %>
         <% if current_user == request.receiver %>
-          <li><div class="card rounded" style="width: 18rem; height: 5rem;" ><%= request.asker.nickname %></div></li>
+          <li><div class="card-request" style="width: 18rem;" ><p> <%= request.asker.nickname %> </p></div></li>
         <% else %>
-          <li><div class="card rounded" style="width: 18rem; height: 5rem;" ><%= request.receiver.nickname %></div></li>
+          <li><div class="card-request"  style="width: 18rem;" ><%= request.receiver.nickname %></div></li>
       <% end %>
     <% end %>
     </ul>
@@ -38,9 +38,9 @@
     <ul class="liststyle">
       <% @chat_requests_hash[:pending].each do |request| %>
         <% if current_user == request.asker %>
-            <li><div class="card rounded" style="width: 18rem; height: 5rem;" ><%= request.receiver.nickname %><%= render partial: "chat_request", locals: { chat_request: request} %></div></li>
+            <li><div class="card-request" style="width: 18rem;" ><p><%= request.receiver.nickname %></p><%= render partial: "chat_request", locals: { chat_request: request} %></div></li>
           <% else %>
-         <li><div class="card rounded" style="width: 18rem; height: 5rem;" ><%= request.asker.nickname %><%= render partial: "chat_request", locals: { chat_request: request} %></div></li>
+         <li><div class="card-request" style="width: 18rem;" ><p><%= request.asker.nickname%></p><%= render partial: "chat_request", locals: { chat_request: request} %></div></li>
         <% end %>
      <% end %>
     </ul>
