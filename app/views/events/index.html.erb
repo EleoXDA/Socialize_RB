@@ -1,7 +1,7 @@
 <div class="container">
   <ul class="events">
     <% @events.each do |event| %>
-      <li><%= link_to event.title %></li>
+      <li><%= link_to event.title, event_path(event)%></li>
     <% end %>
   </ul>
 
