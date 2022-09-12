@@ -28,9 +28,12 @@
         <%# <i class='bx bx-search' data-sidebar-target="search" data-action="click->sidebar#change"></i>
         <input type="text" placeholder="Search...">
         <span class="tooltip">Search</span> %>
-        <%= form_with url: users_path, method: :get, class: "d-flex" do  %>
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search users" %>
+        <div class="search" data-sidebar-target="search" data-action="click->sidebar#change">
+          <%= form_with url: users_path, method: :get, class: "d-flex" do  %>
+            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search users" %>
           <% end %>
+
+        </div>
     </li>
     <li>
       <%= link_to "/all_programmers" do %>
