@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   # All other routes
-  resources :users, only: [:index, :show], path: "all_programmers" do
+  resources :users, only: [:index, :show, :edit, :update], path: "all_programmers" do
   end
   patch '/chat_pins/:id', to: 'chat_requests#pin_user', as: :pin_user
   post '/chat_requests', to: 'chat_requests#create', as: :new_chat_request
@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   resources :chat_rooms, only: [:index, :show] do
     resources :messages, only: :create
   end
+
+  resources :events
 end

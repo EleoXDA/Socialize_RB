@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_08_114607) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_12_103414) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,9 +47,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_08_114607) do
     t.datetime "updated_at", null: false
     t.bigint "asker_id"
     t.bigint "receiver_id"
+    t.integer "status", default: 0, null: false
     t.boolean "asker_is_pinned", default: false
     t.boolean "receiver_is_pinned", default: false
-    t.integer "status", default: 0, null: false
     t.index ["asker_id"], name: "index_chat_requests_on_asker_id"
     t.index ["receiver_id"], name: "index_chat_requests_on_receiver_id"
   end
@@ -59,7 +59,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_08_114607) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "vonage_session_id"
     t.index ["chat_request_id"], name: "index_chat_rooms_on_chat_request_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "users_id"
+    t.index ["users_id"], name: "index_events_on_users_id"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -102,6 +111,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_08_114607) do
     t.string "name", default: "", null: false
     t.string "provider"
     t.string "uid"
+    t.string "image"
+    t.string "html_url"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -111,6 +122,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_08_114607) do
   add_foreign_key "chat_requests", "users", column: "asker_id"
   add_foreign_key "chat_requests", "users", column: "receiver_id"
   add_foreign_key "chat_rooms", "chat_requests"
+  add_foreign_key "events", "users", column: "users_id"
   add_foreign_key "messages", "chat_rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "user_languages", "languages"
