@@ -23,9 +23,11 @@
   text-decoration: none;
 }
 
+
 .button:focus {
   outline: 2px dotted #ffffff;
 }
+
 
 .card {
   background-color: #555B6E;
@@ -202,14 +204,14 @@ figure {
   bottom:-5px;
 }
 
+
 .swiper-slide {
+  text-align: center;
   text-align: center;
   font-size: 18px;
   box-shadow: 0 0 12px 0 rgba(0,0,0,0.5);
   margin-top: 30px;
   margin-bottom: 30px;
-
-  /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
