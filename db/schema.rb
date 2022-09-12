@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2022_09_12_084058) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_09_12_103414) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,6 +61,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_084058) do
     t.string "name"
     t.string "vonage_session_id"
     t.index ["chat_request_id"], name: "index_chat_rooms_on_chat_request_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "users_id"
+    t.index ["users_id"], name: "index_events_on_users_id"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -116,6 +122,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_084058) do
   add_foreign_key "chat_requests", "users", column: "asker_id"
   add_foreign_key "chat_requests", "users", column: "receiver_id"
   add_foreign_key "chat_rooms", "chat_requests"
+  add_foreign_key "events", "users", column: "users_id"
   add_foreign_key "messages", "chat_rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "user_languages", "languages"
