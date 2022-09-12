@@ -1,15 +1,14 @@
 class ChatRequestsController < ApplicationController
   def index
-    all_chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
-    @chat_requests_hash = { confirmed: [], rejected: [], pending: [] }
+    @all_chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
+    @my_requests = @all_chat_requests.select { |r| r.asker == current_user && r.pending? }
+    @chat_requests_hash = { confirmed: [], rejected: [], pending: @my_requests }
     @chat_requests = []
-    all_chat_requests.each do |request|
+    @all_chat_requests.each do |request|
       if request.confirmed?
         @chat_requests_hash[:confirmed] << request
       elsif request.rejected?
         @chat_requests_hash[:rejected] << request
-      else
-        @chat_requests_hash[:pending] << request
       end
     end
   end
