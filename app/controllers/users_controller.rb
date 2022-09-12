@@ -12,6 +12,8 @@ class UsersController < ApplicationController
         # image_url: helpers.asset_url("laptop.png")
       }
     end
+    
+
   end
 
   def show
