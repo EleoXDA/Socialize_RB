@@ -1,0 +1,22 @@
+.sign-in-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sign-in-header {
+  margin: 10px 0;
+}
+
+.sign-in-box {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.sign-in-button {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
