@@ -81,6 +81,6 @@ end
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # Omniauth gem for GitHub
-gem 'omniauth-github'
+gem 'omniauth-github', "~>2.0.0"
 
 gem "omniauth-rails_csrf_protection"

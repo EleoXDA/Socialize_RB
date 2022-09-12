@@ -1,7 +1,10 @@
-<div class="container">
+<div class="container text-center">
+  <h1>All events near you!</h1>
   <ul class="events">
     <% @events.each do |event| %>
-      <li><%= event.title %></li>
+      <li><%= link_to event.title, event_path(event)%></li>
     <% end %>
   </ul>
+
+  <%= link_to "Add new event", new_event_path, class: "btn btn-primary" %>
 </div>

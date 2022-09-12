@@ -1,7 +1,16 @@
-.sign-in-page {
+.sign-in-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.sign-in-page {
+
+}
+
+.blank-row {
+  height: 15vh;
 }
 
 .sign-in-header {
@@ -11,12 +20,16 @@
 .sign-in-box {
   display: flex;
   flex-direction: column;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  background-color: #555b6eb9;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.7);
 }
 
 .sign-in-button {
+  width: 100%;
   margin-top: 10vh;
   margin-bottom: 10vh;
+  color: rgb(255, 255, 255);
 }

@@ -21,5 +21,5 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
-  resources :events
+  resources :events, only: [:index, :show, :new, :create]
 end
