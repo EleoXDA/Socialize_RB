@@ -8,14 +8,14 @@
   flex-direction: column;
   width: 100%;
   align-items: flex-start;
-  font-family: dosis;
+  font-family: "Poppins" , sans-serif;
 }
 #fontcolor{
   color: white;
   transition: all 265ms ease-out;
 }
 #fontcolor:hover{
-  color: blue;
+  color: rgb(62,79,131);
 }
 .card-request{
   background-color: #555B6E;
@@ -26,8 +26,11 @@
   box-shadow: rgba(0, 0, 0, 0.7);
   color:white;
   padding-bottom: 20px;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 p{
   padding-top: 10px;
+}
+body{
+ font-family: "Poppins" , sans-serif;
 }
