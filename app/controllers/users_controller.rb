@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    # filter by language
+    @users = @users.joins(:languages).where(languages: {name: params[:language] }) if params[:language]
     @chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
     @chat_requests = @chat_requests.filter{ |chat| chat.status == "confirmed" }
     @chat_request = ChatRequest.new
