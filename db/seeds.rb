@@ -17,10 +17,10 @@ User.destroy_all
 
 puts "Users destroyed!"
 
-locations = ["Geneva", "Zurich", "Bern", "Cambridge", "Oxford", "Kathmandu", "Berlin", "Frankfurt", "Paris", "Bristol",
-             "Paris", "Essen", "Lyon", "Kyiv", "Madrid", "Porto", "Lisbon", "Seville", "Palermo", "Vienna", "Delhi",
-             "San Francisco", "Washington", "Nairobi", "Melbourne", "Canberra", "Montreal", "Beijing", "Tokyo",
-             "Mumbai", "Osaka", "Istanbul", "Rio de Janeiro", "Jakarta", "Chicago"]
+locations = ["Kathmandu", "Frankfurt", "Paris", "Bristol", "Caleta Tortel", "Windhoek", "Kyiv",
+             "Madrid", "Mumbai", "Aasiaat", "Vestfonna", "Anchorage", "San Francisco", "Nairobi",
+             "Melbourne", "Rio de Janeiro", "Jakarta", "Nome", "Invercargill", "Larsen Ice Shelf",
+             "Norilsk"]
 languages = ['Java', 'Kotlin', 'Ruby', 'Javascript', 'Swift', 'Dart', 'CSS',
              'HTML', 'Bash', 'XML', 'C++', 'Rust', 'Pascal', 'Fortran', 'PHP',
              'Perl']

@@ -1,12 +1,54 @@
 @import "home";
 
-
 #map {
   border-radius: 10px;
   border: 0px solid black;
   margin-bottom: 30px;
   box-shadow: 0 0 12px 0 rgba(0,0,0,0.5);
+}
 
+.button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  // font: 700 1.2rem 'Roboto Slab', sans-serif;
+  padding: 0.5em 1.5em;
+  letter-spacing: 0.05rem;
+  margin: 0.5em;
+  // width: 13rem;
+  background-color: #8d7197;
+  border-radius: 15px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+
+.button:focus {
+  outline: 2px dotted #ffffff;
+}
+
+
+.card {
+  background-color: #555B6E;
+  height: 20rem;
+  border-radius: 15px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.7);
+  color:white;
+  // padding-top: 15px;
+  // overflow: scroll;
+}
+
+.card-name {
+  margin-top: 40px;
+  font-size: 1.5rem;
+}
+
+.card-icon-container {
+  position: relative;
 }
 
 .chat-list {
@@ -14,48 +56,19 @@
   margin: 0 auto;
 }
 
-.card-container {
-  display:grid;
-  grid-template-columns: 300px 300px 300px 300px;
-  grid-gap: 50px;
-  justify-content: center;
-  align-items: center;
-  background-color: #f5f5f5;
-}
-
-.card {
-  background-color: #080d1483;
-  height: 37rem;
-  border-radius: 15px;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.7);
-  color:white;
-  padding-top: 15px;
-
-  // overflow: scroll;
-}
-
-.card-name {
-  margin-top: 15px;
-  font-size: 1.5rem;
-}
-
 
 .draw-border {
   box-shadow: inset 0 0 0 4px #ffffff1c;
   color: #0000001c;
-  padding: 8px 14px;
-  border-radius: 15%;
-
+  padding: 8px 25px;
+  border-radius: 15px;
+  margin-top: 30px;
 }
 
 .draw-border::before,
 .draw-border::after {
   border: 0 solid transparent;
   box-sizing: border-box;
-
   pointer-events: none;
   position: absolute;
   width: 0rem;
@@ -73,31 +86,67 @@
   -webkit-transition-delay: 0s, 0.25s, 0s;
 }
 
-.button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  line-height: 1.5;
-  font: 700 1.2rem 'Roboto Slab', sans-serif;
-  padding: 0.75em 2em;
-  letter-spacing: 0.05rem;
-  margin: 1em;
-  width: 13rem;
-}
-
-.button:focus {
-  outline: 2px dotted #ffffff;
-
-}
-
-.card-icon-container {
+figure {
+  display: grid;
+  gap: 1ex;
+  margin: 0;
+  text-align: center;
   position: relative;
+  cursor: pointer;
+  user-select: none;
+  transition: transform .2s ease-in-out;
+  width: 140px;
+  height: 140px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:last-child::after {
+    content: "";
+    position: absolute;
+    right: 2rem;
+    inline-size: 1rem;
+    block-size: 100%;
+  }
+
+  & > picture {
+    width: 100%;
+    display: inline-block;
+    // inline-size: 10ch;
+    // block-size: 10ch;
+    border-radius: 50%;
+    background: #555B6E;
+
+    & > img {
+      display: block;
+      // inline-size: 100%;
+      // block-size: 100%;
+      height: 100%;
+      object-fit: cover;
+      // clip-path: circle(42%);
+      width: 100%;
+      // width: 160px;
+      border-radius: 50%;
+      // border: 1px solid black;
+      object-fit: cover;
+      padding: 1px;
+      // box-shadow: 0px 0px 30px #98A5D0;
+    }
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  font-size: 1.2em;
 }
 
 .social-icons {
   padding: 0;
   list-style: none;
-  margin: 1em;
+  margin: 0em;
   display: flex;
 }
 
@@ -129,88 +178,50 @@
   height: 45px;
   border-radius: 100%;
   display: block;
-  background: linear-gradient(45deg, #757575, #757575);
-  transition: all 265ms ease-out;
+  background: linear-gradient(45deg, #8d7197, #8d7197);
+  transition: all 200ms ease-out;
 }
 
 .social-icons a:hover:before {
   transform: scale(0);
-  transition: all 265ms ease-in;
+  transition: all 200ms ease-in;
 }
 
 .social-icons a:hover i {
-  transform: scale(2.2);
-  -ms-transform: scale(2.2);
-  -webkit-transform: scale(2.2);
+  transform: scale(2.4);
+  -ms-transform: scale(2.4);
+  -webkit-transform: scale(2.4);
   color: #ffffff;
-  background: -webkit-linear-gradient(45deg, #ddc8c8, #ddc8c8);
+  background: -webkit-linear-gradient(45deg, #FAF9F9, #FAF9F9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 265ms ease-in;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  font-size: 1.2em;
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom, .swiper-pagination-fraction {
+  bottom:-5px;
 }
 
-figure {
-  display: grid;
-  gap: 1ex;
-  margin: 0;
+
+.swiper-slide {
   text-align: center;
-  position: relative;
-  cursor: pointer;
-  user-select: none;
-  transition: transform .2s ease-in-out;
-  width: 140px;
-  height: 140px;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  &:last-child::after {
-    content: "";
-    position: absolute;
-
-    right: -2rem;
-    inline-size: 2rem;
-    block-size: 100%;
-    inset-end: -2rem;
-  }
-
-  & > picture {
-    width: 100%;
-    display: inline-block;
-    // inline-size: 10ch;
-    // block-size: 10ch;
-    border-radius: 50%;
-
-    background:
-    // radial-gradient(hsl(0 0% 0% / 15%) 60%, transparent 0),
-    radial-gradient(white 65%, transparent 0),
-    linear-gradient(to top right, rgb(255,255,255), rgb(255, 255, 255));
-
-    & > img {
-      display: block;
-      // inline-size: 100%;
-      // block-size: 100%;
-      height: 100%;
-      object-fit: cover;
-      clip-path: circle(42%);
-      width: 100%;
-      // width: 160px;
-      border-radius: 50%;
-      // border: 1px solid black;
-      object-fit: cover;
-      padding: 10px;
-      box-shadow: 0 10px 50px rgba(235, 25, 110, 1);
-    }
-  }
-}
-
-.card-image {
+  text-align: center;
+  font-size: 18px;
+  box-shadow: 0 0 12px 0 rgba(0,0,0,0.5);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
