@@ -28,7 +28,7 @@
         <%# <i class='bx bx-search' data-sidebar-target="search" data-action="click->sidebar#change"></i>
         <input type="text" placeholder="Search...">
         <span class="tooltip">Search</span> %>
-        <div class="search" data-sidebar-target="search" data-action="click->sidebar#change">
+        <i class='bx bx-search' data-sidebar-target="search" data-action="click->sidebar#change"></i><div>
           <%= form_with url: users_path, method: :get, class: "d-flex" do  %>
             <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search users" %>
           <% end %>
