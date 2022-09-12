@@ -91,5 +91,15 @@ end
 puts "Creating events"
 
 10.times do
-  Event.create(title: Faker::Cannabis.cannabinoid_abbreviation)
+  events = Event.new(
+    title: Faker::Cannabis.cannabinoid_abbreviation,
+    theme: Faker::TvShows::BreakingBad.character,
+    price: rand(100..500),
+    description: Faker::TvShows::FamilyGuy.quote,
+    date: Faker::Date.between(from: '2015-09-23', to: '2029-09-25'),
+    time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
+    location: Faker::Games::SuperMario.location
+  )
+
+  events.save!
 end
