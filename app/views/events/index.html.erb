@@ -1,7 +1,9 @@
 <div class="container">
   <ul class="events">
     <% @events.each do |event| %>
-      <li><%= event.title %></li>
+      <li><%= link_to event.title %></li>
     <% end %>
   </ul>
+
+  <%= link_to "Add new event", new_event_path, class: "btn btn-primary" %>
 </div>

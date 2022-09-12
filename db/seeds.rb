@@ -88,4 +88,8 @@ end
 # chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
 #   chat_room.save!
 
-events = Event.create(title: "Best event in the world!")
+puts "Creating events"
+
+10.times do
+  Event.create(title: Faker::Cannabis.cannabinoid_abbreviation)
+end
