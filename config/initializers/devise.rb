@@ -273,7 +273,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   #
-  config.omniauth :github, ENV['GITHUB_CLIENT_ID'], ENV['GITHUB_CLIENT_SECRET'], scope: 'user:email'
+  config.omniauth :github, "65b609d6cc947c3c3235", "8d35fd19e7ad8a8021add790345bddcdfbe40663", scope: 'user:email'
   # , :scope => Errbit::Config.github_access_scope.join(","), :skip_info => true
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

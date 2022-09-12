@@ -40,3 +40,4 @@
 *.swp
 .DS_Store
 .env*
+/config/initializers/devise.rb
