@@ -82,17 +82,16 @@ ol, ul {
   }
 }
 .sender {
-  background-color: #006AFF !important;
+  background-color: #007bff !important;
   padding: 10px;
   border-radius: 10px;
   margin-right: 0;
-  margin-left: 75%;
-  color:white;
+  margin-left: 80%;
 }
 
 .receiver {
   border-radius: 10px;
-  background-color: rgb(217, 202, 202);
+  background-color: gray;
   padding: 10px;
 
 }
@@ -100,10 +99,11 @@ ol, ul {
 .message-item {
   word-wrap: break-word;
   width: fit-content;
+  max-width: 60%;
   padding: 5px;
   border-radius: 10px;
   margin-bottom: 10px;
-  background-color: #b0c2ba;
+  background-color: #555555;
   padding: 10px
 }
 
