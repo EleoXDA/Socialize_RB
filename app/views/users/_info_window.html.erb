@@ -11,11 +11,11 @@
         </div>
       <div class="d-flex flex-row justify-content-between">
 
-        <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1">
+        <div class="d-flex flex-column justify-content-center align-items-center">
           <h5 style="color:red"><%= user.nickname %></h5>
           <h6 style="color:green"><%= user.location %></h6>
           <div class="d-flex align-items-center">
-            <%= link_to "Profile", "#", class:"btn btn-success rounded-5 btn-sm"%>
+            <%= link_to "GitHub", user.html_url, class:"btn btn-success rounded-5 btn-sm"%>
           </div>
         </div>
         </div>
