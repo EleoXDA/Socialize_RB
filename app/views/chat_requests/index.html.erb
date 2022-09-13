@@ -34,7 +34,14 @@
                 <%= image_tag request.receiver.image %>
               <% end %>
             </picture>
-          </div></li>
+          </div>
+          <div class="container">
+            <div class="icon-container">
+              <ul class="social-icons" style="padding-left: 0px !important">
+                <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-linkedin"></i></a></li>
+                <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-github"></i></a></li>
+              </ul>
+            </div></li>
         <% end %>
       <% end %>
     </ul>
@@ -51,7 +58,14 @@
                 <%= image_tag request.asker.image %>
               <% end %>
           </picture>
-          </div></li>
+          </div>
+            <div class="container">
+              <div class="icon-container">
+                <ul class="social-icons" style="padding-left: 0px !important">
+                  <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-linkedin"></i></a></li>
+                  <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-github"></i></a></li>
+                </ul>
+            </div></li>
         <% else %>
           <li><div class="card-request"  style="width: 18rem;" ><%= request.receiver.nickname %>
             <picture id="user-request">
@@ -73,19 +87,27 @@
             <li><div class="card-request" style="width: 18rem;" ><p><%= request.receiver.nickname %></p>
               <picture id="user-request">
                 <% if request.receiver.image.nil? %>
-                  <%= image_tag "userphoto_square.jpg" %>
+                  <%= image_tag "userphoto_square.jpg", :class => "img-request" %>
                 <% else %>
-                  <%= image_tag request.receiver.image %>
+                  <%= image_tag request.receiver.image, :class => "img-request" %>
                 <% end %>
               </picture>
-              <%= render partial: "chat_request", locals: { chat_request: request} %></div></li>
+              <%= render partial: "chat_request", locals: { chat_request: request} %>
+                </div>
+                <div class="container">
+                  <div class="icon-container">
+                    <ul class="social-icons" style="padding-left: 0px !important">
+                      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-linkedin"></i></a></li>
+                      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-github"></i></a></li>
+                    </ul>
+                  </div></li>
           <% else %>
          <li><div class="card-request" style="width: 18rem;" ><p><%= request.asker.nickname%></p>
             <picture id="user-request">
               <% if request.asker.image.nil? %>
-                <%= image_tag "userphoto_square.jpg" %>
+                <%= image_tag "userphoto_square.jpg", :class => "img-request" %>
               <% else %>
-                <%= image_tag request.asker.image %>
+                <%= image_tag request.asker.image, :class => "img-request" %>
               <% end %>
             </picture>
          <%= render partial: "chat_request", locals: { chat_request: request} %></div></li>
