@@ -136,6 +136,11 @@ figure {
   }
 }
 
+.flex-container{
+  display: flex;
+  justify-content: center;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
