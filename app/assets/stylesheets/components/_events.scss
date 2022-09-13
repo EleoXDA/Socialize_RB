@@ -20,13 +20,12 @@ $seance: #7623A2;
   display:flex;
   background-color: red;
   background-image:
-    linear-gradient(
-      to right,
-      red,
-      #f06d06,
-      rgb(255, 255, 0),
-      green
-    );
+  linear-gradient(
+    rgba(204, 178, 178, 0.895),
+    #b8a18f,
+    rgb(206, 206, 184),
+    rgb(214, 193, 193)
+  );
   flex-direction: column;
   border-radius: 15px;
   align-items: center;
