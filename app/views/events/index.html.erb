@@ -1,9 +1,10 @@
 
 
   <div class="container swiper mySwiper">
+    <h1 class="text-center">Events around you !</h1>
     <div class="swiper-wrapper">
       <% @events.each do |event| %>
-        <div class="card swiper-slide">
+        <div class="event-cards swiper-slide">
           <div class="event-card">
             <h2><%= event.title %></h2>
             <time><%= event.time %></time>
@@ -13,7 +14,7 @@
                 <%= link_to "Details", event_path(event), class:"button"  %>
               </div>
               <div class="events-card-tickets-button">
-                <%= link_to "Tickets", "#", class:"button" %><i class="fas fa-arrow-right"></i>
+                <%= link_to "Tickets", "#", class:"button" %>
               </div>
             </div>
           </div>
