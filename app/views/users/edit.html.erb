@@ -1,6 +1,8 @@
-<div>
+<div class="container">
   <%= simple_form_for(@user) do |f| %>
     <%= f.input :location %>
+    <%= f.collection_select :name, @languages, :id, :name %>
+    <%= f.input :linkedin_url %>
     <%= f.submit %>
   <% end %>
 </div>

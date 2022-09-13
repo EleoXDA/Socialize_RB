@@ -33,6 +33,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    @languages = Language.all
   end
 
   def update
@@ -44,10 +45,10 @@ class UsersController < ApplicationController
   private
 
   def sign_up_params
-    params.require(:user).permit(:location)
+    params.require(:user).permit(:location, :language)
   end
 
   def user_params
-    params.require(:user).permit(:photo, :location)
+    params.require(:user).permit(:photo, :location, :linkedin_url)
   end
 end
