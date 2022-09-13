@@ -50,6 +50,7 @@ ol, ul {
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 1rem;
+
   }
   .messages {
     --scrollbarBG: #CFD8DC;
@@ -81,11 +82,40 @@ ol, ul {
   }
 }
 .sender {
-  color:green;
-  background-color: blue;
+  background-color: #007bff !important;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 0;
+  margin-left: 80%;
 }
 
 .receiver {
-  color: black;
-  bkacground-color: pink;
+  border-radius: 10px;
+  background-color: gray;
+  padding: 10px;
+
+}
+
+.message-item {
+  word-wrap: break-word;
+  width: fit-content;
+  max-width: 80%;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #555555;
+  padding: 10px
+}
+
+
+#message{
+  display:flex;
+}
+
+
+.image-chat img{
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: flex;
 }
