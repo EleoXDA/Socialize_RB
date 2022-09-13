@@ -3,7 +3,7 @@
   <% if current_user == chat_request.asker %>
     <% if chat_request.pending? == true %>
       <%= link_to chat_request_path(chat_request, status: 0), class: "button draw-border mr-2" do %>
-        <i class="fa-solid fa-spinner fa-spin-pulse"></i>
+        <i class="fa-regular fa-hourglass-half"></i>
       <% end%>
     <% end%>
     <%#= chat_request.receiver.nickname%> <%#= chat_request.status %>
@@ -14,7 +14,7 @@
       <%= chat_request.status %>
     <% else %>
       <%= link_to chat_request_path(chat_request, status: 1), data: {'turbo-method': :patch}, class: "button draw-border mr-2" do %>
-        <i class="fa-solid fa-plus" id= "fontcolor"></i>
+        <i class="fa-solid fa-user-plus"></i>
       <% end %>
       <%= link_to chat_request_path(chat_request, status: -1), data: {'turbo-method': :patch}, class: "button draw-border mr-2" do %>
         <i class="fa-solid fa-trash" id= "fontcolor"></i>

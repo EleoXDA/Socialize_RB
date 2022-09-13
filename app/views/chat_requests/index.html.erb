@@ -16,9 +16,25 @@
     <ul class="liststyle">
       <% @chat_requests_hash[:confirmed].each do |request| %>
         <% if current_user == request.receiver %>
-          <li><div class="card-request " style="width: 18rem;" ><%= request.asker.nickname %></div></li>
+          <li><div class="card-request " style="width: 18rem;" ><%= request.asker.nickname %>
+            <picture id="user-request">
+              <% if request.asker.image.nil? %>
+                <%= image_tag "userphoto_square.jpg" %>
+              <% else %>
+                <%= image_tag request.asker.image %>
+              <% end %>
+            </picture>
+          </div></li>
         <% else %>
-          <li><div class="card-request " style="width: 18rem;" ><%= request.receiver.nickname %></div></li>
+          <li><div class="card-request" style="width: 18rem;" ><%= request.receiver.nickname %>
+          <picture id="user-request">
+              <% if request.receiver.image.nil? %>
+                <%= image_tag "userphoto_square.jpg" %>
+              <% else %>
+                <%= image_tag request.receiver.image %>
+              <% end %>
+            </picture>
+          </div></li>
         <% end %>
       <% end %>
     </ul>
@@ -27,9 +43,25 @@
     <ul class="liststyle">
       <% @chat_requests_hash[:rejected].each do |request| %>
         <% if current_user == request.receiver %>
-          <li><div class="card-request" style="width: 18rem;" ><p> <%= request.asker.nickname %> </p></div></li>
+          <li><div class="card-request" style="width: 18rem;" ><p><%= request.asker.nickname %></p>
+            <picture id="user-request">
+              <% if request.asker.image.nil? %>
+                <%= image_tag "userphoto_square.jpg" %>
+              <% else %>
+                <%= image_tag request.asker.image %>
+              <% end %>
+          </picture>
+          </div></li>
         <% else %>
-          <li><div class="card-request"  style="width: 18rem;" ><%= request.receiver.nickname %></div></li>
+          <li><div class="card-request"  style="width: 18rem;" ><%= request.receiver.nickname %>
+            <picture id="user-request">
+              <% if request.receiver.image.nil? %>
+                <%= image_tag "userphoto_square.jpg" %>
+              <% else %>
+                <%= image_tag request.receiver.image %>
+              <% end %>
+            </picture>
+          </div></li>
       <% end %>
     <% end %>
     </ul>
@@ -38,9 +70,25 @@
     <ul class="liststyle">
       <% @chat_requests_hash[:pending].each do |request| %>
         <% if current_user == request.asker %>
-            <li><div class="card-request" style="width: 18rem;" ><p><%= request.receiver.nickname %></p><%= render partial: "chat_request", locals: { chat_request: request} %></div></li>
+            <li><div class="card-request" style="width: 18rem;" ><p><%= request.receiver.nickname %></p>
+              <picture id="user-request">
+                <% if request.receiver.image.nil? %>
+                  <%= image_tag "userphoto_square.jpg" %>
+                <% else %>
+                  <%= image_tag request.receiver.image %>
+                <% end %>
+              </picture>
+              <%= render partial: "chat_request", locals: { chat_request: request} %></div></li>
           <% else %>
-         <li><div class="card-request" style="width: 18rem;" ><p><%= request.asker.nickname%></p><%= render partial: "chat_request", locals: { chat_request: request} %></div></li>
+         <li><div class="card-request" style="width: 18rem;" ><p><%= request.asker.nickname%></p>
+            <picture id="user-request">
+              <% if request.asker.image.nil? %>
+                <%= image_tag "userphoto_square.jpg" %>
+              <% else %>
+                <%= image_tag request.asker.image %>
+              <% end %>
+            </picture>
+         <%= render partial: "chat_request", locals: { chat_request: request} %></div></li>
         <% end %>
      <% end %>
     </ul>

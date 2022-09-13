@@ -1,7 +1,21 @@
-<div id="message-<%= message.id %>">
+<div id="message-<%= message.id %>" class="message-item <%= current_user == message.user ? "sender" : "receiver" %>" >
   <small>
-    <strong><%= message.user.nickname %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  <div class="image-chat d-flex mx-2">
+    <% if message.user.image.nil? %>
+      <%= image_tag "userphoto_square.jpg" %>
+    <% else %>
+      <%= image_tag message.user.image %>
+    <% end %>
+    <div>
+      <p class="my-0 mx-0"><b><%= message.user.nickname %></b></p>
+        <small>
+          <i ><%= message.created_at.strftime(" %l:%M %p") %></i>
+        </small>
+    </div>
+
+  </div>
   </small>
+
+
   <p><%= message.content %></p>
 </div>
