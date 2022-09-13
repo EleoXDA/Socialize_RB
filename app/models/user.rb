@@ -3,10 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
-  has_many :user_languages
+  has_many :user_languages, dependent: :destroy
   has_many :languages, through: :user_languages
   has_many :chat_requests
   has_one_attached :photo
+  has_many :events
+  
   # validates :nickname, presence: true
 
   geocoded_by :location
@@ -24,4 +26,6 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
   end
+
+
 end

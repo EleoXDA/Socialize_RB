@@ -1,6 +1,19 @@
-<div>
+<div class="signup-form-container form-group">
+  <div id= "sign-up-header">
+    <h2 class="mb-3">About you</h2>
+  </div>
   <%= simple_form_for(@user) do |f| %>
+    <%= f.simple_fields_for :languages do |w| %>
+        <%= w.label "Main language", id: "language-label" %>
+        <%= w.select :id, Language.all.map{ |l| [l.name, l.id] },
+                    {prompt: "Select main language"},
+                    required: :required,
+                    class: "form-control",
+                    id: "language-input" %>
+    <% end %>
     <%= f.input :location %>
-    <%= f.submit %>
+    <%#collection_select :user_languages, @languages, :id, :name %>
+    <%= f.input :linkedin_url %>
+    <%= f.button :submit, "Get started", class: "sign-in-submit button draw-border mr-2" %>
   <% end %>
 </div>

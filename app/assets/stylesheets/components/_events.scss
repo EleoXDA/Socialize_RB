@@ -1,0 +1,57 @@
+// Colors
+$white: #fff;
+$emperor: #535353;
+
+$lavendar-magenta: #EC51DE;
+$shocking-pink: #EB0EC7;
+$governor-bay: #3023AE;
+$persian-blue: #3022AD;
+$curious-blue: #1897E1;
+$dodger-blue: #53A0FD;
+$red-violet: #CC19BF;
+$mariner: #405CD2;
+$seance: #7623A2;
+
+.event-cards {
+  padding: 13px;
+  max-width: 318px;
+  width: 100%;
+  height: 20rem;
+  display:flex;
+  background-color: red;
+  background-image:
+    linear-gradient(
+      to right,
+      red,
+      #f06d06,
+      rgb(255, 255, 0),
+      green
+    );
+  flex-direction: column;
+  border-radius: 15px;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.7);
+}
+
+.card-buttons {
+  text-decoration: none;
+}
+
+.index-event-card{
+  position: absolute;
+  top: 0;
+  right:0;
+  padding: 13px;
+  max-width: 318px;
+  width: 100%;
+  height: 20rem;
+  background-image:
+  linear-gradient(
+    to right,
+    red,
+    #f06d06,
+    rgb(255, 255, 0),
+    green
+  );
+  border-radius: 10px;
+}
