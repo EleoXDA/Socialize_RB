@@ -4,7 +4,13 @@ class UsersController < ApplicationController
     @chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
     @pending_chat_requests = @chat_requests.filter{ |chat| chat.pending? }
     @confirmed_chat_requests = @chat_requests.filter{ |chat| chat.confirmed?}
-    @pinned_chat_requests = @confirmed_chat_requests.filter{ |chat| chat.asker_is_pinned == true || chat.receiver_is_pinned == true }
+    @pinned_chat_requests = @confirmed_chat_requests.filter{ |chat|
+      if current_user == chat.asker
+        chat.receiver_is_pinned == true
+      else
+        chat.asker_is_pinned == true
+      end
+    }
     @chat_request = ChatRequest.new
     @markers = @users.geocoded.map do |user|
       {
