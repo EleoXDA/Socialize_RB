@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="profile-contents">
+    <div class="user-image-container">
+      <%= image_tag @user.image, id: "user-image" %>
+    </div>
+    <div class="user-details">
+      <h1><%= @user.nickname %></h1>
+      <%= simple_form_for(@user) do |f| %>
+        <%= f.simple_fields_for :languages do |w| %>
+          <%= w.label "Main language", id: "language-label" %>
+          <%= w.select :id, Language.all.map{ |l| [l.name, l.id] },
+                      {prompt: "Select main language"},
+                      required: :required,
+                      class: "form-control",
+                      id: "language-input" %>
+        <% end %>
+        <%= f.input :location %>
+        <%= f.input :linkedin_url %>
+        <%= f.button :submit, "Update", class: "sign-in-submit button draw-border mr-2" %>
+      <% end %>
+    </div>
+  </div>
+</div>

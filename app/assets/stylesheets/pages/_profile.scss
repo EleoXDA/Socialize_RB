@@ -1,0 +1,28 @@
+.profile-container {
+  position: relative;
+}
+
+.profile-contents {
+  // position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  // top: 10vh;
+  // bottom: 60vh;
+  // left: 20vw;
+  // right: 20vw;
+  margin: 10vh 15vw;
+  padding: 3vh 5vw;
+}
+
+.user-image-container {
+  width: 100px;
+  height: 100px;
+}
+
+#user-image {
+  margin: 8px;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+}
