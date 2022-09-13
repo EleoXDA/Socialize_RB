@@ -21,11 +21,9 @@
     Filter the cities
   </button>
   <ul class="dropdown-menu">
-    <% User.all.each do |user| %>
-      <%# <% user.location.each do |location| %>
-      <li><%= link_to user.location, users_path(location: user.location), class:"dropdown-item" %></li>
-      <% end %>
-    <%# <% end %>
+    <% @location_filters.each do |location| %>
+      <li><%= link_to location, users_path(location: location), class:"dropdown-item" %></li>
+    <% end %>
   </ul>
 </div>
 <h1 class="text-center mt-5 mb-0">Developers near you</h1>
