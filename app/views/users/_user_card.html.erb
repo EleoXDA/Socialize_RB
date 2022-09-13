@@ -6,7 +6,7 @@
           <% if user.image.nil? %>
             <%= image_tag "userphoto_square.jpg" %>
           <% else %>
-            <%= image_tag "#{current_user.image}" %>
+            <%= image_tag "#{user.image}" %>
           <% end %>
         </picture>
       </figure>
