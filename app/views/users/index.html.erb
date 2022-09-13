@@ -6,36 +6,43 @@
     style='width: 100%px; height:500px;'>
   </div>
 </div>
-<div class="dropdown container justify-content-end">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Filter the languages
-  </button>
-  <ul class="dropdown-menu">
-    <% Language.all.each do |language| %>
-    <li><%= link_to language.name, users_path(language: language.name), class:"dropdown-item" %></li>
-    <% end %>
-  </ul>
-</div>
-<div class="dropdown container justify-content-end">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Filter the cities
-  </button>
-  <ul class="dropdown-menu">
-    <% @location_filters.each do |location| %>
-      <li><%= link_to location, users_path(location: location), class:"dropdown-item" %></li>
-    <% end %>
-  </ul>
+<div class="container" id="container">
+  <div class="container d-flex justify-content-start">
+    <div class="dropdown container">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Filter the languages
+      </button>
+      <ul class="dropdown-menu">
+        <% Language.all.each do |language| %>
+        <li><%= link_to language.name, users_path(language: language.name), class:"dropdown-item" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="dropdown container">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Filter the cities
+      </button>
+      <ul class="dropdown-menu">
+        <% @location_filters.each do |location| %>
+          <li><%= link_to location, users_path(location: location), class:"dropdown-item" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <%= link_to "Reset filters", users_path, class:"btn btn-secondary", style:"width:150px" %>
 </div>
 <h1 class="text-center mt-5 mb-0">Developers near you</h1>
-  <div class="container swiper mySwiper">
+<div class="container d-flex">
+  <div class="swiper-button-prev"></div>
+  <div class="swiper mySwiper">
     <div class="swiper-wrapper">
       <% @users.each do |user| %>
         <% next if current_user == user %>
         <%= render "user_card", user: user, new_chat_request: @chat_request %>
       <% end %>
     </div>
-  <div class="swiper-button-next "></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
+      <div class="swiper-pagination"></div>
+  </div>
+  <div class="swiper-button-next"></div>
 
 </div>
