@@ -1,0 +1,35 @@
+.sign-in-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.sign-in-page {
+
+}
+
+.blank-row {
+  height: 15vh;
+}
+
+.sign-in-header {
+  margin: 10px 0;
+}
+
+.sign-in-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #555b6eb9;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.7);
+}
+
+.sign-in-button {
+  width: 100%;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  color: rgb(255, 255, 255);
+}

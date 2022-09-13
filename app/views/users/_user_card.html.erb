@@ -3,11 +3,11 @@
     <div class="align-items-baseline">
       <figure>
         <picture class="user-card-image">
-          <%# if user.image.empty? %>
-            <%#= image_tag "userphoto_square.jpg" %>
-          <%# else %>
-            <%#= image_tag user.image %>
-          <%# end %>
+          <% if user.image.nil? %>
+            <%= image_tag "userphoto_square.jpg" %>
+          <% else %>
+            <%= image_tag user.image %>
+          <% end %>
           </p>
         </picture>
       </figure>

@@ -273,9 +273,8 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   #
-  config.omniauth :github, '87438fbcdcabb164da61', 'd32596dd7633ce070d7fa559b1e22b1ac8bdf0c5', scope: 'user:email'
+  config.omniauth :github, ENV["GITHUB_CLIENT_ID"], ENV["GITHUB_CLIENT_SECRET"], scope: 'user:email'
   # , :scope => Errbit::Config.github_access_scope.join(","), :skip_info => true
-
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
