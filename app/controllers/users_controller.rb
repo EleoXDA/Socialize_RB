@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    if params[:location].present?
+      @users = @users.where(location: params[:location])
+    end
     @users = @users.joins(:languages).where(languages: {name: params[:language] }) if params[:language]
 
     @chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
