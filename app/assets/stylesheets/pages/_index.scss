@@ -25,7 +25,7 @@
 
 .card {
   background-color: #555B6E;
-  height: 20rem;
+  height: 18rem;
   border-radius: 15px;
   display:flex;
   flex-direction: column;
@@ -125,6 +125,7 @@ figure {
       object-fit: cover;
       // clip-path: circle(42%);
       width: 100%;
+      max-width: 100%;
       // width: 160px;
       border-radius: 50%;
       // border: 1px solid black;
@@ -253,6 +254,7 @@ figure {
   display: flex;
   justify-content:start;
   align-items: center;
+}
 
 .to-pin-user {
   opacity: 0.3;
@@ -262,5 +264,4 @@ figure {
 .pinned-user {
   opacity: 1;
   color: white;
-
 }
