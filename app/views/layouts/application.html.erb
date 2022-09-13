@@ -28,8 +28,13 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <style>
+      <%= "#message-<%=current_user.message.id" %> {
+        background-color: #007bff !important
+        padding: 10px;
+      }
+    </style>
   </head>
-
   <body>
     <div class="d-flex flex-column min-vh-100">
       <% unless current_page?(root_path) %>
