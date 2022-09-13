@@ -15,7 +15,8 @@
   transition: all 265ms ease-out;
 }
 #fontcolor:hover{
-  color: blue;
+  color: rgb(62,79,131);
+  transform: scale(1.1);
 }
 .card-request{
   background-color: #555B6E;
@@ -27,7 +28,26 @@
   color:white;
   padding-bottom: 20px;
   margin-top: 15px;
+  height: 10rem;
+}
+
+.img-request {
+max-width: 50px;
+max-height: 50px;
+border-radius: 50%;
+display: block;
+object-fit: cover;
+padding-top:10px;
+vertical-align: middle;
+position:relative;
+align-self:flex-start;
 }
 p{
   padding-top: 10px;
+}
+#user-request{
+  align-self: flex-start;
+  padding-left: 10px;
+  padding-bottom: 20px;
+  position: absolute;
 }
