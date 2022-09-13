@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    @users = @users.joins(:languages).where(languages: {name: params[:language] }) if params[:language]
+
     @chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
     @chat_requests = @chat_requests.filter{ |chat| chat.status == "confirmed" }
     @chat_request = ChatRequest.new
@@ -9,16 +11,8 @@ class UsersController < ApplicationController
         lat: user.latitude,
         lng: user.longitude,
         info_window: render_to_string(partial: "info_window", locals: { user: user })
-        # image_url: helpers.asset_url("laptop.png")
       }
     end
-
-      if params[:query].present?
-        @users = User.where("nickname ILIKE ?", "%#{params[:query]}%")
-      else
-        @users = User.all
-      end
-
   end
 
   def show
