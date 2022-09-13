@@ -6,9 +6,9 @@
     style='width: 100%px; height:500px;'>
   </div>
 </div>
-<div class="container" id="container">
-  <div class="container d-flex justify-content-start">
-    <div class="dropdown container">
+<div class="container d-flex justify-content-end">
+ <div class="container flex-grow-1 justify-content-end">
+    <div class="dropdown d-flex justify-content-end mb-1">
       <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         Filter the languages
       </button>
@@ -18,7 +18,7 @@
         <% end %>
       </ul>
     </div>
-    <div class="dropdown container">
+    <div class="dropdown d-flex justify-content-end">
       <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         Filter the cities
       </button>
@@ -29,7 +29,7 @@
       </ul>
     </div>
   </div>
-  <%= link_to "Reset filters", users_path, class:"btn btn-secondary", style:"width:150px" %>
+  <%= link_to "Reset filters", users_path, class:"btn btn-secondary", style:"width:70px; padding-top: 13px;" %>
 </div>
 <h1 class="text-center mt-5 mb-0">Developers near you</h1>
 <div class="container d-flex">
