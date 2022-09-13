@@ -32,12 +32,12 @@
 }
 
 .img-request {
-max-width: 50px;
-max-height: 50px;
+width: 50px;
+height: 50px;
 border-radius: 50%;
 display: block;
 object-fit: cover;
-padding-top:10px;
+margin-top:10px;
 vertical-align: middle;
 position:relative;
 align-self:flex-start;
@@ -50,4 +50,12 @@ p{
   padding-left: 10px;
   padding-bottom: 20px;
   position: absolute;
+}
+.icon-github{
+  position: relative;
+  bottom: 84px;
+  left: 5px;
+}
+.container-request{
+  padding-bottom: 25px;
 }
