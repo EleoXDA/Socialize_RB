@@ -3,6 +3,7 @@
   </div>
   <div class="row sign-in-container">
     <div class="col-3 sign-in-page">
+      <%= image_tag "github.png" %>
       <div class="sign-in-box">
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
           <div class="form-inputs">

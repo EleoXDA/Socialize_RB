@@ -14,3 +14,17 @@
 #language-label {
   margin-bottom: 7px;
 }
+
+.sign-in-page {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sign-in-page img {
+  width: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -30px;
+  left: -20px;
+}
