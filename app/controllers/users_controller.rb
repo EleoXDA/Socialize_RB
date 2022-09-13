@@ -7,7 +7,15 @@ class UsersController < ApplicationController
     @users = @users.joins(:languages).where(languages: {name: params[:language] }) if params[:language]
 
     @chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
-    @chat_requests = @chat_requests.filter{ |chat| chat.status == "confirmed" }
+    @pending_chat_requests = @chat_requests.filter{ |chat| chat.pending? }
+    @confirmed_chat_requests = @chat_requests.filter{ |chat| chat.confirmed?}
+    @pinned_chat_requests = @confirmed_chat_requests.filter{ |chat|
+      if current_user == chat.asker
+        chat.receiver_is_pinned == true
+      else
+        chat.asker_is_pinned == true
+      end
+    }
     @chat_request = ChatRequest.new
     @markers = @users.geocoded.map do |user|
       {
