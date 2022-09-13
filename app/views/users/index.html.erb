@@ -1,4 +1,4 @@
-<div class="container-fluid mt-5" style="width:1370px">
+<div class="container-fluid mt-5 d-flex" style="width:1370px">
   <div data-controller="map"
     id="map"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
@@ -6,6 +6,10 @@
     style='width: 100%px; height:500px;'>
   </div>
 </div>
+  <div class="events-card text-center" style="background-color: green; width: 300px;" >
+    <h1>Wanna attend developer events? </h1>
+    <h4><%= link_to "Click here to check em out!", events_path %></h4>
+  </div>
 <div class="dropdown container justify-content-end">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Filter the languages
@@ -44,5 +48,6 @@
   <div class="swiper-button-next "></div>
   <div class="swiper-button-prev"></div>
   <div class="swiper-pagination"></div>
+
 
 </div>

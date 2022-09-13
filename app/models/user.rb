@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :languages, through: :user_languages
   has_many :chat_requests
   has_one_attached :photo
+  has_many :events
+  
   # validates :nickname, presence: true
 
   geocoded_by :location
@@ -24,4 +26,6 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
   end
+
+
 end
