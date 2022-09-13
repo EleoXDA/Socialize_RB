@@ -33,18 +33,28 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    @languages = @user.languages.build
   end
 
   def update
     @user = current_user
-    @user.update(sign_up_params)
-    redirect_to users_path
+    language_id = params[:user][:languages][:id]
+    @languages = @user.user_languages.build(language_id: language_id)
+
+    # @user.update(sign_up_params["location"], sign_up_params["linkedin_url"])
+    # language = languages.find(sign_up_params["user_languages"])
+    # @user.user_languages = language
+    if @user.update(sign_up_params)
+      redirect_to users_path, status: :see_other
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
 
   def sign_up_params
-    params.require(:user).permit(:location)
+    params.require(:user).permit(:location, :linkedin_url)
   end
 
   def user_params
