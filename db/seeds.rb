@@ -24,13 +24,14 @@ locations = ["Kathmandu", "Frankfurt", "Paris", "Bristol", "Caleta Tortel", "Win
 languages = ['Java', 'Kotlin', 'Ruby', 'Javascript', 'Swift', 'Dart', 'CSS',
              'HTML', 'Bash', 'XML', 'C++', 'Rust', 'Pascal', 'Fortran', 'PHP',
              'Perl']
-nicknames = ["Bob", "Sally", "Ben", "Elbay", "Elena", "Nirajan", "Frank", "Susie", "Roy", "Lucy",
-             "John", "Oliver", "Stein", "Ferro", "Nero", "Chen", "Thomas", "Eleo", "Vitas",
-             "Bach", "Jonny", "Silber", "Mark", "Michael", "Jack", "Johnny", "Fierro", "Ale",
-             "Heidi", "Honda", "Silva", "McGregor", "Brail", "Federer", "Sinatra", "Sinn",
-             "Oprah", "Hewlett", "Packard", "Sonny", "Plank", "J-Sus", "Moustafa", "Zeit",
-             "Epson", "Octavius", "Sarad", "Blaine", "Rory", "Goldie", "Oakley", "Rowan", "Layla",
-             "Rain"]
+nicknames = ["Bob", "Sally", "Ben", "Elbay", "Elena", "Nirajan", "Frank"]
+  #"Susie", "Roy", "Lucy",
+            #  "John", "Oliver", "Stein", "Ferro", "Nero", "Chen", "Thomas", "Eleo", "Vitas",
+            #  "Bach", "Jonny", "Silber", "Mark", "Michael", "Jack", "Johnny", "Fierro", "Ale",
+            #  "Heidi", "Honda", "Silva", "McGregor", "Brail", "Federer", "Sinatra", "Sinn",
+            #  "Oprah", "Hewlett", "Packard", "Sonny", "Plank", "J-Sus", "Moustafa", "Zeit",
+            #  "Epson", "Octavius", "Sarad", "Blaine", "Rory", "Goldie", "Oakley", "Rowan", "Layla",
+            #  "Rain"]
 images = ["https://gravatar.com/avatar/38e6bc27f9d54cca67426924eb366a51?s=200&d=robohash&r=x",
           "https://gravatar.com/avatar/649d7427af905218ac3e3fc2c2e6c2d4?s=200&d=robohash&r=x",
           "https://gravatar.com/avatar/f00a238b97348910aeb3a18ac7920301?s=200&d=robohash&r=x",
@@ -63,7 +64,7 @@ for i in 0...nicknames.size do
   user_language.save!
 end
 
-puts "Creating chat requests and chat rooms..."
+# puts "Creating chat requests and chat rooms..."
 
 USER = User.all
 
@@ -73,16 +74,16 @@ receiver = USER.each_slice(size_of_slice).to_a[1]
 p asker.size
 p receiver.size
 
-for i in 0...size_of_slice do
-  puts "Generating chat request ##{i}"
+# for i in 0...size_of_slice do
+  # puts "Generating chat request ##{i}"
 
-  chat_request = ChatRequest.new(asker: asker[i], receiver: receiver[i], status: 1)
-  chat_request.save!
+  # chat_request = ChatRequest.new(asker: asker[i], receiver: receiver[i], status: 1)
+  # chat_request.save!
 
-  puts "Generating chat room ##{i}"
-  chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
-  chat_room.save!
-end
+  # puts "Generating chat room ##{i}"
+  # chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
+  # chat_room.save!
+# end
 
 # Copy
 # chat_room = ChatRoom.new(name: "general", chat_request: chat_request)

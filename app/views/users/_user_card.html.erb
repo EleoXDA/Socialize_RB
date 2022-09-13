@@ -14,18 +14,29 @@
     </div>
     <div class="align-items-end">
       <div class="container">
-        <% chat_request = @chat_requests.find{ |chat| chat.asker == user || chat.receiver == user } %>
-          <% if chat_request.nil? %>
+        <%# Find chat requests between current_user and the user in a given card %>
+          <% chat_requests_exists = chat_requests&.find{ |chat| chat.asker == user || chat.receiver == user } %>
+          <% chat_request_pending = pending_chat_requests&.find{ |chat| chat.asker == user || chat.receiver == user } %>
+          <% chat_request_confirmed = confirmed_chat_requests&.find{ |chat| chat.asker == user || chat.receiver == user } %>
+          <% chat_request_pinned = pinned_chat_requests&.find{ |chat| chat.asker == user || chat.receiver == user } %>
+
+          <% if chat_requests_exists.nil? %>
             <button class="button draw-border mr-2">
               <%= link_to "+", new_chat_request_path(receiver: user), data: { "turbo-method": :post }, style:"color:white; text-decoration:none; font-weight: bold"%>
             </button>
-          <% elsif chat_request.pending? %>
-            <h1>...</h1>
-          <% elsif chat_request.confirmed? %>
+          <% elsif chat_request_pending %>
+            <button class="button draw-border mr-2">
+              <%= link_to "...", chat_requests_path, style:"color:white; text-decoration:none; font-weight: bold"%>
+            </button>
+          <% elsif chat_request_confirmed %>
             <button class="button draw-border rounded-5 rounded-circle">
-              <%= link_to pin_user_path(chat_request), data: { "turbo-method": :patch } do %>
+              <%= link_to pin_user_path(chat_requests_with_user), data: { "turbo-method": :patch } do %>
                 <i class="fa-solid fa-thumbtack"></i>
               <% end %>
+            </button>
+          <% elsif chat_request_pinned %>
+            <button class="button draw-border mr-2">
+              <h1>...</h1>
             </button>
           <% end %>
       </div>
