@@ -16,6 +16,18 @@
     <% end %>
   </ul>
 </div>
+<div class="dropdown container justify-content-end">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Filter the cities
+  </button>
+  <ul class="dropdown-menu">
+    <% User.all.each do |user| %>
+      <%# <% user.location.each do |location| %>
+      <li><%= link_to user.location, users_path(location: user.location), class:"dropdown-item" %></li>
+      <% end %>
+    <%# <% end %>
+  </ul>
+</div>
 <h1 class="text-center mt-5 mb-0">Developers near you</h1>
   <div class="container swiper mySwiper">
     <div class="swiper-wrapper">
