@@ -1,22 +1,26 @@
 
-<%# New card %>
-<li class="event-card container" aria-labelledby="event card">
-  <% @events.each do |event| %>
-    <div class="card-filter">
-        <img class="card__photo" src="#">
-    </div>
-    <div class="event-card-container">
-      <h2><%= event.title %></h2>
-      <time><%= event.time %></time>
-      <p><%= link_to event.location, "https://www.google.com/maps/search/#{event.location}" %></p>
-      <div class="card-buttons d-flex">
-        <div class="events-card-details-buttons">
-          <%= link_to "Details", event_path(event), class:"card-fill"  %>
+
+  <div class="container swiper mySwiper">
+    <div class="swiper-wrapper">
+      <% @events.each do |event| %>
+        <div class="card swiper-slide">
+          <div class="event-card">
+            <h2><%= event.title %></h2>
+            <time><%= event.time %></time>
+            <p><%= link_to event.location, "https://www.google.com/maps/search/#{event.location}" %></p>
+            <div class="card-buttons d-flex">
+              <div class="events-card-details-buttons">
+                <%= link_to "Details", event_path(event), class:"button"  %>
+              </div>
+              <div class="events-card-tickets-button">
+                <%= link_to "Tickets", "#", class:"button" %><i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="events-card-tickets-button">
-          <%= link_to "Tickets", "#" %><i class="fas fa-arrow-right"></i>
-        </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
-</li>
+    <div class="swiper-button-next "></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+</div>
