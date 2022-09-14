@@ -1,12 +1,12 @@
 <div class="signup border-0">
   <div class="row blank-row">
   </div>
-  <div class="row sign-in-container">
-    <div class="col-3 sign-in-page">
+  <div class="row sign-in-container" data-controller="sign_in">
+    <div class="col-3 sign-in-page" data-action="click->sign_in#disable">
       <%= image_tag "github.png" %>
       <div class="sign-in-box">
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
-          <div class="form-inputs">
+          <div class="form-inputs form-contents">
             <%= f.hidden_field :email,
                         required: false,
                         autofocus: true,
@@ -23,8 +23,10 @@
               <%#= f.button :submit, "Log in", class:"btn btn-success active rounded-5 mb-3" %>
               <%#= button_to "Sign in with GitHub", user_github_omniauth_authorize_path, method: :post %>
         <% end %>
-
+              <div class="buttonsss">
               <%= render "devise/shared/links" %>
+              </div>
+              <%= link_to "Create a GitHub account", "https://github.com/signup", id: "github-create-button", class: "button draw-border mr-2 sign-in-button" %>
             </div>
           </div>
       </div>
