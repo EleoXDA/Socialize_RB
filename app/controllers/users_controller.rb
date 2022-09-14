@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-    if params[:location].present?
+    if params[:location].present? && params[:query].present?
+      @users = @users.where(location: params[:location]).where("nickname ILIKE ?", "%#{params[:query]}%")
+    elsif params[:location].present?
       @users = @users.where(location: params[:location])
+    elsif params[:query].present?
+      @users = User.where("nickname ILIKE ?", "%#{params[:query]}%")
     end
     @users = @users.joins(:languages).where(languages: {name: params[:language] }) if params[:language]
 
@@ -49,9 +53,6 @@ class UsersController < ApplicationController
     language_id = params[:user][:languages][:id]
     @languages = @user.user_languages.build(language_id: language_id)
 
-    # @user.update(sign_up_params["location"], sign_up_params["linkedin_url"])
-    # language = languages.find(sign_up_params["user_languages"])
-    # @user.user_languages = language
     if @user.update(sign_up_params)
       redirect_to users_path, status: :see_other
     else
