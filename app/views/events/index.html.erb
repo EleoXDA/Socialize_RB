@@ -1,30 +1,31 @@
+<div class="container">
 
+  <h1 class= "text-center">Events around you !</h1>
+  <p class="text-center"><%= link_to "Add your event", new_event_path, class:"add-event-button"%></p>
+</div>
 
-    <h1 class="text-center">Events around you !</h1>
-
-  <div class="container d-flex">
-    <div class="swiper-button-prev"></div>
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <% @events.each do |event| %>
-          <div class="event-cards swiper-slide">
-            <div class="event-card">
-              <h2><%= event.title %></h2>
-              <time><%= event.time %></time>
-              <p><i class="fa-solid fa-map-pin mx-2"></i><%= link_to event.location, "https://www.google.com/maps/search/#{event.location}" %></p>
-              <div class="card-buttons d-flex justify-content-center">
-                <div class="events-card-details-buttons">
-                  <%= link_to "Details", event_path(event), class: "event-button"  %>
-                  <%= link_to "Tickets", "#",class: "event-button" %>
-                </div>
+<div class="container d-flex">
+  <div class="swiper-button-prev"></div>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <% @events.each do |event| %>
+        <div class="event-cards swiper-slide">
+          <div class="event-card">
+            <h2><%= event.title %></h2>
+            <time><%= event.time %></time>
+            <p><i class="fa-solid fa-map-pin mx-2"></i><%= link_to event.location, "https://www.google.com/maps/search/#{event.location}" %></p>
+            <div class="card-buttons d-flex justify-content-center">
+              <div class="events-card-details-buttons">
+                <%= link_to "Details", event_path(event), class: "event-button"  %>
+                <%= link_to "Tickets", "#",class: "event-button" %>
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
-      <div class="swiper-pagination"></div>
-
+        </div>
+      <% end %>
     </div>
-      <div class="swiper-button-next "></div>
-    
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="swiper-button-next "></div>
+
 </div>
