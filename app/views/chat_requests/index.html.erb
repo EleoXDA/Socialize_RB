@@ -16,7 +16,7 @@
     <ul class="liststyle">
       <% @chat_requests_hash[:confirmed].each do |request| %>
         <% if current_user == request.receiver %>
-          <li><div class="card-request " style="width: 18rem;" ><%= request.asker.nickname %>
+          <li><div class="card-request-confirmed " style="width: 18rem;" ><%= request.asker.nickname %>
             <picture id="user-request">
               <% if request.asker.image.nil? %>
                 <%= image_tag "userphoto_square.jpg", :class => "img-request" %>
@@ -24,10 +24,10 @@
                 <%= image_tag request.asker.image, :class => "img-request" %>
               <% end %>
             </picture>
-            <div class="container">
-              <div class="icon-container">
+            <div class="container-request">
+              <div class="icon-github-confirmed">
                 <ul class="social-icons" style="padding-left: 0px !important">
-                  <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-github"></i></a></li>
+                  <li><a class="card-icon-container" href="<%= request.asker.html_url%>"><i class="social-icon fa-brands fa-github"></i></a></li>
                 </ul>
                 </div>
               </div>
@@ -35,7 +35,7 @@
           </li>
         <% else %>
           <li>
-            <div class="card-request" style="width: 18rem;" ><%= request.receiver.nickname %>
+            <div class="card-request-confirmed" style="width: 18rem;" ><%= request.receiver.nickname %>
             <picture id="user-request">
                 <% if request.receiver.image.nil? %>
                   <%= image_tag "userphoto_square.jpg", :class => "img-request" %>
@@ -43,10 +43,10 @@
                   <%= image_tag request.receiver.image, :class => "img-request" %>
                 <% end %>
               </picture>
-              <div class="container">
-                  <div class="icon-container">
+              <div class="container-request">
+                  <div class="icon-github-confirmed">
                     <ul class="social-icons" style="padding-left: 0px !important">
-                      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-github"></i></a></li>
+                      <li><a class="card-icon-container" href=<%=request.receiver.html_url%>><i class="social-icon fa-brands fa-github"></i></a></li>
                     </ul>
                   </div>
               </div>
@@ -61,7 +61,7 @@
       <% @chat_requests_hash[:rejected].each do |request| %>
         <% if current_user == request.receiver %>
           <li>
-            <div class="card-request" style="width: 18rem;" ><p><%= request.asker.nickname %></p>
+            <div class="card-request-rejected" style="width: 18rem;" ><p><%= request.asker.nickname %></p>
               <picture id="user-request">
                 <% if request.asker.image.nil? %>
                   <%= image_tag "userphoto_square.jpg",:class => "img-request" %>
@@ -69,10 +69,10 @@
                   <%= image_tag request.asker.image,:class => "img-request" %>
                 <% end %>
               </picture>
-                <div class="container">
-                  <div class="icon-container">
+                <div class="container-request">
+                  <div class="icon-github-rejected">
                     <ul class="social-icons" style="padding-left: 0px !important">
-                      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-github"></i></a></li>
+                      <li><a class="card-icon-container" href=<%=request.asker.html_url%>><i class="social-icon fa-brands fa-github"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -80,7 +80,7 @@
           </li>
         <% else %>
           <li>
-            <div class="card-request"  style="width: 18rem;" ><%= request.receiver.nickname %>
+            <div class="card-request-rejected"  style="width: 18rem;" ><%= request.receiver.nickname %>
               <picture id="user-request">
                 <% if request.receiver.image.nil? %>
                   <%= image_tag "userphoto_square.jpg",:class => "img-request" %>
@@ -88,10 +88,10 @@
                   <%= image_tag request.receiver.image,:class => "img-request" %>
                 <% end %>
               </picture>
-                <div class="container">
-                    <div class="icon-container">
+                <div class="container-request">
+                    <div class="icon-github-rejected">
                       <ul class="social-icons" style="padding-left: 0px !important">
-                        <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-github"></i></a></li>
+                        <li><a class="card-icon-container" href=<%=request.receiver.html_url%>><i class="social-icon fa-brands fa-github"></i></a></li>
                       </ul>
                     </div>
                   </div>
@@ -106,7 +106,7 @@
       <% @chat_requests_hash[:pending].each do |request| %>
         <% if current_user == request.asker %>
             <li>
-              <div class="card-request" style="width: 18rem;" ><p><%= request.receiver.nickname %></p>
+              <div class="card-request-pending" style="width: 18rem;" ><p><%= request.receiver.nickname %></p>
                 <picture id="user-request">
                   <% if request.receiver.image.nil? %>
                     <%= image_tag "userphoto_square.jpg", :class => "img-request" %>
@@ -118,7 +118,7 @@
                 <div class="container-request">
                   <div class="icon-github">
                     <ul class="social-icons" style="padding-left: 0px !important">
-                      <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-github"></i></a></li>
+                      <li><a class="card-icon-container" href="<%= request.receiver.html_url%>"><i class="social-icon fa-brands fa-github"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -126,7 +126,7 @@
             </li>
           <% else %>
          <li>
-          <div class="card-request" style="width: 18rem;" ><p><%= request.asker.nickname%></p>
+          <div class="card-request-pending" style="width: 18rem;" ><p><%= request.asker.nickname%></p>
               <picture id="user-request">
                 <% if request.asker.image.nil? %>
                   <%= image_tag "userphoto_square.jpg", :class => "img-request" %>
@@ -138,7 +138,7 @@
             <div class="container-request">
               <div class="icon-github">
                 <ul class="social-icons" style="padding-left: 0px !important">
-                  <li><a class="card-icon-container" href="#"><i class="social-icon fa-brands fa-github"></i></a></li>
+                  <li><a class="card-icon-container" href=<%= request.asker.html_url %>><i class="social-icon fa-brands fa-github"></i></a></li>
                 </ul>
               </div>
             </div>

@@ -9,13 +9,15 @@ require 'faker'
 # puts "Deleting previous seeds..."
 UserLanguage.destroy_all
 Language.destroy_all
-puts "Language destroyed!"
+puts "Language destroyed!!!💋"
 ChatRoom.destroy_all
-puts "Chatroom destroyed!"
+puts "Chatroom destroyed!🍞"
 ChatRequest.destroy_all
 User.destroy_all
+puts "Users destroyed!🤼"
 
-puts "Users destroyed!"
+Event.destroy_all
+puts "Events destroyed!!!!!!!🌆"
 
 locations = ["Kathmandu", "Frankfurt", "Paris", "Bristol", "Caleta Tortel", "Windhoek", "Kyiv", "Madrid", "Mumbai",
              "San Francisco", "Nairobi", "Melbourne", "Rio de Janeiro", "Jakarta", "Invercargill","Norilsk"]
@@ -34,14 +36,14 @@ images = ["https://gravatar.com/avatar/38e6bc27f9d54cca67426924eb366a51?s=200&d=
           "https://gravatar.com/avatar/dc0d182da3d2c3ee00549396b264e60b?s=200&d=robohash&r=x",
           "https://gravatar.com/avatar/18b00cafdca2767b9afb62b368110b7a?s=200&d=robohash&r=x"]
 
-puts "Creating languages..."
+puts "Creating languages... 😘"
 
 languages.each do |language|
   language = Language.new(name: language)
   language.save!
 end
 
-puts "Creating users..."
+puts "Creating users...🙈🙌👍👍"
 
 for i in 0...nicknames.size do
   user = User.new(nickname: nicknames[i],
@@ -81,18 +83,23 @@ p receiver.size
 # chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
 #   chat_room.save!
 
-puts "Creating events"
+puts "Creating events🎉🌹"
+
+event_addresses = ["GPO: 4401, Thamel, Kathmandu", "Wildparkstraße 8, 14548 Frankfurt am Main, Germany", "42 Place Stanislas, Nantes, France", "Bygmestervej 25,  København V, Denmark", "Lian Hua Chi Xi Lu 28hao Yi Ceng Guo Jia Ce Hui Ju Shou Li Xu Ke Da Ting, City Area - Haidian District, Beijing", "Lot 4707 Jln Seria, Belait, Belait, Kuala, Brunei", "Chong Kaosou Village, Sangkat Slor Kram, Siem Reap City,  Cambodia", "Jirón Santiago Norero N° 200, El Tambo, Junin, Peru"]
+
+event_titles = ["Dev barbecue", "Swimming", "Java dev gathering", "Attempt to talk to women", "Fortnite game session", "Dev concert", "Nirajan TedTalk", "Bungee jumping", "Need to start a movement", "Exercise"]
 
 10.times do
   events = Event.new(
-    title: Faker::Cannabis.cannabinoid_abbreviation,
+    title: event_titles.sample,
     theme: Faker::TvShows::BreakingBad.character,
     price: rand(100..500),
     description: Faker::TvShows::FamilyGuy.quote,
-    date: Faker::Date.between(from: '2015-09-23', to: '2029-09-25'),
+    date: Faker::Date.between(from: '2022-09-23', to: '2023-09-25'),
     time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-    location: Faker::Games::SuperMario.location
+    location: event_addresses.sample
   )
 
   events.save!
 end
+puts "Finished 🤦‍♀️"
