@@ -12,6 +12,14 @@
   color:#555B6E;
 }
 
+.adlink {
+  color: #8d7197 !important;
+  text-decoration: none !important;
+  text-shadow: 2px #555B6E;
+}
+
+.adlink:hover {
+  color:#555B6E !important;
 
 .event-cards {
   background-color: #555B6E;
@@ -44,9 +52,5 @@
   text-decoration: none;
   outline: 2px dotted #ffffff;
   color: rgb(64, 49, 15);
-}
 
-.event-card {
-  height: 170px;
-  border-radius: 15px;
 }
