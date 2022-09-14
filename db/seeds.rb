@@ -112,7 +112,7 @@ chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
 
 puts "Creating events🎉🌹"
 
-event_addresses = ["GPO: 4401, Thamel, Kathmandu", "Wildparkstraße 8, 14548 Frankfurt am Main, Germany", "42 Place Stanislas, Nantes, France", "Bygmestervej 25,  København V, Denmark", "Lian Hua Chi Xi Lu 28hao Yi Ceng Guo Jia Ce Hui Ju Shou Li Xu Ke Da Ting, City Area - Haidian District, Beijing", "Lot 4707 Jln Seria, Belait, Belait, Kuala, Brunei", "Chong Kaosou Village, Sangkat Slor Kram, Siem Reap City,  Cambodia", "Jirón Santiago Norero N° 200, El Tambo, Junin, Peru"]
+event_addresses = ["GPO: 4401, Thamel, Kathmandu", "Wildparkstraße 8,Frankfurt , Germany", "42 Place Stanislas, Nantes", "Bygmestervej 25, Denmark", "City Area - Haidian District, Beijing", "Lot 4707 Jln Seria, Belait, Kuala, Brunei", "Chong Kaosou Village,  Cambodia", "Jirón Santiago, Junin, Peru"]
 
 event_titles = ["Dev barbecue", "Swimming", "Java dev gathering", "Fortnite game session", "Dev concert", "Nirajan TedTalk", "Bungee jumping", "Need to start a movement", "Exercise"]
 

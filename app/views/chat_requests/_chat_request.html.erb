@@ -17,6 +17,7 @@
       <%= link_to chat_request_path(chat_request, status: 1), data: {'turbo-method': :patch}, class: "button draw-border mr-2" do %>
         <i class="fa-solid fa-user-plus" id= "fontcolor"></i>
       <% end %>
+
       <%= link_to chat_request_path(chat_request, status: -1), data: {'turbo-method': :patch}, class: "button draw-border mr-2" do %>
         <i class="fa-solid fa-trash" id= "fontcolor"></i>
       <% end  %>

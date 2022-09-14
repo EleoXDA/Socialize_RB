@@ -6,6 +6,7 @@
     <div class="user-details">
       <h1><%= @user.nickname %></h1>
       <% if !@user.html_url.nil? %>
+
         <h3>Find me on GitHub here<%= link_to "👇", @user.html_url, class: "profile-github-button button draw-border mr-2" %></h3>
       <% end %>
       <% if !@user.linkedin_url.nil? && @user.linkedin_url != "" %>
