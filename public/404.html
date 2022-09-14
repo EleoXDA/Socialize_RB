@@ -4,64 +4,205 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: 'Ubuntu', sans-serif;
+  * {
     margin: 0;
+    padding: 0;
   }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+  html {
+      height: 100%;
+      overflow: hidden;
   }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  canvas {
+      z-index: 1;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
   }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+  .caps {
+      z-index: 2;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      animation: as 8s linear infinite;
   }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  .caps img {
+      display: block;
+      width: 100%;
+      height: 100%;
+  }
+
+  @keyframes as {
+      0% {
+          opacity: 0;
+      }
+      10% {
+          opacity: .3;
+      }
+      20% {
+          opacity: .1;
+      }
+      30% {
+          opacity: .5;
+      }
+      40% {
+          opacity: 0;
+      }
+      50% {
+          opacity: .8;
+      }
+      55% {
+          opacity: 0;
+      }
+      55% {
+          opacity: 0;
+      }
+  }
+
+  .frame {
+      z-index: 3;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: -moz-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 19%, rgba(0, 0, 0, 0.9) 100%); /* FF3.6+ */
+      background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(19%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.9))); /* Chrome,Safari4+ */
+      background: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 19%, rgba(0, 0, 0, 0.9) 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 19%, rgba(0, 0, 0, 0.9) 100%); /* Opera 12+ */
+      background: -ms-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 19%, rgba(0, 0, 0, 0.9) 100%); /* IE10+ */
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 19%, rgba(0, 0, 0, 0.9) 100%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#00000000', endColorstr = '#e6000000', GradientType = 1); /* IE6-9 fallback on horizontal gradient */
+
+  }
+
+  .frame div {
+      position: absolute;
+      left: 0;
+      top: -20%;
+      width: 100%;
+      height: 20%;
+      background-color: rgba(0, 0, 0, .12);
+      box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+      animation: asd 12s linear infinite;
+  }
+
+  .frame div:nth-child(1) {
+      animation-delay: 0;
+  }
+
+  .frame div:nth-child(2) {
+      animation-delay: 4s;
+  }
+
+  .frame div:nth-child(3) {
+      animation-delay: 8s;
+  }
+
+  @keyframes asd {
+      0% {
+          top: -20%;
+      }
+      100% {
+          top: 100%;
+      }
+  }
+
+  h1 {
+      z-index: 3;
+      position: absolute;
+      font: bold 200px/200px Arial, sans-serif;
+      left: 50%;
+      top: 50%;
+      margin-top: -100px;
+      width: 100%;
+      margin-left: -50%;
+      height: 200px;
+      text-align: center;
+      color: transparent;
+      text-shadow: 0 0 30px rgba(0, 0, 0, .5);
+      animation: asdd 2s linear infinite;
+  }
+
+  @keyframes asdd {
+      0% {
+          text-shadow: 0 0 30px rgba(0, 0, 0, .5);
+      }
+      33% {
+          text-shadow: 0 0 10px rgba(0, 0, 0, .4);
+      }
+      66% {
+          text-shadow: 0 0 20px rgba(0, 0, 0, .2);
+      }
+      100% {
+          text-shadow: 0 0 40px rgba(0, 0, 0, .8);
+      }
   }
   </style>
 </head>
 
-<body class="rails-default-error-page">
+<body>
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <h1>404</h1>
+
+  <div class="frame">
+      <div></div>
+      <div></div>
+      <div></div>
   </div>
+  <div class="caps"><img src="http://ademilter.com/caps.png" alt=""></div>
+  <canvas id="canvas"></canvas>
 </body>
+
+<script>
+// js source https://codepen.io/moklick/pen/zKleC
+
+  var Application = ( function () {
+          var canvas;
+          var ctx;
+          var imgData;
+          var pix;
+          var WIDTH;
+          var HEIGHT;
+          var flickerInterval;
+
+          var init = function () {
+              canvas = document.getElementById('canvas');
+              ctx = canvas.getContext('2d');
+              canvas.width = WIDTH = 700;
+              canvas.height = HEIGHT = 500;
+              ctx.fillStyle = 'white';
+              ctx.fillRect(0, 0, WIDTH, HEIGHT);
+              ctx.fill();
+              imgData = ctx.getImageData(0, 0, WIDTH, HEIGHT);
+              pix = imgData.data;
+              flickerInterval = setInterval(flickering, 30);
+          };
+
+          var flickering = function () {
+              for (var i = 0; i < pix.length; i += 4) {
+                  var color = (Math.random() * 255) + 50;
+                  pix[i] = color;
+                  pix[i + 1] = color;
+                  pix[i + 2] = color;
+              }
+              ctx.putImageData(imgData, 0, 0);
+          };
+
+          return {
+              init: init
+          };
+      }());
+
+      Application.init();
+
+</script>
 </html>
