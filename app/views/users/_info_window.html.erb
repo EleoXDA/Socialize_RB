@@ -14,10 +14,10 @@
       <div class="d-flex flex-row justify-content-between">
 
         <div class="d-flex flex-column justify-content-center align-items-center">
-          <h5 style="color:red"><%= user.nickname %></h5>
-          <h6 style="color:green"><%= user.location %></h6>
+          <h5 style="color:#555B6E"><%= user.nickname %></h5>
+          <h6 style="color:#8d7197"><%= user.location %></h6>
           <div class="d-flex align-items-center">
-            <%= link_to "GitHub", user.html_url, class:"btn btn-success rounded-5 btn-sm"%>
+            <%= link_to "GitHub", user.html_url, class:"btn rounded-5 btn-sm", style:"background-color:#8d7197; color:white" %>
           </div>
         </div>
         </div>
