@@ -3,7 +3,7 @@
 
   <% if current_user == chat_request.asker %>
     <% if chat_request.pending? == true %>
-      <%= link_to chat_request_path(chat_request, status: 0), class: "button draw-border mr-2" do %>
+      <%= link_to "#", class: "button draw-border mr-2", disabled: true do %>
         <i class="fa-regular fa-hourglass-half" id= "fontcolor" ></i>
       <% end%>
     <% end%>

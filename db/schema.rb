@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_09_13_104557) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,9 +47,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_104557) do
     t.datetime "updated_at", null: false
     t.bigint "asker_id"
     t.bigint "receiver_id"
+    t.integer "status", default: 0, null: false
     t.boolean "asker_is_pinned", default: false
     t.boolean "receiver_is_pinned", default: false
-    t.integer "status", default: 0, null: false
     t.index ["asker_id"], name: "index_chat_requests_on_asker_id"
     t.index ["receiver_id"], name: "index_chat_requests_on_receiver_id"
   end
@@ -60,7 +59,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_104557) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.boolean "is_private", default: false
     t.index ["chat_request_id"], name: "index_chat_rooms_on_chat_request_id"
   end
 
