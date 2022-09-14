@@ -18,6 +18,16 @@
   color: rgb(62,79,131);
   transform: scale(1.1);
 }
+.fontcolor{
+  color: rgb(20, 19, 19);
+  transform: scale(1.1);
+  font-family: 'Roboto Slab', serif;
+
+}
+.fontcolor:hover{
+  color: rgb(62,79,131);
+  transform: scale(1.1);
+}
 .card-request-pending{
   background-color: #555B6E;
   border-radius: 15px;
@@ -62,7 +72,7 @@
 }
   .icon-github-rejected{
   position: relative;
-  bottom: -11px;
+  bottom: -26px;
   left: 0px;
 }
 .img-request {
