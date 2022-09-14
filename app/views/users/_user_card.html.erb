@@ -3,7 +3,9 @@
     <div class="align-items-baseline">
       <figure>
         <picture class="user-card-image">
-          <% if user.image.nil? %>
+          <% if user.photo.key %>
+            <%= cl_image_tag user.photo.key %>
+          <% elsif user.image.nil? %>
             <%= image_tag "userphoto_square.jpg" %>
           <% else %>
             <%= image_tag "#{user.image}" %>
