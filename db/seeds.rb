@@ -68,20 +68,20 @@ receiver = USER.each_slice(size_of_slice).to_a[1]
 p asker.size
 p receiver.size
 
-# for i in 0...size_of_slice do
-  # puts "Generating chat request ##{i}"
+for i in 0...size_of_slice do
+  puts "Generating chat request ##{i}"
 
-  # chat_request = ChatRequest.new(asker: asker[i], receiver: receiver[i], status: 1)
-  # chat_request.save!
+  chat_request = ChatRequest.new(asker: asker[i], receiver: receiver[i], status: 1)
+  chat_request.save!
 
-  # puts "Generating chat room ##{i}"
-  # chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
-  # chat_room.save!
-# end
+  puts "Generating chat room ##{i}"
+  chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
+  chat_room.save!
+end
 
-# Copy
-# chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
-#   chat_room.save!
+Copy
+chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
+  chat_room.save!
 
 puts "Creating events🎉🌹"
 

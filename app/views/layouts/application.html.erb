@@ -29,10 +29,22 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <style>
-      <%= "#message-<%=current_user.message.id" %> {
-        background-color: #007bff !important
-        padding: 10px;
+
+
+      <%= ".msg-#{current_user&.id}" %> {
+          background-color: #007bff !important;
+          padding: 10px;
+          border-radius: 15px;
+          margin-right: 0 !important;
+          margin-left: 80% !important;
+
       }
+        .receiver {
+          border-radius: 15px;
+          background-color: gray;
+          padding: 10px;
+
+        }
     </style>
   </head>
   <body>
