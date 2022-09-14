@@ -40,6 +40,7 @@
   margin-top: 15px;
   height: 10rem;
 }
+
 .card-request-confirmed{
   background-color: #555B6E;
   border-radius: 15px;
@@ -70,11 +71,17 @@
   margin-top: 15px;
   height: 10rem;
 }
-  .icon-github-rejected{
+  .icon-github-rejected-receiver{
   position: relative;
-  bottom: -26px;
+  bottom: -15px;
   left: 0px;
 }
+.icon-github-rejected-asker{
+  position: relative;
+  bottom: -30px;
+  left: 0px;
+}
+
 .img-request {
 width: 50px;
 height: 50px;
@@ -95,7 +102,12 @@ p{
   padding-bottom: 20px;
   position: absolute;
 }
-.icon-github{
+.icon-github-receiver{
+  position: relative;
+  bottom: 84px;
+  left: 5px;
+}
+.icon-github-asker{
   position: relative;
   bottom: 84px;
   left: 0px;
