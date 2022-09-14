@@ -8,9 +8,9 @@
     <%= f.input :price %>
     <%= f.input :description %>
     <%= f.input :date %>
-    <%= f.input :time %>
-    <%= f.submit  %>
+    <%= f.input :time, style:"style:border-radius:15px;" %>
+    <%= f.submit "Create", class: "btn btn-landing ms-1 mb-3", style:"color:white, style:border-radius:15px; height:50px; padding:5px; font-size:20px" %>
   <% end %>
 
-  <%= link_to "Back to your events", events_path %>
+  <%= link_to "Back to your events", events_path , class: "btn btn-landing ms-1 mb-3", style:"color:white, style:border-radius:15px; height:45px; padding-bottom:0px; font-size:18px" %>
 </div>
