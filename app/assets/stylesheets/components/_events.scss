@@ -10,10 +10,13 @@
   border-width: 3px;
   border-style: dashed;
   color:#555B6E;
-  &-a {
-    color: #000000;
-    &-hover{
-      color:#555B6E;
-    }
-  }
+}
+a {
+  color: #8d7197 !important;
+  text-decoration: none !important;
+  text-shadow: 2px #555B6E;
+}
+
+a:hover{
+  color:#555B6E !important;
 }
