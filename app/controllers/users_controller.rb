@@ -30,12 +30,6 @@ class UsersController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { user: user })
       }
     end
-
-    if params[:query].present?
-      @users = User.where("nickname ILIKE ?", "%#{params[:query]}%")
-    else
-      @users = User.all
-    end
   end
 
   def show
