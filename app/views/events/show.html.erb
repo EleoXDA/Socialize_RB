@@ -1,11 +1,12 @@
 
-<div class="container text-center">
-  <div class="details">
-    <h1>Details for <%= @event.title %> event</h1>
+<div class=" text-center container">
+  <div class="event-details">
+
+    <h1> <%= @event.title %></h1>
     <h6><%= @event.description %></h6>
-    <p><%= @event.price %></p>
+    <p><i class="fa-solid fa-euro-sign"></i><%= @event.price %></p>
     <p>It will be held in <%= @event.location %> on <%= @event.date %> at <%= @event.time %></p>
-    <p>The theme will be <%= @event.theme %></p>
+    <p>The theme will be <%= link_to @event.theme %></p>
   </div>
   <%= link_to "Back to all events", events_path, class: "btn btn-primary" %>
 </div>
