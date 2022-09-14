@@ -7,8 +7,8 @@
     <%= f.input :theme %>
     <%= f.input :price %>
     <%= f.input :description %>
-    <%= f.input :date %>
-    <%= f.input :time, style:"style:border-radius:15px;" %>
+    <%= f.input :date, input_html: { class: "datepicker" } %>
+    <%# <%= f.input :time, style:"style:border-radius:15px;" %>
     <%= f.submit "Create", class: "btn btn-landing ms-1 mb-3", style:"color:white, style:border-radius:15px; height:50px; padding:5px; font-size:20px" %>
   <% end %>
 

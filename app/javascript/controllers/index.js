@@ -18,3 +18,7 @@ application.register("map", MapController)
 
 import SidebarController from "./sidebar_controller"
 application.register("sidebar", SidebarController)
+
+import Flatpickr from "flatpickr"
+// import "flatpickr/dist/flatpickr.css"
+application.register("flatpickr", Flatpickr)
