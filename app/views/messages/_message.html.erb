@@ -1,4 +1,4 @@
-<div id="message-<%= message.id %>" class="message-item <%= current_user == message.user ? "sender" : "receiver" %>" >
+<div id="message-<%= message.id %>" class="message-item receiver msg-<%= message.user.id %>" >
   <small>
   <div class="image-chat d-flex mx-2">
     <% if message.user.image.nil? %>
@@ -7,9 +7,9 @@
       <%= image_tag message.user.image %>
     <% end %>
     <div>
-      <p class="my-0 mx-0"><b><%= message.user.nickname %></b></p>
+      <p class="my-0 mx-2"><b><%= message.user.nickname %></b></p>
         <small>
-          <i ><%= message.created_at.strftime(" %l:%M %p") %></i>
+          <i class="mx-2"><%= message.created_at.strftime(" %l:%M %p") %></i>
         </small>
     </div>
 

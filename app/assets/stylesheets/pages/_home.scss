@@ -114,7 +114,7 @@ header .logo{
 
 .btn-landing{
   background-color: #8d7197;
-  color: #FAF9F9;
+  color: #FAF9F9 !important;
   padding: 8px 14px;
   text-decoration: none;
   border-radius: 15px;
@@ -123,8 +123,8 @@ header .logo{
 }
 
 .btn-landing:hover{
-  background-color: white;
-  color: #8d7197;
+  background-color: #FAF9F9 !important;
+  color: #8d7197 !important;
 }
 
 .socialize {

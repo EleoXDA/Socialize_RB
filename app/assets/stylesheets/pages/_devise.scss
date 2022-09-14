@@ -19,6 +19,8 @@
 
 .sign-in-box {
   display: flex;
+  padding: 60px 40px 20px 40px;
+  width: 25vw;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -28,8 +30,36 @@
 }
 
 .sign-in-button {
-  width: 100%;
-  margin-top: 10vh;
-  margin-bottom: 10vh;
+  // width: 100%;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   color: rgb(255, 255, 255);
+  // width: 100%;
+
+  &:hover {
+    background-color: white;
+    opacity: 0.9;
+    color: black;
+    transition: 0.3s;
+  }
+}
+
+.buttonsss {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#github-create-button {
+  background-color: #787D90;
+  color: white;
+  box-shadow: inset 0 0 0 4px #ffffff0b;
+  text-align: center;
+
+  &:hover {
+    background-color: white;
+    opacity: 0.9;
+    color: black;
+    transition: 0.3s;
+  }
 }

@@ -1,5 +1,5 @@
 meta_product_name: "Socialize!"
 meta_title: "Socialize! - The only Developers-Meetup in Web"
 meta_description: "With Socialize! you can find developers around and arrange a meet-up to talk about your work"
-# meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_image: "cover.png" # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards

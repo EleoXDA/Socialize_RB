@@ -1,6 +1,6 @@
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post, class:"button draw-border mr-2 sign-in-button" %><br />
+    <%= button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post, class:"button draw-border mr-2 sign-in-button"%><br />
   <% end %>
 <% end %>
 
