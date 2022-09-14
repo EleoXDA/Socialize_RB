@@ -1,7 +1,12 @@
+<div class="container">
 
+  <h1 class= "text-center">Events around you !</h1>
+  <p class="text-center"><%= link_to "Add your event", new_event_path, class:"add-event-button"%></p>
+</div>
 
-  <div class="container swiper mySwiper">
-    <h1 class="text-center">Events around you !</h1>
+<div class="container d-flex">
+  <div class="swiper-button-prev"></div>
+  <div class="swiper mySwiper">
     <div class="swiper-wrapper">
       <% @events.each do |event| %>
         <div class="event-cards swiper-slide">
@@ -19,7 +24,8 @@
         </div>
       <% end %>
     </div>
-    <div class="swiper-button-next "></div>
-    <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
+  </div>
+  <div class="swiper-button-next "></div>
+
 </div>
