@@ -5,6 +5,12 @@
     </div>
     <div class="user-details">
       <h1><%= @user.nickname %></h1>
+      <% if !@user.html_url.nil? %>
+        <h3>Find me on GitHub here 🥳 <%= @user.html_url %></h3>
+      <% end %>
+      <% if !@user.linkedin_url.nil? && @user.linkedin_url != "" %>
+        <h3>Find me on LinkedIn here 👉 <%= @user.linkedin_url %></h3>
+      <% end %>
       <%= simple_form_for(@user) do |f| %>
         <%= f.simple_fields_for :languages do |w| %>
           <%= w.label "Main language", id: "language-label" %>
