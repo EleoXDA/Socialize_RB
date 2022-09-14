@@ -107,7 +107,6 @@ for i in 0...size_of_slice do
   chat_room.save!
 end
 
-
 chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
   chat_room.save!
 
