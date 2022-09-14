@@ -31,6 +31,14 @@ class UsersController < ApplicationController
   def show
   end
 
+  def profile
+    @user = current_user
+    @user_languages = current_user.languages.map do |language|
+      language.name
+    end
+    @user_languages = @user_languages.to_sentence
+  end
+
   def edit
     @user = current_user
     @languages = @user.languages.build
