@@ -40,6 +40,7 @@
   margin-top: 15px;
   height: 10rem;
 }
+
 .card-request-confirmed{
   background-color: #555B6E;
   border-radius: 15px;
@@ -95,7 +96,12 @@ p{
   padding-bottom: 20px;
   position: absolute;
 }
-.icon-github{
+.icon-github-receiver{
+  position: relative;
+  bottom: 84px;
+  left: 5px;
+}
+.icon-github-asker{
   position: relative;
   bottom: 84px;
   left: 0px;
