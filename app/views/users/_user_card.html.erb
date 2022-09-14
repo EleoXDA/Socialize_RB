@@ -21,13 +21,13 @@
           <% if chat_requests_exists.nil? %>
             <button class="button draw-border mr-2">
               <%= link_to new_chat_request_path(receiver: user), data: { "turbo-method": :post }, style:"color:white; text-decoration:none; font-weight: bold" do %>
-                <i class="fa-solid fa-user-plus"></i>
+                <i class="fa-solid fa-user-plus" style="color:white !important"></i>
               <% end %>
             </button>
           <% elsif chat_request_pending %>
             <button class="button draw-border mr-2">
               <%= link_to chat_requests_path, style:"color:white; text-decoration:none; font-weight: bold" do %>
-                <i class="fa-regular fa-hourglass-half"></i>
+                <i class="fa-regular fa-hourglass-half" style="color:white !important"></i>
               <% end %>
             </button>
           <% elsif chat_request_pinned %>
