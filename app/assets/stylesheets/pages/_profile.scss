@@ -15,6 +15,12 @@
   padding: 3vh 5vw;
 }
 
+.github_and_linkedin {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 5vw;
+}
+
 .user-image-container {
   width: 100px;
   height: 100px;
@@ -28,6 +34,17 @@
 }
 
 .profile-github-button {
+  color: white;
+
+  &:hover {
+    // background-color: white;
+    opacity: 0.9;
+    color: black;
+    transition: 0.3s;
+  }
+}
+
+.profile-linkedin-button {
   color: white;
 
   &:hover {
