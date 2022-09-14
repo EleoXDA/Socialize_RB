@@ -70,7 +70,7 @@
                 <% end %>
               </picture>
                 <div class="container-request">
-                  <div class="icon-github-rejected">
+                  <div class="icon-github-rejected-receiver">
                     <ul class="social-icons" style="padding-left: 0px !important">
                       <li><a class="card-icon-container" href=<%=request.asker.html_url%>><i class="social-icon fa-brands fa-github"></i></a></li>
                     </ul>
@@ -89,7 +89,7 @@
                 <% end %>
               </picture>
                 <div class="container-request">
-                    <div class="icon-github-rejected">
+                    <div class="icon-github-rejected-asker">
                       <ul class="social-icons" style="padding-left: 0px !important">
                         <li><a class="card-icon-container" href=<%=request.receiver.html_url%>><i class="social-icon fa-brands fa-github"></i></a></li>
                       </ul>
@@ -116,7 +116,7 @@
                 </picture>
                 <%= render partial: "chat_request", locals: { chat_request: request} %>
                 <div class="container-request">
-                  <div class="icon-github">
+                  <div class="icon-github-asker">
                     <ul class="social-icons" style="padding-left: 0px !important">
                       <li><a class="card-icon-container" href="<%= request.receiver.html_url%>"><i class="social-icon fa-brands fa-github"></i></a></li>
                     </ul>
@@ -136,7 +136,7 @@
               </picture>
           <%= render partial: "chat_request", locals: { chat_request: request} %>
             <div class="container-request">
-              <div class="icon-github">
+              <div class="icon-github-receiver">
                 <ul class="social-icons" style="padding-left: 0px !important">
                   <li><a class="card-icon-container" href=<%= request.asker.html_url %>><i class="social-icon fa-brands fa-github"></i></a></li>
                 </ul>
