@@ -19,21 +19,13 @@ puts "Users destroyed!🤼"
 Event.destroy_all
 puts "Events destroyed!!!!!!!🌆"
 
-locations = ["Kathmandu", "Frankfurt", "Paris", "Bristol", "Caleta Tortel", "Windhoek", "Kyiv",
-             "Madrid", "Mumbai", "Aasiaat", "Vestfonna", "Anchorage", "San Francisco", "Nairobi",
-             "Melbourne", "Rio de Janeiro", "Jakarta", "Nome", "Invercargill", "Larsen Ice Shelf",
-             "Norilsk"]
-languages = ['Java', 'Kotlin', 'Ruby', 'Javascript', 'Swift', 'Dart', 'CSS',
-             'HTML', 'Bash', 'XML', 'C++', 'Rust', 'Pascal', 'Fortran', 'PHP',
-             'Perl']
-nicknames = ["Bob", "Sally", "Ben", "Elbay", "Elena", "Nirajan", "Frank"]
-  #"Susie", "Roy", "Lucy",
-            #  "John", "Oliver", "Stein", "Ferro", "Nero", "Chen", "Thomas", "Eleo", "Vitas",
-            #  "Bach", "Jonny", "Silber", "Mark", "Michael", "Jack", "Johnny", "Fierro", "Ale",
-            #  "Heidi", "Honda", "Silva", "McGregor", "Brail", "Federer", "Sinatra", "Sinn",
-            #  "Oprah", "Hewlett", "Packard", "Sonny", "Plank", "J-Sus", "Moustafa", "Zeit",
-            #  "Epson", "Octavius", "Sarad", "Blaine", "Rory", "Goldie", "Oakley", "Rowan", "Layla",
-            #  "Rain"]
+locations = ["Kathmandu", "Frankfurt", "Paris", "Bristol", "Caleta Tortel", "Windhoek", "Kyiv", "Madrid", "Mumbai",
+             "San Francisco", "Nairobi", "Melbourne", "Rio de Janeiro", "Jakarta", "Invercargill","Norilsk"]
+languages = ['Java', 'Kotlin', 'Ruby', 'Javascript', 'Swift', 'Dart', 'CSS','HTML', 'Bash', 'XML','C++', 'Rust',
+             'Pascal', 'Fortran', 'PHP', 'Perl', "Python", "SQL", "NoSQL", "C#", "C", "Go", "Carbon", ]
+nicknames = ["Bob", "Sally", "Ben", "Elbay", "Elena", "Nirajan", "Frank", "Susie", "Roy", "Lucy",
+             "John", "Oliver", "Stein", "Ferro", "Nero", "Chen", "Thomas", "Eleo", "Vitas",
+             "Bach", "Jonny", "Silber", "Mark", "Michael", "Jack", "Johnny", "Fierro", "Ale"]
 images = ["https://gravatar.com/avatar/38e6bc27f9d54cca67426924eb366a51?s=200&d=robohash&r=x",
           "https://gravatar.com/avatar/649d7427af905218ac3e3fc2c2e6c2d4?s=200&d=robohash&r=x",
           "https://gravatar.com/avatar/f00a238b97348910aeb3a18ac7920301?s=200&d=robohash&r=x",

@@ -45,20 +45,15 @@ $seance: #7623A2;
   padding: 5px;
   max-width: 318px;
   width: 100%;
-  height: 56.3rem;
-  // background-image: linear-gradient(to right,#E6E8ED,#F2F2F2);
-  // backdrop-filter: blur(10px);
-  // filter: blur(8px);
-  // -webkit-filter: blur(8px);
+  height: 20rem;
+  background-image:
+  linear-gradient(
+    to right,
+    red,
+    #f06d06,
+    rgb(255, 255, 0),
+    green
+  );
   border-radius: 15px;
-  border-color: #555B6E;
-  border-style: dotted;
-  border-width: 3px;
-  h3 {
-    color: #555B6E !important;
-  }
-  a {
-    text-decoration:none !important;
-    color:#000000 !important;
-  }
+
 }
