@@ -110,6 +110,14 @@ end
 # chat_room = ChatRoom.new(name: "general", chat_request: chat_request)
 #   chat_room.save!
 
+# puts "Generating chat requests and chat rooms"
+# users = User.all
+# for i in 0...User.all.size do
+#   users[i]
+#   chat_request = ChatRequest.new(asker: asker[i], receiver: receiver[i], status: 1)
+#   chat_request.save!
+# end
+
 puts "Creating events🎉🌹"
 
 event_addresses = ["GPO: 4401, Thamel, Kathmandu", "Wildparkstraße 8,Frankfurt , Germany", "42 Place Stanislas, Nantes", "Bygmestervej 25, Denmark", "City Area - Haidian District, Beijing", "Lot 4707 Jln Seria, Belait, Kuala, Brunei", "Chong Kaosou Village,  Cambodia", "Jirón Santiago, Junin, Peru"]
