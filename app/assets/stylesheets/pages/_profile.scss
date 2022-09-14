@@ -26,3 +26,14 @@
   height: 80%;
   border-radius: 50%;
 }
+
+.profile-github-button {
+  color: white;
+
+  &:hover {
+    // background-color: white;
+    opacity: 0.9;
+    color: black;
+    transition: 0.3s;
+  }
+}

@@ -23,8 +23,9 @@
               <%#= f.button :submit, "Log in", class:"btn btn-success active rounded-5 mb-3" %>
               <%#= button_to "Sign in with GitHub", user_github_omniauth_authorize_path, method: :post %>
         <% end %>
-              <div class="buttonsss">
-              <%= render "devise/shared/links" %>
+
+              <div class="devise-buttons">
+                <%= render "devise/shared/links" %>
               </div>
               <%= link_to "Create a GitHub account", "https://github.com/signup", id: "github-create-button", class: "button draw-border mr-2 sign-in-button" %>
             </div>
