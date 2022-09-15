@@ -2,12 +2,12 @@
 <div class="container">
 
   <%= simple_form_for(@event) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :location %>
-    <%= f.input :theme %>
-    <%= f.input :price %>
-    <%= f.input :description %>
-    <%= f.input :date %>
+    <%= f.input :title, input_html: { autocomplete: 'off' } %>
+    <%= f.input :location, input_html: { autocomplete: 'off' } %>
+    <%= f.input :theme, input_html: { autocomplete: 'off' } %>
+    <%= f.input :price, input_html: { autocomplete: 'off' } %>
+    <%= f.input :description, input_html: { autocomplete: 'off' } %>
+    <%= f.input :date, input_html: { autocomplete: 'off' } %>
     <%= f.input :time, style:"style:border-radius:15px;" %>
     <%= f.submit "Create", class: "btn btn-landing ms-1 mb-3", style:"color:white, style:border-radius:15px; height:50px; padding:5px; font-size:20px" %>
   <% end %>
