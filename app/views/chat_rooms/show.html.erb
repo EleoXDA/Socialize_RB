@@ -4,11 +4,11 @@
     <div class=" rounded-4">
       <ul>
       <h1>Chats</h1>
-      <hr class="rounded-4">
+      <hr class="rounded-4" style="margin-bottom:0px">
 
       <div class="messages rounded-4">
         <% @chatrooms.each do |chat|  %>
-          <%= link_to chat_room_path(chat), class: ' border-secondary border-opacity-10 rounded-4 text-decoration-none text-black p-2 my-2' do %>
+          <%= link_to chat_room_path(chat), class: ' border-secondary border-opacity-10 rounded-4 text-decoration-none text-black p-2 my-0' do %>
               <h4 style="text-decoration: none"><%= current_user == chat.chat_request.receiver ? chat.chat_request.asker.nickname : chat.chat_request.receiver.nickname %></h4>
               <hr class="dashed m-0 p-0">
               <%# <small> %>
