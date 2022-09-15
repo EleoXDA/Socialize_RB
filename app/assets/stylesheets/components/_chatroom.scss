@@ -119,3 +119,10 @@ ol, ul {
   width: 50px;
   display: flex;
 }
+
+.center-message {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
