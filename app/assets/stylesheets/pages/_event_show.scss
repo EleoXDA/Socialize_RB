@@ -1,0 +1,45 @@
+.event-show-content {
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid lightgrey;
+  margin: 10vh 15vw;
+  padding: 3vh 5vw;
+  padding-top: 5vh;
+}
+
+.event-buttons {
+  display: flex;
+  color: white;
+  align-items: center;
+}
+
+#event-show-create {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  color: rgb(255, 255, 255);
+
+  &:hover {
+    opacity: 0.7;
+    color: black;
+    transition: 0.3s;
+  }
+}
+
+#event-show-back {
+  background-color: #787D90;
+  color: white;
+  box-shadow: inset 0 0 0 4px #ffffff0b;
+  text-align: center;
+  // Fix to counter the draw-button class
+  margin-top: 9px;
+  &:hover {
+    background-color: white;
+    opacity: 0.9;
+    color: black;
+    transition: 0.3s;
+  }
+}
+
+.form-select {
+  border-radius: 15px;
+}

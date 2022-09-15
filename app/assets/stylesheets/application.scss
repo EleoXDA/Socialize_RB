@@ -7,6 +7,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+@import "flatpickr/dist/flatpickr";
 
 // Your CSS partials
 @import "components/index";
@@ -15,6 +16,7 @@
 @import "pages/devise";
 @import "pages/sign_in_info";
 @import "pages/profile";
+@import "pages/event_show";
 
 body::-webkit-scrollbar {
   display: none;  /* Safari and Chrome */
