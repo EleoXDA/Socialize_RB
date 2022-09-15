@@ -4,7 +4,7 @@
     <div class=" rounded-4">
       <ul>
       <h1>Chats</h1>
-      <hr class="rounded-4">
+      <hr class="rounded-4" style="margin-bottom:0px">
 
       <div class="messages rounded-4">
         <% @chatrooms.each do |chat|  %>
@@ -23,6 +23,7 @@
                       <%# <% chat.messages.each do |message| %>
                         <%# <p><%= chat.chat_request.receiver.nickname %><%#= message.content.split.join(" ") %>
                       <%# <% end %>
+
                     <%# <% end %>
                   <%# </p> %>
                 <%# </small> %>
