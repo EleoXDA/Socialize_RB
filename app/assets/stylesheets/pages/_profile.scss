@@ -17,7 +17,7 @@
 
 .github_and_linkedin {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding-right: 5vw;
 }
 
@@ -31,6 +31,10 @@
   width: 80%;
   height: 80%;
   border-radius: 50%;
+}
+.container-name-icons{
+  margin-top: -94px;
+  padding-left: 137px;
 }
 
 .profile-github-button {

@@ -8,22 +8,26 @@
 
       <div class="messages rounded-4">
         <% @chatrooms.each do |chat|  %>
-          <%= link_to chat_room_path(chat), class: ' border-secondary border-opacity-10 rounded-4 text-decoration-none text-black p-2 my-0' do %>
-              <h4 style="text-decoration: none"><%= current_user == chat.chat_request.receiver ? chat.chat_request.asker.nickname : chat.chat_request.receiver.nickname %></h4>
-              <hr class="dashed m-0 p-0">
-              <%# <small> %>
-                <%# <p class="text-muted"> %>
-                  <%# <% if current_user %>
-                    <%# <% chat.messages.each do |message| %>
-                      <%# <p>You: <%= message.content.split.join(" ") %>
+          <% if current_user == chat.chat_request.asker || current_user == chat.chat_request.receiver %>
+
+            <%= link_to chat_room_path(chat), class: ' border-secondary border-opacity-10 rounded-4 text-decoration-none text-black p-2 my-2' do %>
+                <h4 style="text-decoration: none"><%= current_user == chat.chat_request.receiver ? chat.chat_request.asker.nickname : chat.chat_request.receiver.nickname %></h4>
+                <hr class="dashed m-0 p-0">
+                <%# <small> %>
+                  <%# <p class="text-muted"> %>
+                    <%# <% if current_user %>
+                      <%# <% chat.messages.each do |message| %>
+                        <%# <p>You: <%= message.content.split.join(" ") %>
+                      <%# <% end %>
+                    <%# <% else %>
+                      <%# <% chat.messages.each do |message| %>
+                        <%# <p><%= chat.chat_request.receiver.nickname %><%#= message.content.split.join(" ") %>
+                      <%# <% end %>
+
                     <%# <% end %>
-                  <%# <% else %>
-                    <%# <% chat.messages.each do |message| %>
-                      <%# <p><%= chat.chat_request.receiver.nickname %><%#= message.content.split.join(" ") %>
-                    <%# <% end %>
-                  <%# <% end %>
-                <%# </p> %>
-              <%# </small> %>
+                  <%# </p> %>
+                <%# </small> %>
+            <% end %>
           <% end %>
         <% end %>
     </div>
@@ -47,7 +51,7 @@
       <%= simple_form_for [@chatroom, @message],
       html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
       %>
-      <%= f.input :content,
+      <%= f.input :content, input_html: { autocomplete: 'off' },
         label: false,
         placeholder: "Message #{@chatroom.chat_request.receiver.nickname}",
         wrapper_html: {class: "flex-grow-1"}

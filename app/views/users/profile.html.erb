@@ -4,31 +4,27 @@
       <%= image_tag @user.image, id: "user-image" %>
     </div>
     <div class="user-details">
-      <h1><%= @user.nickname %></h1>
-      <div class="github_and_linkedin">
-        <% github_exists = !@user.html_url.nil? && @user.html_url != "" %>
-        <% linkedin_exists = !@user.linkedin_url.nil? && @user.linkedin_url != "" %>
-        <% if github_exists || linkedin_exists %>
-        <h3>Find me on:</h3>
-          <% if github_exists %>
-            <h3>GitHub
-            <%= link_to @user.html_url, class: "profile-github-button button draw-border mr-2" do %>
-              <i class="social-icon fa-brands fa-github"></i>
-            <% end %>
-            </h3>
-          <% else %>
-            <h3></h3>
-          <% end %>
-          <% if linkedin_exists %>
-            <h3>LinkedIn
-              <%= link_to @user.linkedin_url, class: "profile-linkedin-button button draw-border mr-2" do %>
-                <i class="social-icon fa-brands fa-linkedin"></i>
+      <div class="container-name-icons">
+        <h1><%= @user.nickname %></h1>
+        <div class="github_and_linkedin">
+          <% github_exists = !@user.html_url.nil? && @user.html_url != "" %>
+          <% linkedin_exists = !@user.linkedin_url.nil? && @user.linkedin_url != "" %>
+          <% if github_exists || linkedin_exists %>
+            <% if github_exists %>
+              <%= link_to @user.html_url, class: "profile-github-button button draw-border mr-2" do %>
+                <i class="social-icon fa-brands fa-github"></i>
               <% end %>
-            </h3>
-          <% else %>
-            <h3></h3>
+              </h3>
+            <% else %>
+            <% end %>
+            <% if linkedin_exists %>
+                <%= link_to @user.linkedin_url, class: "profile-linkedin-button button draw-border mr-2" do %>
+                  <i class="social-icon fa-brands fa-linkedin"></i>
+                <% end %>
+            <% else %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
       <%= simple_form_for(@user) do |f| %>
         <%= f.simple_fields_for :languages do |w| %>
@@ -39,8 +35,8 @@
                       class: "form-control",
                       id: "language-input" %>
         <% end %>
-        <%= f.input :location %>
-        <%= f.input :linkedin_url %>
+        <%= f.input :location, input_html: { autocomplete: 'off' } %>
+        <%= f.input :linkedin_url, input_html: { autocomplete: 'off' } %>
         <%= f.button :submit, "Update", class: "sign-in-submit button draw-border mr-2" %>
       <% end %>
     </div>

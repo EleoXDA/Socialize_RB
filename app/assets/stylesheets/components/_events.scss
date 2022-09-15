@@ -52,6 +52,7 @@
   font-size: 18px;
   text-decoration: none;
   color: white;
+  margin-top: 30px;
 }
 
 .event-button:hover {
@@ -83,12 +84,15 @@
     background-color: white;
     color:#8d7197
   }
+
 }
 
 
 .location-link a {
   color: white;
   text-decoration: underline;
+  width: fit-content !important;
+  margin: 10px;
 
 }
 
@@ -103,4 +107,33 @@
 
 .events-card-details-buttons {
   margin-top: auto;
+}
+
+
+.event-details {
+  background-color: #555B6E;
+  height: 45rem;
+  border-radius: 15px;
+  padding: 20px;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.7);
+  color:white;
+  margin: 0 auto;
+  width: 600px;
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+.event-container {
+  margin-top: 100px;
+
+}
+
+.event-image {
+  height: 300px;
+  width: 300px;
+  border: 2px solid blanchedalmond;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  object-fit: cover;
 }

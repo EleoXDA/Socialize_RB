@@ -1,11 +1,18 @@
-<p style="color: green"><%= notice %></p>
-<div class="container text-center">
-  <div class="details">
-    <h1>Details for <%= @event.title %> event</h1>
-    <h6><%= @event.description %></h6>
-    <p><%= @event.price %></p>
-    <p>It will be held in <%= @event.location %> on <%= @event.date %> at <%= @event.time %></p>
-    <p>The theme will be <%= @event.theme %></p>
+
+<div class=" text-center container">
+  <div class="event-details">
+    <div class="mx-3">
+      <h1> <%= @event.title %></h1>
+      <h6><%= @event.description %></h6>
+      <p class="my-2"><i class="fa-solid fa-euro-sign "></i><%= @event.price %></p>
+      <p>It will be held in <%= @event.location %> on <%= @event.date %> at <%= @event.time %></p>
+      <% if @event.photo.attached? %>
+        <%= cl_image_tag @event.photo.key, class: "event-image" %>
+      <% else %>
+        <%= image_tag @event.image, class: "event-image" %>
+      <% end %>
+    </div>
+      <%= link_to "Tickets", "#",class: "event-button" %> <br><br>
+      <%= link_to "Back to all events", events_path, class: "event-button" %>
   </div>
-  <%= link_to "Back to all events", events_path, class: "btn btn-primary" %>
 </div>
