@@ -9,7 +9,8 @@
       <% if @event.photo.attached? %>
         <%= cl_image_tag @event.photo.key, class: "event-image" %>
       <% else %>
-        <%= image_tag @event.image, class: "event-image" %>
+        <img src="<%= @event.image %>", class="event-image" >
+        <%#= image_tag @event.image, class: "event-image" %>
       <% end %>
     </div>
       <%= link_to "Tickets", "#",class: "event-button" %> <br><br>
