@@ -51,7 +51,7 @@
       <%= simple_form_for [@chatroom, @message],
       html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
       %>
-      <%= f.input :content,
+      <%= f.input :content, input_html: { autocomplete: 'off' },
         label: false,
         placeholder: "Message #{@chatroom.chat_request.receiver.nickname}",
         wrapper_html: {class: "flex-grow-1"}
