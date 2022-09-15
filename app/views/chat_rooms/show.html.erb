@@ -34,7 +34,7 @@
     </ul>
   </div>
   </div>
-
+  <% if defined?(@chatroom) %>
   <div class="container chatroom rounded-4 p-2"
     data-controller="chatroom-subscription"
     data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
@@ -60,5 +60,21 @@
       <% end %>
 
   </div>
-
+  <% elsif @chatrooms.any? %>
+    <div class="container chatroom rounded-4 p-2">
+      <div class="messages rounded-4" data-chatroom-subscription-target="messages">
+        <div class="center-message">
+          <h3>Start a chat now!</h3>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="container chatroom rounded-4 p-2">
+      <div class="messages rounded-4" data-chatroom-subscription-target="messages">
+        <div class="center-message">
+          <h3>Add a friend to see messages here!</h3>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
