@@ -114,20 +114,57 @@ puts "Creating events🎉🌹"
 
 event_addresses = ["GPO: 4401, Thamel, Kathmandu", "Wildparkstraße 8,Frankfurt , Germany", "42 Place Stanislas, Nantes", "Bygmestervej 25, Denmark", "City Area - Haidian District, Beijing", "Lot 4707 Jln Seria, Belait, Kuala, Brunei", "Chong Kaosou Village,  Cambodia", "Jirón Santiago, Junin, Peru"]
 
-event_titles = ["Dev barbecue", "Swimming", "Java dev gathering", "Fortnite game session", "Dev concert", "Nirajan TedTalk", "Bungee jumping", "Need to start a movement", "Exercise"]
+
 
 event_times = ["19:00 UTC, 20:00pm UTC, 10:00 UTC", "9:00 UTC", "21:00 UTC", "5:00 CST", "16:00 CST", "22:00 CST"]
 
-10.times do
-  events = Event.new(
-    title: event_titles.sample,
-    theme: Faker::TvShows::BreakingBad.character,
-    price: rand(100..500),
-    description: Faker::TvShows::FamilyGuy.quote,
-    date: Faker::Date.between(from: '2022-09-23', to: '2023-09-25'),
-    time: event_times.sample,
-    location: event_addresses.sample
-  )
-  events.save!
-end
+
+Event.create!(
+  title: "Nirajan Ted Talk",
+  price: 0,
+  description: "Nirajan is a professional JavaScript developer from Nepal with 15 years of experience. In this talk, he will teach JavaScript beginners how to get started with the language. Join him! It's free!",
+  date: Faker::Date.between(from: '2022-09-23', to: '2022-10-25'),
+  time: event_times.sample,
+  location: event_addresses.sample,
+
+)
+
+Event.create!(
+  title: "Dev Barbecue",
+  price: 0,
+  description: "Bring your own meat!! We will have a barbecue at my house and have some fun! Activities include: watching TV, Swimming, Dancing and of course programming talk",
+  date: Faker::Date.between(from: '2022-09-23', to: '2022-10-25'),
+  time: event_times.sample,
+  location: event_addresses.sample
+)
+
+Event.create!(
+  title: "Hiking with developers",
+  price: 0,
+  description: "I want to socialize with more developers! What better way to do it than by hiking. We developers need to get some exercise so join me on the hike!",
+  date: Faker::Date.between(from: '2022-09-23', to: '2022-10-25'),
+  time: event_times.sample,
+  location: event_addresses.sample
+)
+
+Event.create!(
+  title: "Bungee jumping",
+  price: 50,
+  description: "As developers we stay indoors most of the time. Lets hike up this mountain to a bungee jumping spot and dive down! We need some adrenaline!",
+  date: Faker::Date.between(from: '2022-09-23', to: '2022-10-25'),
+  time: event_times.sample,
+  location: event_addresses.sample
+)
+
+Event.create!(
+  title: "Coding tournament",
+  price: 50,
+  description: "Lets see who the best developer in town is! Join our coding tournament before seats are gone! Winner gets $1000 in cash prize and a Macbook Pro M2 latest edition full specs! ",
+  date: Faker::Date.between(from: '2022-09-23', to: '2022-10-25'),
+  time: event_times.sample,
+  location: event_addresses.sample
+)
+
+
+
 puts "Finished 🤦‍♀️"
