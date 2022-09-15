@@ -15,7 +15,7 @@ class User < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :location
 
-  validates :location, presence: true
+  # validates :location, presence: true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
