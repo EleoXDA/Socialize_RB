@@ -116,7 +116,7 @@ event_addresses = ["GPO: 4401, Thamel, Kathmandu", "Wildparkstraße 8,Frankfurt 
 
 event_titles = ["Dev barbecue", "Swimming", "Java dev gathering", "Fortnite game session", "Dev concert", "Nirajan TedTalk", "Bungee jumping", "Need to start a movement", "Exercise"]
 
-time = ["19:00 UTC, 20:00pm UTC, 10:00 UTC", "9:00 UTC", "21:00 UTC", "5:00 CST", "16:00 CST", "22:00 CST"]
+event_times = ["19:00 UTC, 20:00pm UTC, 10:00 UTC", "9:00 UTC", "21:00 UTC", "5:00 CST", "16:00 CST", "22:00 CST"]
 
 10.times do
   events = Event.new(
@@ -125,10 +125,9 @@ time = ["19:00 UTC, 20:00pm UTC, 10:00 UTC", "9:00 UTC", "21:00 UTC", "5:00 CST"
     price: rand(100..500),
     description: Faker::TvShows::FamilyGuy.quote,
     date: Faker::Date.between(from: '2022-09-23', to: '2023-09-25'),
-    time: time.sample,
+    time: event_times.sample,
     location: event_addresses.sample
   )
-
   events.save!
 end
 puts "Finished 🤦‍♀️"

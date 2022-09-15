@@ -7,10 +7,9 @@
       <p><i class="fa-solid fa-euro-sign"></i><%= @event.price %></p>
       <p>It will be held in <%= @event.location %> on <%= @event.date %> at <%= @event.time %></p>
       <p>The theme will be <%= @event.theme %> </p>
-      <%= link_to "Tickets", "#",class: "event-button" %>
+      <%= link_to "Tickets", "#",class: "event-button" %> <br><br>
+      <%= link_to "Back to all events", events_path, class: "event-button my-2" %>
 
     </div>
   </div>
-
-  <%= link_to "Back to all events", events_path, class: "event-button" %>
 </div>
