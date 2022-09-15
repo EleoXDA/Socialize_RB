@@ -10,7 +10,13 @@ class UsersController < ApplicationController
     end
     @users = @users.joins(:languages).where(languages: {name: params[:language] }) if params[:language]
 
-    @location_filters = User.distinct.pluck(:location)
+    locations = User.distinct.pluck(:location)
+    @location_filters = []
+    locations.each do |location|
+      if !location.nil?
+        @location_filters << location
+      end
+    end
 
     @chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
     @pending_chat_requests = @chat_requests.filter{ |chat| chat.pending? }
