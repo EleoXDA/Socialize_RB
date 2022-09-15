@@ -1,16 +1,18 @@
 
-<div class="container">
-
-  <%= simple_form_for(@event) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :location %>
-    <%= f.input :theme %>
-    <%= f.input :price %>
-    <%= f.input :description %>
-    <%= f.input :date %>
-    <%= f.input :time, style:"style:border-radius:15px;" %>
-    <%= f.submit "Create", class: "btn btn-landing ms-1 mb-3", style:"color:white, style:border-radius:15px; height:50px; padding:5px; font-size:20px" %>
-  <% end %>
-
-  <%= link_to "Back to your events", events_path , class: "btn btn-landing ms-1 mb-3", style:"color:white, style:border-radius:15px; height:45px; padding-bottom:0px; font-size:18px" %>
+<div class="container my-5">
+  <div class="event-show-content">
+    <%= simple_form_for(@event) do |f| %>
+      <%= f.input :title, placeholder: "Event title", label: false %>
+      <%= f.input :location, placeholder: "Where will the event be held?", label: false %>
+      <%= f.input :theme, placeholder: "What is the theme?", label: false %>
+      <%= f.input :price, placeholder: "Price", label: false, input_html: { min: 0 } %>
+      <%= f.input :description, placeholder: "Describe the event", label: false %>
+      <%= f.input :date, label: false, class: "form-inline" %>
+      <%= f.input :time, label: false, style:"style:border-radius:15px;", class: "form-inline" %>
+      <div class="event-buttons">
+        <%= f.submit "Create", class: "button draw-border mr-2", id: "event-show-create" %>
+    <% end %>
+        <%= link_to "Back to events", events_path , class: "button draw-border mr-2", id: "event-show-back" %>
+      </div>
+  </div>
 </div>
