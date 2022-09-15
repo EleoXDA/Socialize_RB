@@ -39,6 +39,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    authorize @user
   end
 
   def profile
@@ -64,6 +65,9 @@ class UsersController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
   end
 
   private
