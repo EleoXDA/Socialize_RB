@@ -98,14 +98,15 @@ ol, ul {
 
 .message-item {
   word-wrap: break-word;
-  width: fit-content;
-  max-width: 60%;
+  max-width: 300px;
   padding: 5px;
   border-radius: 15px;
   margin-bottom: 10px;
   background-color: #555555;
-  padding: 10px
+  padding: 10px;
+
 }
+
 
 
 #message{
