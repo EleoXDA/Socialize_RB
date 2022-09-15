@@ -20,22 +20,22 @@
 <div class="container d-flex">
   <div class="container" style="width:900px"></div>
   <div class="dropdown d-flex justify-content-end">
-    <button class="btn btn-secondary dropdown-toggle rounded-4" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="height=40px; font-size:small; padding:10px">
+    <button class="btn btn-secondary dropdown-toggle rounded-4" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="height=40px; padding:10px">
       Filter the languages
     </button>
     <ul class="dropdown-menu">
-      <% Language.all.each do |language| %>
+      <% Language.all.order(:name).each do |language| %>
       <li><%= link_to language.name, users_path(language: language.name), class:"dropdown-item" %></li>
       <% end %>
     </ul>
   </div>
   <div class="container" style="width:10px"></div>
   <div class="dropdown d-flex justify-content-end">
-    <button class="btn btn-secondary dropdown-toggle rounded-4" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="height=40px; font-size:small; padding:10px">
+    <button class="btn btn-secondary dropdown-toggle rounded-4" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="height=40px; padding:10px">
       Filter the cities
     </button>
     <ul class="dropdown-menu">
-      <% @location_filters.each do |location| %>
+      <% @location_filters.sort.each do |location| %>
         <li><%= link_to location, users_path(location: location), class:"dropdown-item" %></li>
       <% end %>
     </ul>
