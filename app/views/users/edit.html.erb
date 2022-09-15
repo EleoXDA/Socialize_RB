@@ -11,8 +11,8 @@
                     class: "form-control",
                     id: "language-input" %>
     <% end %>
-    <%= f.input :location %>
-    <%= f.input :linkedin_url %>
+    <%= f.input :location, input_html: { autocomplete: 'off' } %>
+    <%= f.input :linkedin_url, input_html: { autocomplete: 'off' } %>
     <%= f.button :submit, "Get started", class: "sign-in-submit button draw-border mr-2" %>
   <% end %>
 </div>
