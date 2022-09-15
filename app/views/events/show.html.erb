@@ -6,8 +6,9 @@
       <h6><%= @event.description %></h6>
       <p class="my-2"><i class="fa-solid fa-euro-sign "></i><%= @event.price %></p>
       <p>It will be held in <%= @event.location %> on <%= @event.date %> at <%= @event.time %></p>
-      <img class="event-image" src="<%= @event.image %>" alt="">
-
+      <% if @event.photo %>
+        <%= cl_image_tag @event.photo.key, class: "event-image" %>
+      <% end %>
     </div>
       <%= link_to "Tickets", "#",class: "event-button" %> <br><br>
       <%= link_to "Back to all events", events_path, class: "event-button" %>

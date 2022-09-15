@@ -7,6 +7,7 @@
       <%= f.input :price, placeholder: "Price", label: false, input_html: { min: 0, autocomplete: 'off' } %>
       <%= f.input :description, placeholder: "Describe the event", label: false, input_html: { autocomplete: 'off' } %>
       <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker", autocomplete: 'off'} %>
+      <%= f.input :photo, as: :file %>
       <div class="event-buttons">
         <%= f.submit "Create", class: "button draw-border mr-2", id: "event-show-create" %>
     <% end %>
