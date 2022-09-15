@@ -112,7 +112,7 @@ end
 
 puts "Creating events🎉🌹"
 
-event_addresses = ["GPO: 4401, Thamel, Kathmandu", "Wildparkstraße 8,Frankfurt , Germany", "42 Place Stanislas, Nantes", "Bygmestervej 25, Denmark", "City Area - Haidian District, Beijing", "Lot 4707 Jln Seria, Belait, Kuala, Brunei", "Chong Kaosou Village,  Cambodia", "Jirón Santiago, Junin, Peru"]
+event_addresses = ["Rue de Vermont, Geneva", "Grange Canal, Geneva", "Rue du Rhone 4, Geneva", "Jardin Anglais, Geneva", "Chemin du Velours, Geneva"]
 
 
 
