@@ -1,10 +1,9 @@
-<div class="container">
+<div class="container my-5">
 
-  <h1 class= "text-center">Events around you !</h1>
-  <p class="text-center"><%= link_to "Add your event", new_event_path, class:"add-event-button"%></p>
+  <h1 class= "text-center">Events near you !</h1>
 </div>
 
-<div class="event-container container d-flex">
+<div class="event-container container d-flex my-0">
   <div class="swiper-button-prev"></div>
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
@@ -29,5 +28,8 @@
     <div class="swiper-pagination"></div>
   </div>
   <div class="swiper-button-next "></div>
+</div>
+<div class="test my-5">
+  <p class="text-center"><%= link_to "Add your event", new_event_path, class:"add-event-button"%></p>
 
 </div>

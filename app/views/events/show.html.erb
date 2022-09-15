@@ -4,13 +4,12 @@
     <div class="mx-3">
       <h1> <%= @event.title %></h1>
       <h6><%= @event.description %></h6>
-      <p><i class="fa-solid fa-euro-sign"></i><%= @event.price %></p>
+      <p class="my-2"><i class="fa-solid fa-euro-sign "></i><%= @event.price %></p>
       <p>It will be held in <%= @event.location %> on <%= @event.date %> at <%= @event.time %></p>
-      <p>The theme will be <%= @event.theme %> </p>
-      <%= link_to "Tickets", "#",class: "event-button" %>
+      <img class="event-image" src="<%= @event.image %>" alt="">
 
     </div>
+      <%= link_to "Tickets", "#",class: "event-button" %> <br><br>
+      <%= link_to "Back to all events", events_path, class: "event-button" %>
   </div>
-
-  <%= link_to "Back to all events", events_path, class: "event-button" %>
 </div>
