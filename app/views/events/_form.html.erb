@@ -1,4 +1,3 @@
-
 <div class="container my-5">
   <div class="event-show-content">
     <%= simple_form_for(@event) do |f| %>
@@ -7,8 +6,7 @@
       <%= f.input :theme, placeholder: "What is the theme?", label: false %>
       <%= f.input :price, placeholder: "Price", label: false, input_html: { min: 0 } %>
       <%= f.input :description, placeholder: "Describe the event", label: false %>
-      <%= f.input :date, label: false, class: "form-inline" %>
-      <%= f.input :time, label: false, style:"style:border-radius:15px;", class: "form-inline" %>
+      <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
       <div class="event-buttons">
         <%= f.submit "Create", class: "button draw-border mr-2", id: "event-show-create" %>
     <% end %>
