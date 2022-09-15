@@ -120,22 +120,12 @@ end
 
 puts "Creating events🎉🌹"
 
-event_addresses = ["Rue de Vermont, Geneva", "Grange Canal, Geneva", "Rue du Rhone 4, Geneva", "Jardin Anglais, Geneva", "Chemin du Velours, Geneva"]
+event_addresses = ["Rue de Vermont, Geneva", "Grange Canal, France", "Rue du Rhone 4, Geneva", "Jardin Anglais, France", "Chemin du Velours, Germany"]
 
 
 
 event_times = ["19:00 UTC, 20:00pm UTC, 10:00 UTC", "9:00 UTC", "21:00 UTC", "5:00 CST", "16:00 CST", "22:00 CST"]
 
-
-Event.create!(
-  title: "Nirajan Ted Talk",
-  price: 0,
-  description: "Nirajan is a professional JavaScript developer from Nepal with 15 years of experience. In this talk, he will teach JavaScript beginners how to get started with the language. Join him! It's free!",
-  date: Faker::Date.between(from: '2022-09-23', to: '2022-10-25'),
-  time: event_times.sample,
-  location: event_addresses.sample,
-  image: "https://pe.tedcdn.com/images/ted/21999050384c78a09ce1df4aba46b27f47cbd3c5_2880x1620.jpg"
-)
 
 Event.create!(
   title: "Dev Barbecue",
