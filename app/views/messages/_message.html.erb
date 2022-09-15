@@ -1,21 +1,23 @@
 <div id="message-<%= message.id %>" class="message-item receiver msg-<%= message.user.id %>" >
-  <small>
-  <div class="image-chat d-flex mx-2">
-    <% if message.user.image.nil? %>
-      <%= image_tag "userphoto_square.jpg" %>
-    <% else %>
-      <%= image_tag message.user.image %>
-    <% end %>
-    <div>
-      <p class="my-0 mx-2"><b><%= message.user.nickname %></b></p>
-        <small>
-          <i class="mx-2"><%= message.created_at.strftime(" %l:%M %p") %></i>
-        </small>
+  <div class="each-message">
+    <small>
+    <div class="image-chat d-flex mx-2">
+      <% if message.user.image.nil? %>
+        <%= image_tag "userphoto_square.jpg" %>
+      <% else %>
+        <%= image_tag message.user.image %>
+      <% end %>
+      <div>
+        <p class="my-0 mx-2"><b><%= message.user.nickname %></b></p>
+          <small>
+            <i class="mx-2"><%= message.created_at.strftime(" %l:%M %p") %></i>
+          </small>
+      </div>
+
     </div>
+    </small>
 
+
+    <p><%= message.content %></p>
   </div>
-  </small>
-
-
-  <p><%= message.content %></p>
 </div>
