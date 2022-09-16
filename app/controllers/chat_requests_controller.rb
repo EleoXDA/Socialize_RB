@@ -3,6 +3,7 @@ class ChatRequestsController < ApplicationController
     @all_chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
     @my_requests = @all_chat_requests.select { |r| r.asker == current_user && r.pending? }
     @chat_requests_hash = { confirmed: [], rejected: [], pending: @all_chat_requests.select { |r| r.pending? } }
+    @chat_requests = policy_scope(ChatRequest).all
     @chat_requests = []
 
     @all_chat_requests.each do |request|
