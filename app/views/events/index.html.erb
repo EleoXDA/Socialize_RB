@@ -12,6 +12,7 @@
           <div class="event-card">
             <div class="details">
               <h2><%= event.title %></h2>
+              <p>By <%= event.nickname %></h2>
               <time><%= event.date %></time>
               <p class="location-link"><i class="fa-solid fa-map-pin mx-2"></i><%= link_to event.location, "https://www.google.com/maps/search/#{event.location}" %></p>
             </div>
@@ -31,5 +32,4 @@
 </div>
 <div class="test my-5">
   <p class="text-center"><%= link_to "Add your event", new_event_path, class:"add-event-button"%></p>
-
 </div>
