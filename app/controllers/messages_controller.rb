@@ -1,5 +1,9 @@
 class MessagesController < ApplicationController
 
+  def show
+    @messages = policy_scope(Message).all
+  end
+
   def create
     @message = Message.new(message_params)
     @chatroom = ChatRoom.find(params[:chat_room_id])
