@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = policy_scope(User).all
     if params[:location].present? && params[:query].present?
       @users = @users.where(location: params[:location]).where("nickname ILIKE ?", "%#{params[:query]}%")
     elsif params[:location].present?
