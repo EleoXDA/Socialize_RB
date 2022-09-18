@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+    authorize @message
     @chatroom = ChatRoom.find(params[:chat_room_id])
     @message.chat_room = @chatroom
     @message.user = current_user
