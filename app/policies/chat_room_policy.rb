@@ -2,13 +2,12 @@ class ChatRoomPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
 
   def show?
-    authorize @chat_room
-    return record.user == user
+    record.user == user
   end
 
   def new?
@@ -24,6 +23,6 @@ class ChatRoomPolicy < ApplicationPolicy
   end
 
   def update?
-    return record.user == user
+    record.user == user
   end
 end
