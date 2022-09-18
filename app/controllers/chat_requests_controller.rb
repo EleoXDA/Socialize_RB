@@ -44,6 +44,7 @@ class ChatRequestsController < ApplicationController
   end
 
   def pin_user
+    authorize @chat_request
     # Obtain the specific chat request
     @chat_request = ChatRequest.find(params[:id])
     # Check whether user is asker or receiver and toggle pin status accordingly
