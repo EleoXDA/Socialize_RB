@@ -3,6 +3,7 @@ require "open-uri"
 class Event < ApplicationRecord
   # after_create :set_default_event_avatar
   has_one_attached :photo
+  belongs_to :user
 
   # def set_default_event_avatar
   #   return if photo.attached?
