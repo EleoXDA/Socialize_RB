@@ -43,6 +43,7 @@ class UsersController < ApplicationController
   end
 
   def profile
+    authorize @user
     @user = current_user
     @user_languages = current_user.languages.map do |language|
       language.name
@@ -51,11 +52,13 @@ class UsersController < ApplicationController
   end
 
   def edit
+    authorize @user
     @user = current_user
     @languages = @user.languages.build
   end
 
   def update
+    authorize @user
     @user = current_user
     language_id = params[:user][:languages][:id]
     @languages = @user.user_languages.build(language_id: language_id)
