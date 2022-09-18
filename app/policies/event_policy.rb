@@ -7,8 +7,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-    authorize @event
-    return record.user == user
+    return true
   end
 
   def new?
@@ -24,6 +23,6 @@ class EventPolicy < ApplicationPolicy
   end
 
   def update?
-    return record.user == user
+    record.user == user
   end
 end
