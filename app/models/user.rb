@@ -9,7 +9,6 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :events
 
-
   # validates :nickname, presence: true
 
   geocoded_by :location

@@ -23,6 +23,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    return record.user == user
+    record.user == user
   end
 end
