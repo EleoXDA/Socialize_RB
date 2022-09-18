@@ -7,8 +7,7 @@ class ChatRequestPolicy < ApplicationPolicy
   end
 
   def show?
-    authorize @chat_request
-    return record.user == user
+    return true
   end
 
   def new?
@@ -24,6 +23,6 @@ class ChatRequestPolicy < ApplicationPolicy
   end
 
   def update?
-    return record.user == user
+    return true
   end
 end
