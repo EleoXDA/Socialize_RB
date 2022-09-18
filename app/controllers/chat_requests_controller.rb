@@ -19,6 +19,7 @@ class ChatRequestsController < ApplicationController
     # create view with the button "request to chat" link_to here.
     # @asker = current_user
     @chat_request = ChatRequest.new
+    authorize @chat_request
     @chat_request.asker = current_user
     # @chat_request.receiver = # if the user is the receiver and click on the button request
     @chat_request.receiver = User.find(params[:receiver])
@@ -29,6 +30,7 @@ class ChatRequestsController < ApplicationController
 
   def update
     @chat_request = ChatRequest.find(params[:id])
+    authorize @chat_request
     if @chat_request.update(status: params[:status].to_i)
       # status: confirmed
       if @chat_request.confirmed? # update status
