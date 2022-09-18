@@ -8,73 +8,22 @@
 
       <div class="messages rounded-4">
         <% @chatrooms.each do |chat|  %>
-          <% if current_user == chat.chat_request.asker || current_user == chat.chat_request.receiver %>
-
-            <%= link_to chat_room_path(chat), class: ' border-secondary border-opacity-10 rounded-4 text-decoration-none text-black p-2 my-2' do %>
-                <h4 style="text-decoration: none"><%= current_user == chat.chat_request.receiver ? chat.chat_request.asker.nickname : chat.chat_request.receiver.nickname %></h4>
-                <hr class="dashed m-0 p-0">
-                <%# <small> %>
-                  <%# <p class="text-muted"> %>
-                    <%# <% if current_user %>
-                      <%# <% chat.messages.each do |message| %>
-                        <%# <p>You: <%= message.content.split.join(" ") %>
-                      <%# <% end %>
-                    <%# <% else %>
-                      <%# <% chat.messages.each do |message| %>
-                        <%# <p><%= chat.chat_request.receiver.nickname %><%#= message.content.split.join(" ") %>
-                      <%# <% end %>
-
+          <%= link_to chat_room_path(chat), class: ' border-secondary border-opacity-10 rounded-4 text-decoration-none text-black p-2 my-2' do %>
+              <h4 style="text-decoration: none"><%= current_user == chat.chat_request.receiver ? chat.chat_request.asker.nickname : chat.chat_request.receiver.nickname %></h4>
+              <hr class="dashed m-0 p-0">
+              <%# <small> %>
+                <%# <p class="text-muted"> %>
+                  <%# <% if current_user %>
+                    <%# <% chat.messages.each do |message| %>
+                      <%# <p>You: <%= message.content.split.join(" ") %>
                     <%# <% end %>
-                  <%# </p> %>
-                <%# </small> %>
-            <% end %>
+                  <%# <% else %>
+                    <%# <% chat.messages.each do |message| %>
+                      <%# <p><%= chat.chat_request.receiver.nickname %><%#= message.content.split.join(" ") %>
+                    <%# <% end %>
+                  <%# <% end %>
+                <%# </p> %>
+              <%# </small> %>
           <% end %>
         <% end %>
     </div>
-    </ul>
-  </div>
-  </div>
-  <% if defined?(@chatroom) %>
-  <div class="container chatroom rounded-4 p-2"
-    data-controller="chatroom-subscription"
-    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-
-      <h1><%= current_user == @chatroom.chat_request.receiver ? @chatroom.chat_request.asker.nickname : @chatroom.chat_request.receiver.nickname %></h1>
-
-
-      <div class="messages rounded-4" data-chatroom-subscription-target="messages">
-        <% @chatroom.messages.each do |message| %>
-          <%= render "messages/message", message: message %>
-        <% end %>
-      </div>
-
-      <%= simple_form_for [@chatroom, @message],
-      html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
-      %>
-      <%= f.input :content, input_html: { autocomplete: 'off' },
-        label: false,
-        placeholder: "Message #{@chatroom.chat_request.receiver.nickname}",
-        wrapper_html: {class: "flex-grow-1"}
-      %>
-      <%= f.submit "Send", class: "btn btn-info rounded-5 ms-3 mb-3", style:"color:#FAF9F9;" %>
-      <% end %>
-
-  </div>
-  <% elsif @chatrooms.any? %>
-    <div class="container chatroom rounded-4 p-2">
-      <div class="messages rounded-4" data-chatroom-subscription-target="messages">
-        <div class="center-message">
-          <h3>Start a chat now!</h3>
-        </div>
-      </div>
-    </div>
-  <% else %>
-    <div class="container chatroom rounded-4 p-2">
-      <div class="messages rounded-4" data-chatroom-subscription-target="messages">
-        <div class="center-message">
-          <h3>Add a friend to see messages here!</h3>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
