@@ -1,5 +1,6 @@
 class ChatRequestsController < ApplicationController
   def index
+    @chat_requests = policy_scope(ChatRequest)
     @all_chat_requests = ChatRequest.where(asker: current_user).or(ChatRequest.where(receiver: current_user))
     @my_requests = @all_chat_requests.select { |r| r.asker == current_user && r.pending? }
     @chat_requests_hash = { confirmed: [], rejected: [], pending: @all_chat_requests.select { |r| r.pending? } }
@@ -18,6 +19,7 @@ class ChatRequestsController < ApplicationController
     # create view with the button "request to chat" link_to here.
     # @asker = current_user
     @chat_request = ChatRequest.new
+    authorize @chat_request
     @chat_request.asker = current_user
     # @chat_request.receiver = # if the user is the receiver and click on the button request
     @chat_request.receiver = User.find(params[:receiver])
@@ -28,6 +30,7 @@ class ChatRequestsController < ApplicationController
 
   def update
     @chat_request = ChatRequest.find(params[:id])
+    authorize @chat_request
     if @chat_request.update(status: params[:status].to_i)
       # status: confirmed
       if @chat_request.confirmed? # update status
@@ -43,6 +46,7 @@ class ChatRequestsController < ApplicationController
   def pin_user
     # Obtain the specific chat request
     @chat_request = ChatRequest.find(params[:id])
+    authorize @chat_request
     # Check whether user is asker or receiver and toggle pin status accordingly
     if current_user == @chat_request.asker
       @chat_request.update(receiver_is_pinned: toggle_pin(@chat_request.receiver_is_pinned))
