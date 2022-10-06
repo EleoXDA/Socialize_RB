@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = policy_scope(User)
     if params[:location].present? && params[:query].present?
       @users = @users.where(location: params[:location]).where("nickname ILIKE ?", "%#{params[:query]}%")
     elsif params[:location].present?
@@ -39,9 +39,7 @@ class UsersController < ApplicationController
   end
 
   def show
-  end
-
-  def profile
+    authorize @user
     @user = current_user
     @user_languages = current_user.languages.map do |language|
       language.name
@@ -51,11 +49,13 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    authorize @user
     @languages = @user.languages.build
   end
 
   def update
     @user = current_user
+    authorize @user
     language_id = params[:user][:languages][:id]
     @languages = @user.user_languages.build(language_id: language_id)
 
