@@ -37,10 +37,12 @@
           <li>
             <div class="card-request-confirmed" style="width: 18rem;" ><%= request.receiver.nickname %>
             <picture id="user-request">
-                <% if request.receiver.image.nil? %>
-                  <%= image_tag "userphoto_square.jpg", :class => "img-request" %>
-                <% else %>
+                <% if request.receiver.image.present? %>
                   <%= image_tag request.receiver.image, :class => "img-request" %>
+                <% elsif request.receiver.photo.key %>
+                  <%= cl_image_tag request.receiver.photo.key, :class => "img-request" %>
+                <% else %>
+                  <%= image_tag "userphoto_square.jpg", :class => "img-request" %>
                 <% end %>
               </picture>
               <div class="container-request">
