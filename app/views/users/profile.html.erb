@@ -14,14 +14,11 @@
               <%= link_to @user.html_url, class: "profile-github-button button draw-border mr-2" do %>
                 <i class="social-icon fa-brands fa-github"></i>
               <% end %>
-              </h3>
-            <% else %>
             <% end %>
             <% if linkedin_exists %>
                 <%= link_to @user.linkedin_url, class: "profile-linkedin-button button draw-border mr-2" do %>
                   <i class="social-icon fa-brands fa-linkedin"></i>
                 <% end %>
-            <% else %>
             <% end %>
           <% end %>
         </div>
