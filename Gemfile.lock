@@ -330,7 +330,7 @@ DEPENDENCIES
   jsbundling-rails
   omniauth-github
   omniauth-rails_csrf_protection
-  pg (~> 1.1)
+  pg (~> 1.4.6)
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
   redis (~> 4.0)
